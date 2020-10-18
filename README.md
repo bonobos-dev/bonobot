@@ -1,1 +1,1 @@
-# El proyecto del bonobot de Migdrp
+# El proyecto del bonobot de la CB por migdrp
