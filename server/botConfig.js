@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.roles = exports.config = void 0;
 const config = {
-    prefix: 'bbpruebas-',
+    prefix: 'bb-',
     env: process.env.NODE_ENV,
     commands: [
         {

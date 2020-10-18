@@ -21,7 +21,7 @@ export interface CommandConfig {
 
 
 const config = {
-    prefix:'bbpruebas-',
+    prefix:'bb-',
     env:process.env.NODE_ENV,
     commands: [
         {
