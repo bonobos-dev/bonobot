@@ -1,1 +1,1 @@
-# El proyecto del bonobot de la comunidad bonóbica por Migdrp
+# El proyecto del bonobot de la CB por Migdrp
