@@ -3,6 +3,10 @@
 	"version": "1.0.0",
 	"description": "Bot de discord multiproposito",
 	"main": "server/server.js",
+	"engines": {
+		"node": "12.x",
+		"npm": "6.x"
+	},
 	"dependencies": {
 		"@discordjs/opus": "^0.3.2",
 		"cuid": "^2.1.8",
@@ -33,11 +37,7 @@
 		}
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "set NODE_ENV=production&& node server/server.js",
-		"dev": "set NODE_ENV=development&&  node server/server.js",
-		"build": "webpack --config webpack.prod.js",
-		"clean": "webpack --config webpack.clean.js"
+		"start": "set NODE_ENV=production&& node server/server.js"
 	},
 	"author": "Miguel David Rebolledo Pérez <mig_drp@hotmail.com>",
 	"license": "SEE LICENSE IN LICENSE.md",

@@ -86,9 +86,10 @@ const handleCommand = (msg) => __awaiter(void 0, void 0, void 0, function* () {
             if (!commandClass.isThisCommand(command)) {
                 continue;
             }
-            yield commandClass.runCommand(args, msg, client);
+            commandClass.runCommand(args, msg, client);
         }
         catch (exception) {
+            console.log("ERROR EN handle Command");
             throw new Error(exception);
         }
     }
