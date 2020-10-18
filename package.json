@@ -1,0 +1,55 @@
+{
+	"name": "migdrp-discord-bot",
+	"version": "1.0.0",
+	"description": "Bot de discord multiproposito",
+	"main": "server/server.js",
+	"dependencies": {
+		"@discordjs/opus": "^0.3.2",
+		"cuid": "^2.1.8",
+		"discord.js": "^12.3.1",
+		"express": "^4.17.1",
+		"mongodb": "^3.6.0",
+		"validator": "^13.1.1",
+		"@types/webpack-dev-middleware": "^3.7.1",
+		"webpack": "^4.44.1",
+		"webpack-cli": "^3.3.12",
+		"webpack-dev-middleware": "^3.7.2",
+		"clean-webpack-plugin": "^3.0.0",
+		"copy-webpack-plugin": "^6.0.3",
+		"html-webpack-plugin": "^4.3.0"
+	},
+	"nodemonConfig": {
+		"env": {
+			"NODE_ENV": "development",
+			"PORT": "2503",
+			"DISCORD_TOKEN": "NzM3MTY3Nzk3ODcxODM3MjY1.Xx5bAg.yocnA1nahGkBGo_Cx5sfwud6MKQ",
+			"MONGODB_OIDC_URI": "mongodb+srv://migdrpAtlasAdmin:FHpcbqnINmk6e35T@migdrp-projects-mcdc2.gcp.mongodb.net/bonobot?retryWrites=true&w=majority"
+		},
+		"prod": {
+			"NODE_ENV": "production",
+			"PORT": "2503",
+			"DISCORD_TOKEN": "NzM3MTY3Nzk3ODcxODM3MjY1.Xx5bAg.yocnA1nahGkBGo_Cx5sfwud6MKQ",
+			"MONGODB_OIDC_URI": "mongodb+srv://migdrpAtlasAdmin:FHpcbqnINmk6e35T@migdrp-projects-mcdc2.gcp.mongodb.net/bonobot?retryWrites=true&w=majority"
+		}
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "set NODE_ENV=production&& node server/server.js",
+		"dev": "set NODE_ENV=development&&  node server/server.js",
+		"build": "webpack --config webpack.prod.js",
+		"clean": "webpack --config webpack.clean.js"
+	},
+	"author": "Miguel David Rebolledo Pérez <mig_drp@hotmail.com>",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"devDependencies": {
+		"@types/express": "^4.17.7",
+		"@types/mongodb": "^3.5.26",
+		"@types/node": "^14.6.0",
+		"@types/validator": "^13.1.0",
+		"@types/ws": "^7.2.6",
+		"three": "^0.117.1",
+		"three.meshline": "^1.2.0",
+		"ts-loader": "^7.0.5",
+		"typescript": "^3.9.7"
+	}
+}

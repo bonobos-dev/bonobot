@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es6",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "outDir": "../../server",
+        "resolveJsonModule": true
+    },
+    "include": [
+        "**/**/**/*.ts",
+        "**/**/**/*.json"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
