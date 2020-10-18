@@ -22,14 +22,14 @@
 		"env": {
 			"NODE_ENV": "development",
 			"PORT": "2503",
-			"DISCORD_TOKEN": "NzM3MTY3Nzk3ODcxODM3MjY1.Xx5bAg.yocnA1nahGkBGo_Cx5sfwud6MKQ",
-			"MONGODB_OIDC_URI": "mongodb+srv://migdrpAtlasAdmin:FHpcbqnINmk6e35T@migdrp-projects-mcdc2.gcp.mongodb.net/bonobot?retryWrites=true&w=majority"
+			"DISCORD_TOKEN": "",
+			"MONGODB_OIDC_URI": ""
 		},
 		"prod": {
 			"NODE_ENV": "production",
 			"PORT": "2503",
-			"DISCORD_TOKEN": "NzM3MTY3Nzk3ODcxODM3MjY1.Xx5bAg.yocnA1nahGkBGo_Cx5sfwud6MKQ",
-			"MONGODB_OIDC_URI": "mongodb+srv://migdrpAtlasAdmin:FHpcbqnINmk6e35T@migdrp-projects-mcdc2.gcp.mongodb.net/bonobot?retryWrites=true&w=majority"
+			"DISCORD_TOKEN": "",
+			"MONGODB_OIDC_URI": ""
 		}
 	},
 	"scripts": {
