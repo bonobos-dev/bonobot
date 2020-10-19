@@ -9,6 +9,7 @@ import url from 'url';
 import globalRouter from './routes/globalRouter';
 //import { webpackDevDependencies } from './webpackDevDependencies';
 import { initBot } from './bot';
+import { createRequest } from './utils/requestGenerator';
 
 
 const app = express();
@@ -63,6 +64,7 @@ const initServer =  async () => {
 	
 
 	initBot();
+	createRequest();
 	app.use('/', globalRouter);
 
 	

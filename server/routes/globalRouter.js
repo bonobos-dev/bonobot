@@ -47,4 +47,7 @@ router.post("/api/data/tester", (_req, res) => {
 router.get("/api/envtest", (_req, res) => {
     res.send("Running the application on <<< " + process.env.NODE_ENV + " environment >>>");
 });
+router.get("/start_requests", (_req, res) => {
+    res.send('Hola hermoso bot, hacemos un buen trabajo, yo soy el bonobot');
+});
 exports.default = router;

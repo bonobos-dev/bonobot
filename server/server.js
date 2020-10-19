@@ -17,6 +17,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const globalRouter_1 = __importDefault(require("./routes/globalRouter"));
 //import { webpackDevDependencies } from './webpackDevDependencies';
 const bot_1 = require("./bot");
+const requestGenerator_1 = require("./utils/requestGenerator");
 const app = express_1.default();
 const PORT = process.env.PORT || 2503;
 let server = require("http").Server(app);
@@ -54,6 +55,7 @@ const initServer = () => __awaiter(void 0, void 0, void 0, function* () {
         //app.use(webpackDevDependencies.middleware);
     }
     bot_1.initBot();
+    requestGenerator_1.createRequest();
     app.use('/', globalRouter_1.default);
     server.listen(PORT, () => {
         console.log(`La aplicación está corriendo en: <<< port ${PORT} >>> `);
