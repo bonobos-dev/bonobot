@@ -507,6 +507,7 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠
                 await this.currentEmbedMessage.react('💻');
                 await this.currentEmbedMessage.react('🏺');
                 await this.currentEmbedMessage.react('🦗');
+                await this.currentEmbedMessage.react('🧙‍♂️');
 
                 
                 this.currentEmbedMessage2 = await channelRoles.send(embedRoles);
@@ -524,6 +525,7 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠
                 await this.currentEmbedMessage2.react('💻');
                 await this.currentEmbedMessage2.react('🏺');
                 await this.currentEmbedMessage2.react('🦗');
+                await this.currentEmbedMessage2.react('🧙‍♂️');
 
                 console.log('Verificador here called...');
 
@@ -542,7 +544,8 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠
                     {   emoji:'💸',  role:BotConfig.roles.cb_real["homo economicus"].id },
                     {   emoji:'💻',  role:BotConfig.roles.cb_real["photo shoppers"].id },
                     {   emoji:'🏺',   role:BotConfig.roles.cb_real["homo artem"].id },
-                    {   emoji:'🦗',  role:BotConfig.roles.cb_real.entomófagos.id }
+                    {   emoji:'🦗',  role:BotConfig.roles.cb_real.entomófagos.id },
+                    {   emoji:'🧙‍♂️',  role:BotConfig.roles.cb_real["homo sonitus"].id }
                 ]; 
                 
                 /*

@@ -481,6 +481,7 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠
                     yield this.currentEmbedMessage.react('💻');
                     yield this.currentEmbedMessage.react('🏺');
                     yield this.currentEmbedMessage.react('🦗');
+                    yield this.currentEmbedMessage.react('🧙‍♂️');
                     this.currentEmbedMessage2 = yield channelRoles.send(embedRoles);
                     yield this.currentEmbedMessage2.react('🎙️');
                     yield this.currentEmbedMessage2.react('📖');
@@ -495,6 +496,7 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠
                     yield this.currentEmbedMessage2.react('💻');
                     yield this.currentEmbedMessage2.react('🏺');
                     yield this.currentEmbedMessage2.react('🦗');
+                    yield this.currentEmbedMessage2.react('🧙‍♂️');
                     console.log('Verificador here called...');
                     this.free = true;
                     const emojis = [
@@ -510,7 +512,8 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠
                         { emoji: '💸', role: BotConfig.roles.cb_real["homo economicus"].id },
                         { emoji: '💻', role: BotConfig.roles.cb_real["photo shoppers"].id },
                         { emoji: '🏺', role: BotConfig.roles.cb_real["homo artem"].id },
-                        { emoji: '🦗', role: BotConfig.roles.cb_real.entomófagos.id }
+                        { emoji: '🦗', role: BotConfig.roles.cb_real.entomófagos.id },
+                        { emoji: '🧙‍♂️', role: BotConfig.roles.cb_real["homo sonitus"].id }
                     ];
                     /*
                     const emojis = [
