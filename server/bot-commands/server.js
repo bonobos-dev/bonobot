@@ -144,6 +144,8 @@ ${'```Para quienes desean asistir a nuestro taller de Photoshop.```'}
 ${'```Para quienes deseen asistir a las clases de historia del arte.```'}
 \u200B \u200B <@&${this.roles.entomófagos.id}>
 ${'```Para quienes deseen asistir a las clases de entomología.```'}
+\u200B \u200B <@&${this.roles["homo sonitus"].id}>
+${'```Para quienes desean asistir a clases de diseño sonoro con DAW```'}
 \u200B
 \u200B
         `

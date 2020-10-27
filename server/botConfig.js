@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.roles = exports.config = void 0;
 const config = {
-    prefix: 'bb-',
+    prefix: 'bbprue-',
     env: process.env.NODE_ENV,
     commands: [
         {
@@ -272,7 +272,8 @@ const roles = {
         'aullador': { id: '761766524851585056' },
         'mamandril': { id: '765414233369477150' },
         'rabioso': { id: '743714192435052564' },
-        'komecanto esperantisto': { id: '742186094367604797' }
+        'komecanto esperantisto': { id: '742186094367604797' },
+        'homo sonitus': { id: '770696924336619590' }
     },
     cb_pruebas: {
         'esencial': { id: '761729394750259230' },
@@ -305,7 +306,8 @@ const roles = {
         'aullador': { id: '765113221685706773' },
         'mamandril': { id: '765126037305688064' },
         'rabioso': { id: '759558925287948289' },
-        'komecanto esperantisto': { id: '759558925237878808' }
+        'komecanto esperantisto': { id: '759558925237878808' },
+        'homo sonitus': { id: '770696924336619590' }
     }
 };
 exports.roles = roles;
