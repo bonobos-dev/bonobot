@@ -527,7 +527,7 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠
                 await this.currentEmbedMessage2.react('🦗');
                 await this.currentEmbedMessage2.react('🧙‍♂️');
 
-                console.log('Verificador here called...');
+                console.log('Verificador here called....');
 
                 this.free = true;
 
