@@ -11,19 +11,22 @@ const temarioDataTest = {
     titulo:'',
     temas:[
         {
-            titulo:'***__LA PROSTITUCIÓN__*** ' ,
+            titulo:'***__SALUD PERSONAL__*** ' ,
             subtemas:[
                 {
-                    titulo:'*¿Cómo surge la prostitución?*'
+                    titulo:'*¿Qué es la salud?*'
                 },
                 {
-                    titulo:'*¿Cuál es la influencia en la cultura?*'
+                    titulo:'*Higiene*'
                 },
                 {
-                    titulo:'*La posición social y moral ante la prostitución*'
+                    titulo:'*Ambiente*'
                 },
                 {
-                    titulo:'*La socioeconomía de la prostitución*'
+                    titulo:'*Actividades Recreativas*'
+                },
+                {
+                    titulo:'*Sexualidad*'
                 }
             ]  
         }
@@ -32,65 +35,82 @@ const temarioDataTest = {
 
 const temarioDataTestFull = {
     titulo:`
-La prostitución 
+Salud Personal 
 \u200B
     `,
     temas:[
         {
-            titulo:'¿Cómo surge la prostitución?',
-            subtemas:[
-                {
-                    titulo:'Tipología e historia.',
-                }
-            ]   
+            titulo:'¿Qué es la salud?'
         },
         {
-            titulo:'¿Cuál es la influencia en la cultura?',
+            titulo:'Alimentación',
             subtemas:[
                 {
-                    titulo:'Construcción de la cosificación sexual.'
+                    titulo:'Aspecto biológico.'
                 },
                 {
-                    titulo:'Empoderamiento y libertad de elegir.'
+                    titulo:'Aspecto psicológico.'
+                },
+                {
+                    titulo:'Aspecto social.'
                 }
-                
             ] 
         },
         {
-            titulo:'La posición social y moral ante la prostitución',
+            titulo:'Higiene',
             subtemas:[
                 {
-                    titulo:'Ética y dignidad.'
+                    titulo:'Aspecto biológico.'
                 },
                 {
-                    titulo:'Trabajo digno.'
+                    titulo:'Aspecto psicológico.'
                 },
                 {
-                    titulo:'Consecuencias de la prostitución.'
+                    titulo:'Aspecto social.'
                 }
-            ]
-           
+            ]            
         },
         {
-            titulo:'La socioeconomía de la prostitución',
+            titulo:'Ambiente',
             subtemas:[
                 {
-                    titulo:'Neoliberalismo sexual y capitalismo.'
+                    titulo:'Aspecto biológico.'
                 },
                 {
-                    titulo:'Libertad de decidir (...bajo el sistema capitalismo).'
+                    titulo:'Aspecto psicológico.'
                 },
                 {
-                    titulo:'Dinero como poder.'
-                },
-                {
-                    titulo:'Suplir la demanda: trata de personas.'
-                },
-                {
-                    titulo:'Un sistema creador de consumidores.'
+                    titulo:'Aspecto social.'
                 }
-            ]
-           
+            ]             
+        },
+        {
+            titulo:'Actividades Recreativas',
+            subtemas:[
+                {
+                    titulo:'Aspecto biológico.'
+                },
+                {
+                    titulo:'Aspecto psicológico.'
+                },
+                {
+                    titulo:'Aspecto social.'
+                }
+            ]             
+        },
+        {
+            titulo:'Sexualidad',
+            subtemas:[
+                {
+                    titulo:'Aspecto biológico.'
+                },
+                {
+                    titulo:'Aspecto psicológico.'
+                },
+                {
+                    titulo:'Aspecto social.'
+                }
+            ]             
         }
     ]
 };

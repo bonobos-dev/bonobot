@@ -497,7 +497,7 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠
                     yield this.currentEmbedMessage2.react('🏺');
                     yield this.currentEmbedMessage2.react('🦗');
                     yield this.currentEmbedMessage2.react('🧙‍♂️');
-                    console.log('Verificador here called...');
+                    console.log('Verificador here called....');
                     this.free = true;
                     const emojis = [
                         { emoji: '🎙️', role: BotConfig.roles.cb_real["parla sabatina"].id },
