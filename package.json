@@ -26,7 +26,7 @@
 		"env": {
 			"NODE_ENV": "development",
 			"PORT": "2503",
-			"DISCORD_TOKEN": "NzM3MTY3Nzk3ODcxODM3MjY1.Xx5bAg.emZ-K7oulp7yfhUEymY2Xx267-4",
+			"DISCORD_TOKEN": "",
 			"MONGODB_OIDC_URI": ""
 		},
 		"prod": {
