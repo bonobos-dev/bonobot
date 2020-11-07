@@ -5,4 +5,3 @@ export function getHostUrl(): string {
     return `http://localhost:${process.env.PORT}`;
   }
 }
-
