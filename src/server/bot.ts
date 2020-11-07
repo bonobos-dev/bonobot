@@ -68,8 +68,8 @@ const handleCommand = async (msg: Discord.Message) => {
   let command = msg.content.split(' ')[0].replace(BotConfig.config.prefix, '');
   let args = msg.content.split(' ').slice(1);
 
-  console.log('Hnadle cmd: ', command);
-  console.log('Hnadle args: ', args);
+  console.log('Handle cmd: ', command);
+  console.log('Handle args: ', args);
 
   for (const commandClass of commands) {
     try {
