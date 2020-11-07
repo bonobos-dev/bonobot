@@ -37,7 +37,8 @@
 		}
 	},
 	"scripts": {
-		"start": "set NODE_ENV=production&& node server/server.js"
+		"start": "set NODE_ENV=production&& node server/server.js",
+		"dev": "npx nodemon"
 	},
 	"author": "Miguel David Rebolledo Pérez <mig_drp@hotmail.com>",
 	"license": "SEE LICENSE IN LICENSE.md",
