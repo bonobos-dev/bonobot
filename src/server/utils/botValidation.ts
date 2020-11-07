@@ -102,4 +102,3 @@ export function validateCommandRestrictions(
   console.log(`Command not found (${command}) `);
   return false;
 }
-
