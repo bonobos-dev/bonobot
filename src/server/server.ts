@@ -1,14 +1,13 @@
-import * as express from "express";
-import * as bodyParser from 'body-parser';
+import express from "express";
+import bodyParser from 'body-parser';
 
 import globalRouter from './routes/globalRouter';
 //import { webpackDevDependencies } from './webpackDevDependencies';
 import { initBot } from './bot';
 
-const app = express.application;
+const app = express();
 const PORT = process.env.PORT || 2503;
 
-let server = require('http').Server(app);
 
 console.log(
   'La aplicación está corriendo en el entorno: <<< ' +
@@ -30,13 +29,9 @@ const initServer = async () => {
   initBot();
   app.use('/', globalRouter);
 
-  server.listen(PORT, () => {
+  app.listen(PORT, () => {
     console.log(`La aplicación está corriendo en: <<< port ${PORT} >>> `);
   });
 };
 
-initServer().catch((_err) => {
-  if (server && server.listening) server.close();
-  console.log(_err);
-  process.exitCode = 1;
-});
+initServer();

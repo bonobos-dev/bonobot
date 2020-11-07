@@ -9,6 +9,6 @@
     "outDir": "../../server",
     "resolveJsonModule": true
   },
-  "include": ["**/**/**/*.ts", "**/**/**/*.json"],
+  "include": ["./src/**/*"],
   "exclude": ["node_modules"]
 }
