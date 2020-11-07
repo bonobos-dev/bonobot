@@ -1,8 +1,11 @@
 import express from 'express';
 import path from 'path';
+import dotenv from 'dotenv';
 //import  { webpackDevDependencies } from '../webpackDevDependencies';
 //import webpack from "webpack";
 
+dotenv.config({path: `../../.env` });
+dotenv.config();
 const router = express.Router();
 const ENV_PATH: string =
   process.env.NODE_ENV === 'production' ? 'dist' : 'src/public';
