@@ -3,45 +3,36 @@ import * as Discord from 'discord.js';
 import { MigBotCommand } from '../botApi';
 import { validateCommandRestrictions } from '../utils/botValidation';
 
-
-
-
-
 export default class Cleanroles implements MigBotCommand {
+  private readonly _command = 'cleanroles';
 
-    private readonly _command = "cleanroles";
+  private currentEmbedMessage: Discord.Message;
 
-  
+  constructor() {
+    console.log('Cleanroles Command Instantiated');
+  }
 
-    private currentEmbedMessage: Discord.Message;
+  help(): string {
+    return 'Este comando es el sitema de tickets de la comunidad bonóbica';
+  }
 
+  isThisCommand(command: string): boolean {
+    return command === this._command;
+  }
 
+  public async runCommand(
+    args: string[],
+    msgObject: Discord.Message,
+    client: Discord.Client
+  ) {
+    console.log('cleanroles executed');
 
-
-
-    constructor(){
-        console.log('Cleanroles Command Instantiated')
+    if (!validateCommandRestrictions(this._command, msgObject)) {
+      return;
     }
+    console.log('clean roles called');
 
-    help(): string {
-        return 'Este comando es el sitema de tickets de la comunidad bonóbica'
-    }
-
-
-    isThisCommand(command: string): boolean {
-        return command === this._command;
-    }
-
-
-    public async runCommand(args: string[], msgObject: Discord.Message, client: Discord.Client) {
-        console.log('cleanroles executed')
-     
-        if( !validateCommandRestrictions(this._command , msgObject)){
-            return;
-        }
-        console.log('clean roles called');
-
-           /*
+    /*
         function getRoles( rolesList: Discord.RoleManager | Discord.GuildMemberRoleManager ){
             let rolesForServer:any = [];
 
@@ -103,11 +94,6 @@ export default class Cleanroles implements MigBotCommand {
         console.log(membersFromServer)
 
         */
-
-     
-
-
-    }
-    
-
+  }
 }
+
