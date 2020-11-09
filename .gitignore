@@ -8,3 +8,5 @@ server/old.js
 .gcloudignore
 .env
 app.yaml
+server
+dist
