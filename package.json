@@ -22,21 +22,7 @@
 		"webpack": "^4.44.1",
 		"webpack-cli": "^3.3.12",
 		"webpack-dev-middleware": "^3.7.2"
-	},
-	"nodemonConfig": {
-		"env": {
-			"NODE_ENV": "development",
-			"PORT": "2503",
-			"DISCORD_TOKEN": "",
-			"MONGODB_OIDC_URI": ""
-		},
-		"prod": {
-			"NODE_ENV": "production",
-			"PORT": "2503",
-			"DISCORD_TOKEN": "",
-			"MONGODB_OIDC_URI": ""
-		}
-	},
+	},	
 	"scripts": {
 		"start": "set NODE_ENV=production&& node server/server.js",
 		"dev": "npx nodemon"
