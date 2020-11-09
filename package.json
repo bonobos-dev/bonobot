@@ -22,7 +22,7 @@
 		"webpack": "^4.44.1",
 		"webpack-cli": "^3.3.12",
 		"webpack-dev-middleware": "^3.7.2"
-	},	
+	},
 	"scripts": {
 		"start": "set NODE_ENV=production&& node server/server.js",
 		"dev": "npx nodemon",

@@ -13,7 +13,7 @@ const ENV_PATH: string =
 console.log('From global router: ', process.env.NODE_ENV);
 
 if (process.env.NODE_ENV === 'production') {
-  router.get(['/'], (req, res, next) => {
+  router.get(['/'], (req, res) => {
     res.sendFile(path.join(__dirname + `../../../${ENV_PATH}/index.html`));
   });
 } else if (process.env.NODE_ENV === 'development') {
