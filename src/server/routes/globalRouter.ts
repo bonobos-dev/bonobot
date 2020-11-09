@@ -1,8 +1,11 @@
 import express from 'express';
 import path from 'path';
+import dotenv from 'dotenv';
 //import  { webpackDevDependencies } from '../webpackDevDependencies';
 //import webpack from "webpack";
 
+dotenv.config({path: `../../.env` });
+dotenv.config();
 const router = express.Router();
 const ENV_PATH: string =
   process.env.NODE_ENV === 'production' ? 'dist' : 'src/public';
@@ -10,7 +13,7 @@ const ENV_PATH: string =
 console.log('From global router: ', process.env.NODE_ENV);
 
 if (process.env.NODE_ENV === 'production') {
-  router.get(['/'], (req, res, next) => {
+  router.get(['/'], (req, res) => {
     res.sendFile(path.join(__dirname + `../../../${ENV_PATH}/index.html`));
   });
 } else if (process.env.NODE_ENV === 'development') {

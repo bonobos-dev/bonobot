@@ -82,7 +82,7 @@ export default class Mensajes implements MigBotCommand {
   );
 
   private createEmbed(): Discord.MessageEmbed {
-    let template = new Discord.MessageEmbed()
+    const template = new Discord.MessageEmbed()
       .attachFiles(this.migdrplogoGreen as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#d5ae00')
@@ -138,7 +138,7 @@ export default class Mensajes implements MigBotCommand {
       await this.currentEmbedMessage.delete();
     }
 
-    let TurnsEmbed = this.createEmbed();
+    const TurnsEmbed = this.createEmbed();
 
     /*
         await msgObject.channel.send(`<@&705975181688045598>

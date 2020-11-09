@@ -9,47 +9,40 @@
 	},
 	"dependencies": {
 		"@discordjs/opus": "^0.3.2",
-		"cuid": "^2.1.8",
-		"discord.js": "^12.3.1",
-		"express": "^4.17.1",
-		"mongodb": "^3.6.0",
-		"validator": "^13.1.1",
 		"@types/webpack-dev-middleware": "^3.7.1",
-		"webpack": "^4.44.1",
-		"webpack-cli": "^3.3.12",
-		"webpack-dev-middleware": "^3.7.2",
 		"clean-webpack-plugin": "^3.0.0",
 		"copy-webpack-plugin": "^6.0.3",
-		"html-webpack-plugin": "^4.3.0"
-	},
-	"nodemonConfig": {
-		"env": {
-			"NODE_ENV": "development",
-			"PORT": "2503",
-			"DISCORD_TOKEN": "",
-			"MONGODB_OIDC_URI": ""
-		},
-		"prod": {
-			"NODE_ENV": "production",
-			"PORT": "2503",
-			"DISCORD_TOKEN": "",
-			"MONGODB_OIDC_URI": ""
-		}
+		"cuid": "^2.1.8",
+		"discord.js": "^12.3.1",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"html-webpack-plugin": "^4.3.0",
+		"mongodb": "^3.6.0",
+		"validator": "^13.1.1",
+		"webpack": "^4.44.1",
+		"webpack-cli": "^3.3.12",
+		"webpack-dev-middleware": "^3.7.2"
 	},
 	"scripts": {
-		"start":"set NODE_ENV=production&& node server/server.js"
+		"start": "set NODE_ENV=production&& node server/server.js",
+		"dev": "npx nodemon",
+		"build": "tsc --build"
 	},
 	"author": "Miguel David Rebolledo Pérez <mig_drp@hotmail.com>",
 	"license": "SEE LICENSE IN LICENSE.md",
 	"devDependencies": {
-		"@types/express": "^4.17.7",
+		"@types/express": "^4.17.8",
 		"@types/mongodb": "^3.5.26",
-		"@types/node": "^14.6.0",
+		"@types/node": "^14.14.6",
 		"@types/validator": "^13.1.0",
 		"@types/ws": "^7.2.6",
+		"@typescript-eslint/eslint-plugin": "^4.6.1",
+		"@typescript-eslint/parser": "^4.6.1",
+		"eslint": "^7.13.0",
 		"three": "^0.117.1",
 		"three.meshline": "^1.2.0",
 		"ts-loader": "^7.0.5",
+		"ts-node-dev": "^1.0.0",
 		"typescript": "^3.9.7"
 	}
 }
