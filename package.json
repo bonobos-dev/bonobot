@@ -25,7 +25,8 @@
 	},	
 	"scripts": {
 		"start": "set NODE_ENV=production&& node server/server.js",
-		"dev": "npx nodemon"
+		"dev": "npx nodemon",
+		"build": "tsc --build"
 	},
 	"author": "Miguel David Rebolledo Pérez <mig_drp@hotmail.com>",
 	"license": "SEE LICENSE IN LICENSE.md",

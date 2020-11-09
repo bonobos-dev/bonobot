@@ -3,12 +3,13 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es6",
+    "noImplicitAny":false,
+    "removeComments":true,
+    "target": "es5",
     "moduleResolution": "node",
-    "noImplicitAny": true,
-    "outDir": "../../server",
+    "outDir": "./server",
     "resolveJsonModule": true
   },
   "include": ["./src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules","./src/public"]
 }
