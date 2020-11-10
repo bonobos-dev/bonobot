@@ -8,5 +8,9 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
-  ]
+  ],
+  "rules": {
+    "no-eval":"error",
+    "@typescript-eslint/no-explicit-any": "off"
+  }
 }

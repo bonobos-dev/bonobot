@@ -5,7 +5,6 @@ import {
   GuildInWhitelist,
   isBot,
   isInvalidUser,
-  RoleInWhitelist,
 } from './utils/botValidation';
 
 import denuncia from './bot-commands/denuncia';
@@ -14,28 +13,9 @@ import temario from './bot-commands/temario';
 import turnos from './bot-commands/turnos';
 import verificador from './bot-commands/verificador';
 import server from './bot-commands/server';
-import cleanroles from './bot-commands/cleanroles';
 
 const client = new Discord.Client({ fetchAllMembers: true });
-let commands: MigBotCommand[] = [];
-
-/*old
-const LoadCommands = ( commandsPath:string ): void => {
-
-    if( !BotConfig.config || (BotConfig.config.commands).length === 0 ) {    return    }
-
-    for (const commandObj of BotConfig.config.commands){
-
-        const commandClass =  require(`${commandsPath}/${commandObj.command}`).default;
-
-        const command =  new commandClass() as MigBotCommand;
-
-        commands.push(command);
-
-    }
-    //console.log('Commands loaded: ', commands);
-}
-*/
+const commands: Array<MigBotCommand> = [];
 
 const LoadCommands = (): void => {
   const denunciaCmd = new denuncia() as MigBotCommand;
@@ -44,7 +24,6 @@ const LoadCommands = (): void => {
   const turnosCmd = new turnos() as MigBotCommand;
   const verificadorCmd = new verificador() as MigBotCommand;
   const serverCmd = new server() as MigBotCommand;
-  //const cleanrolesCmd = new cleanroles() as MigBotCommand;
 
   const comandosClases = [
     denunciaCmd,
@@ -65,8 +44,8 @@ const LoadCommands = (): void => {
 };
 
 const handleCommand = async (msg: Discord.Message) => {
-  let command = msg.content.split(' ')[0].replace(BotConfig.config.prefix, '');
-  let args = msg.content.split(' ').slice(1);
+  const command = msg.content.split(' ')[0].replace(BotConfig.config.prefix, '');
+  const args = msg.content.split(' ').slice(1);
 
   console.log('Handle cmd: ', command);
   console.log('Handle args: ', args);
@@ -88,12 +67,11 @@ const handleCommand = async (msg: Discord.Message) => {
 const initBot = () => {
   LoadCommands();
 
-  var newClient = client.on('ready', () => {
+  client.on('ready', () => {
     console.log('Bot is ready on discord!!');
   });
 
   client.on('message', async (message) => {
-    //sconsole.log( 'Message content: ', message );
 
     if (!message.content.startsWith(BotConfig.config.prefix)) {
       return;
@@ -111,10 +89,10 @@ const initBot = () => {
       return;
     }
 
-    let roles: any = [];
+    const roles:any = [];
 
     message.member.roles.cache.forEach((role) => {
-      let roleFound = {
+      const roleFound = {
         roleName: role.name,
         roleId: role.id,
       };
@@ -122,7 +100,7 @@ const initBot = () => {
       roles.push(roleFound);
     });
 
-    let messageJson = {
+    const messageJson = {
       server: {
         name: message.guild.name,
         id: message.guild.id,
@@ -153,8 +131,6 @@ const initBot = () => {
 
     handleCommand(message);
   });
-
-  ///console.log('TOKEN : ', process.env.DISCORD_TOKEN )
   client.login(process.env.DISCORD_TOKEN);
 };
 
