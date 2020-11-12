@@ -1,12 +1,3 @@
 node_modules/
-src/
-webpack.common.js
-webpack.dev.js
-webpack.prod.js
-server/webpackDevDependencies.js
-server/old.js
-.gcloudignore
 .env
-app.yaml
-server
-dist
+
