@@ -1,14 +1,5 @@
 
 
-
-
-import { MigdrpLogo } from "./migdrp-components/migdrp-logo/migdrp-logo";
-import './migdrp-components/migdrp-logo/migdrp-logo';
-
-import './migdrp-components/migdrp-spinner';
-
-import { TemarioView } from  './turnos/temario-view';
-
 class MigAppRoot extends HTMLElement {
 
 
@@ -151,108 +142,34 @@ class MigAppRoot extends HTMLElement {
     private html(css:string):string {
         return  /*html*/ `
 		${css}
-
-
-
-	
-		<migdrp-logo hast-text="true" text-size='38px'></migdrp-logo>
-
+		
 		<div id='welcome-container'>
 		
 			<p>Welcome to the Bonobot v1.00</p>
-			<button id="access-btn" class='oidc-btn'>Access <migdrp-spinner></migdrp-spinner> </button>
 		</div>
+
 		<div id='starup-config-container'>
-
 		</div>
-
-		
-
-
-	
-
-        
 
         `;
 	}
-
-
 	
- 	private renderTemplate():void{
+	private renderTemplate():void{
         this.attachShadow({mode:'open'});
         const template = this.html(this.css());
 		this.shadowRoot.innerHTML += template;
-		
-		  
-        this.migdrpLogo = this.shadowRoot.querySelector('migdrp-logo');
-
-		this.accessBtn = this.shadowRoot.querySelector('#access-btn');
-
-		this.accessBtnSpinner =  this.shadowRoot.querySelector('migdrp-spinner');
-
-		this.welcomeContainer = this.shadowRoot.querySelector('#welcome-container');
-		this.startupConfigContainer = this.shadowRoot.querySelector('#starup-config-container');
-
 	}
 
-	private initEventListeners(){
-		this.accessBtn.addEventListener('click', this.accessBtnPressed());
-	}
-
-	
-	private migdrpLogo: MigdrpLogo;
-	private accessBtn: HTMLButtonElement;
-	private accessBtnSpinner: MigdrpSpinner;
-	private welcomeContainer: HTMLDivElement;
-	private startupConfigContainer: HTMLDivElement;
-	
-
-
-	
 
     constructor() {
 		super();
 		this.renderTemplate();
-		this.initEventListeners();
 
 	
 
 	}
 
-	private accessBtnPressed(){
-		const spinner = this.accessBtnSpinner;
-		const btn =  this.accessBtn;
-		return () => {
-            import(/* webpackChunkName:"threejs" , webpackPrefetch:true */ './turnos/temario-view').then( module =>{
-
-                console.log(module);
-                console.log("Loaded Startup Config");
-    
-                setTimeout( () => { 
-                    this.welcomeContainer.setAttribute("style", 
-                        `-webkit-animation: fadeout .8s linear ; 
-                        -moz-animation: fadeout .8s linear ;  
-                        -ms-animation: fadeout .8s linear ; 
-                        -o-animation: fadeout .8s linear ; 
-                        animation: fadeout .8s linear ;`
-                    ); 
-                    this.migdrpLogo.style.marginTop = '3%'
-                        
-                        
-                    setTimeout( () => { 
-                        this.welcomeContainer.style.display = 'none';  
-                        this.startupConfigContainer.innerHTML =  /*html*/`  <temario-view></temario-view>      `;
-                    }, 800);
-                });
-    
-                
-    
-                
-            });
-		}
-			
 	
-	}
 
 
 

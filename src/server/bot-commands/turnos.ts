@@ -13,7 +13,7 @@ export default class Turnos implements MigBotCommand {
 
   private users: string[] = ['\u200B'];
   private currentUser: string[] = ['\u200B', 'No hay nadie en la lista'];
-  private lastUser: string = 'No hay nadie en la lista';
+  private lastUser = 'No hay nadie en la lista';
 
   private reactionCollector: Discord.ReactionCollector;
 
@@ -31,7 +31,7 @@ export default class Turnos implements MigBotCommand {
   private state: turnos_states = turnos_states.free;
 
   private createEmbed(): Discord.MessageEmbed {
-    let template = new Discord.MessageEmbed()
+    const template = new Discord.MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#e31452')
@@ -125,7 +125,7 @@ export default class Turnos implements MigBotCommand {
             this.currentUser[1] = this.lastUser;
           }
         } else {
-          let result = this.users.splice(1, 0, this.currentUser[1]);
+          //let result = this.users.splice(1, 0, this.currentUser[1]);
           //console.log('Rollback Result', result);
           this.currentUser[1] = this.lastUser;
         }
@@ -150,7 +150,7 @@ export default class Turnos implements MigBotCommand {
       await this.currentEmbedMessage.delete();
     }
 
-    let TurnsEmbed = this.createEmbed();
+    const TurnsEmbed = this.createEmbed();
     //console.log("Embed msg => ",TurnsEmbed);
 
     this.currentEmbedMessage = await msgObject.channel.send(TurnsEmbed);
@@ -209,7 +209,7 @@ export default class Turnos implements MigBotCommand {
             this.state = turnos_states.free;
             return;
           } else {
-            for (var n = 1; n < this.users.length; n++) {
+            for (let n = 1; n < this.users.length; n++) {
               if (this.users[n] === user.username) {
                 msgObject.channel.send(
                   `Cuidado ${user.username}, ya estás en la lista! `
@@ -251,7 +251,7 @@ export default class Turnos implements MigBotCommand {
           });
 
           if (found) {
-            let result = this.users.filter((value) => value !== user.username);
+            const result = this.users.filter((value) => value !== user.username);
             this.users = result;
             reaction.message.edit(this.createEmbed());
             this.state = turnos_states.free;
