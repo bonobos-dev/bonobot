@@ -20,7 +20,7 @@ export function createRequest(): void {
 
 	setTimeout( ()=>{
 		createRequest();
-  } , 300000);
+  } , 900000);
   
 
 }
