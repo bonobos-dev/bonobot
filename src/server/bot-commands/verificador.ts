@@ -6,7 +6,7 @@ import { validateCommandRestrictions } from '../utils/botValidation';
 
 import * as BotConfig from '../botConfig';
 
-import { getHostUrl } from '../utils/networkUtil';
+import path from 'path';
 
 export default class Verificador implements MigBotCommand {
   private _command = 'verificador';
@@ -24,15 +24,15 @@ export default class Verificador implements MigBotCommand {
   private reactionCollector2: Discord.ReactionCollector;
 
   private migdrplogo = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/migdrp-logo-small-parla_sabatina.png`,
+    path.join(__dirname, `../assets/img/migdrp-logo-small-parla_sabatina.png`),
     'migdrp-icon.png'
   );
   private bonobotlogo = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/cb-logo.png`,
+    path.join(__dirname, `../assets/img/cb-logo.png`),
     'bb-logo.png'
   );
   private imgParla = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/foro_img_horizontal.jpeg`,
+    path.join(__dirname, `../assets/img/foro_img_horizontal.jpeg`),
     'foro-img.jpg'
   );
 

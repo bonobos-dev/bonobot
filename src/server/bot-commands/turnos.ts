@@ -1,7 +1,7 @@
 import * as Discord from 'discord.js';
 import { MigBotCommand } from '../botApi';
 import { validateCommandRestrictions } from '../utils/botValidation';
-import { getHostUrl } from '../utils/networkUtil';
+import path from 'path';
 
 export enum turnos_states {
   working = 'working',
@@ -20,11 +20,11 @@ export default class Turnos implements MigBotCommand {
   private currentEmbedMessage: Discord.Message;
 
   private migdrplogo = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/migdrp-logo-small-red.png`,
+    path.join(__dirname, `../assets/img/migdrp-logo-small-red.png`),
     'migdrp-icon.png'
   );
   private bonobotlogo = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/LOGO_bb_dsicordback.png`,
+    path.join(__dirname, `../assets/img/LOGO_bb_dsicordback.png`),
     'bb-logo.png'
   );
 
