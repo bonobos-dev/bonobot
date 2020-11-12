@@ -2,7 +2,6 @@
 	"name": "bonobot",
 	"version": "1.0.0",
 	"description": "El bot de discord multiproposito oficial de la Comunidad Bonóbica",
-	"main": "server/server.js",
 	"engines": {
 		"node": "12.x",
 		"npm": "6.x"
