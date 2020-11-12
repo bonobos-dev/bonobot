@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import globalRouter from './routes/globalRouter';
-import Bot  from './bot';
+import Bot  from './Bot';
 
 dotenv.config({path: `../../.env` });
 dotenv.config();
