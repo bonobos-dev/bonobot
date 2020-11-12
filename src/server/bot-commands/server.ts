@@ -6,11 +6,11 @@ import { validateCommandRestrictions } from '../utils/botValidation';
 
 import * as BotConfig from '../botConfig';
 
-import { getHostUrl } from '../utils/networkUtil';
+import path from 'path';
 
 export default class Server implements MigBotCommand {
-  private _command: string = 'server';
-  private channel: string = '📌・sobre_el_servidor';
+  private _command = 'server';
+  private channel = '📌・sobre_el_servidor';
 
   private roles =
     BotConfig.config.env === 'production'
@@ -23,15 +23,15 @@ export default class Server implements MigBotCommand {
   private reactionCollector: Discord.ReactionCollector;
 
   private migdrplogo = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/migdrp-logo-small-parla_sabatina.png`,
+    path.join(__dirname, `../assets/img/migdrp-logo-small-parla_sabatina.png`),
     'migdrp-icon.png'
   );
   private bonobotlogo = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/cb-logo.png`,
+    path.join(__dirname, `../assets/img/cb-logo.png`),
     'bb-logo.png'
   );
   private imgParla = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/foro_img_horizontal.jpeg`,
+    path.join(__dirname, `../assets/img/foro_img_horizontal.jpeg`),
     'foro-img.jpg'
   );
 
@@ -69,7 +69,7 @@ export default class Server implements MigBotCommand {
   }
 
   private crearEmbedSobreRoles(): Discord.MessageEmbed {
-    let template = new Discord.MessageEmbed()
+    const template = new Discord.MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
@@ -153,6 +153,8 @@ ${'```Para quienes deseen asistir a las clases de historia del arte.```'}
 ${'```Para quienes deseen asistir a las clases de entomología.```'}
 \u200B \u200B <@&${this.roles['homo sonitus'].id}>
 ${'```Para quienes desean asistir a clases de diseño sonoro con DAW```'}
+\u200B \u200B <@&${this.roles["Deutsche Primat"].id}>
+${'```Para quienes desean asistir a clases de alemán```'}
 \u200B
 \u200B
         `,
@@ -198,7 +200,7 @@ ${'```Rol correspondiente a las clases de esperanto que se impartieron en la com
   }
 
   private crearEmbedSobreElServidor1(): Discord.MessageEmbed {
-    let template = new Discord.MessageEmbed()
+    const template = new Discord.MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
@@ -379,7 +381,7 @@ ${'```Canales de audio para utilizarse en las actividades de la estación praxis
   }
 
   private crearEmbedSobreElServidor2(): Discord.MessageEmbed {
-    let template = new Discord.MessageEmbed()
+    const template = new Discord.MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')

@@ -1,70 +1,10 @@
 import * as Discord from 'discord.js';
+import path from 'path';
 
 import { MigBotCommand } from '../botApi';
 import { validateCommandRestrictions } from '../utils/botValidation';
-import { getHostUrl } from '../utils/networkUtil';
 
-const temarioDataTest = {
-  titulo: '¿Qué pedo con la poesía? ',
-  temas: [
-    {
-      titulo: '¿Qué es la poesía?',
-      subtemas: [
-        {
-          titulo: 'Perspectiva histórica',
-        },
-        {
-          titulo: 'Perspectiva personal',
-        },
-      ],
-    },
-    {
-      titulo: 'La necesidad de la poesía',
-    },
-    {
-      titulo: 'Recados Sabatinos Bonóbicos',
-    },
-    {
-      titulo: 'Corrientes literarias de la poesía',
-      subtemas: [
-        {
-          titulo: 'Griega',
-        },
-        {
-          titulo: 'Edad media',
-        },
-        {
-          titulo: 'Renacimiento',
-        },
-        {
-          titulo: 'Modernismo',
-        },
-        {
-          titulo: 'Postmodernismo',
-        },
-      ],
-    },
-    {
-      titulo: '¿Cómo hacer poesía?',
-      subtemas: [
-        {
-          titulo: 'Técnicas',
-        },
-        {
-          titulo: '¿Qué no es la poesía?',
-        },
-      ],
-    },
-    {
-      titulo: 'Lectura e interpretación',
-      subtemas: [
-        {
-          titulo: '"A cargo del bonobo promedio"',
-        },
-      ],
-    },
-  ],
-};
+
 
 export default class Mensajes implements MigBotCommand {
   private readonly _command = 'mensajes';
@@ -72,13 +12,13 @@ export default class Mensajes implements MigBotCommand {
   private currentEmbedMessage: Discord.Message;
 
   private migdrplogo = new Discord.MessageAttachment(
-    `$http://localhost:2503/img/migdrp-logo-small-red.png', 'migdrp-icon.png`
+    path.join(__dirname, `../assets/img/migdrp-logo-small-red.png`), 'migdrp-icon.png'
   );
   private migdrplogoGreen = new Discord.MessageAttachment(
-    `http://localhost:2503/img/migdrp-logo-small-green.png', 'migdrp-icon-green.png`
+    path.join(__dirname, `../assets/img/migdrp-logo-small-green.png`), 'migdrp-icon-green.png'
   );
   private bonobotlogo = new Discord.MessageAttachment(
-    `http://localhost:2503/img/LOGO_bb_dsicordback.png', 'bb-logo.png`
+    path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`), 'bb-logo.png'
   );
 
   private createEmbed(): Discord.MessageEmbed {

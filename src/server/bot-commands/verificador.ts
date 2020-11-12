@@ -6,12 +6,12 @@ import { validateCommandRestrictions } from '../utils/botValidation';
 
 import * as BotConfig from '../botConfig';
 
-import { getHostUrl } from '../utils/networkUtil';
+import path from 'path';
 
 export default class Verificador implements MigBotCommand {
-  private _command: string = 'verificador';
-  private channel: string = '✅・verificación';
-  private rolesChannel: string = '💎・roles';
+  private _command = 'verificador';
+  private channel = '✅・verificación';
+  private rolesChannel = '💎・roles';
   private roles =
     BotConfig.config.env === 'production'
       ? BotConfig.roles.cb_real
@@ -24,15 +24,15 @@ export default class Verificador implements MigBotCommand {
   private reactionCollector2: Discord.ReactionCollector;
 
   private migdrplogo = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/migdrp-logo-small-parla_sabatina.png`,
+    path.join(__dirname, `../assets/img/migdrp-logo-small-parla_sabatina.png`),
     'migdrp-icon.png'
   );
   private bonobotlogo = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/cb-logo.png`,
+    path.join(__dirname, `../assets/img/cb-logo.png`),
     'bb-logo.png'
   );
   private imgParla = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/foro_img_horizontal.jpeg`,
+    path.join(__dirname, `../assets/img/foro_img_horizontal.jpeg`),
     'foro-img.jpg'
   );
 
@@ -97,7 +97,7 @@ export default class Verificador implements MigBotCommand {
   }
 
   private crearEmbedVerificador(): Discord.MessageEmbed {
-    let template = new Discord.MessageEmbed()
+    const template = new Discord.MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
@@ -248,6 +248,8 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 ℎ𝑖𝑠𝑡𝑜𝑟𝑖𝑎 𝑑𝑒
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑒𝑛𝑡𝑜𝑚𝑜𝑙𝑜𝑔𝑖́𝑎.```'}
 \u200B \u200B :man_mage: \u200B <@&${this.roles['homo sonitus'].id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠𝑜𝑛𝑖𝑑𝑜 𝑐𝑜𝑛 𝐷𝐴𝑊.```'}
+\u200B \u200B :flag_de: \u200B <@&${this.roles["Deutsche Primat"].id}>
+${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         `,
       })
       .addFields({
@@ -269,7 +271,7 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠
   }
 
   private crearEmbedVerificador2(): Discord.MessageEmbed {
-    let template = new Discord.MessageEmbed()
+    const template = new Discord.MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
@@ -420,6 +422,8 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 ℎ𝑖𝑠𝑡𝑜𝑟𝑖𝑎 𝑑𝑒
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑒𝑛𝑡𝑜𝑚𝑜𝑙𝑜𝑔𝑖́𝑎.```'}
 \u200B \u200B :man_mage: \u200B <@&${this.roles['homo sonitus'].id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠𝑜𝑛𝑖𝑑𝑜 𝑐𝑜𝑛 𝐷𝐴𝑊.```'}
+\u200B \u200B :flag_de: \u200B <@&${this.roles["Deutsche Primat"].id}>
+${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         `,
       })
       .addFields({
@@ -551,6 +555,7 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠
         await this.currentEmbedMessage2.react('🏺');
         await this.currentEmbedMessage2.react('🦗');
         await this.currentEmbedMessage2.react('🧙‍♂️');
+        await this.currentEmbedMessage2.react('🇩🇪');
 
         console.log('Verificador here called....');
 
@@ -571,6 +576,7 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠
           { emoji: '🏺', role: BotConfig.roles.cb_real['homo artem'].id },
           { emoji: '🦗', role: BotConfig.roles.cb_real.entomófagos.id },
           { emoji: '🧙‍♂️', role: BotConfig.roles.cb_real['homo sonitus'].id },
+          { emoji: '🇩🇪', role: BotConfig.roles.cb_real["Deutsche Primat"].id }
         ];
 
         /*
