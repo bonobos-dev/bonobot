@@ -2,11 +2,7 @@ import * as Discord from 'discord.js';
 
 import { MigBotCommand } from '../botApi';
 import { validateCommandRestrictions } from '../utils/botValidation';
-
-import { config } from '../botConfig';
-
 import { getHostUrl } from '../utils/networkUtil';
-import { Console } from 'console';
 
 export interface UserCmdInfo {
   user_id: string;
@@ -17,7 +13,7 @@ export default class Denuncia implements MigBotCommand {
   private readonly _command = 'denuncia';
   private migdrplogo: Discord.MessageAttachment;
   private bonobotlogo: Discord.MessageAttachment;
-  private channel: string = '🔴・usuarios_denunciados';
+  private channel = '🔴・usuarios_denunciados';
 
   private usuarios: Array<UserCmdInfo> = [];
 
@@ -90,7 +86,7 @@ export default class Denuncia implements MigBotCommand {
     canal: string,
     regla: string
   ): Discord.MessageEmbed {
-    let template = new Discord.MessageEmbed()
+    const template = new Discord.MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#e31452')
@@ -175,10 +171,10 @@ export default class Denuncia implements MigBotCommand {
 
         const userDate = new Date(usersRegistered.last_call);
 
-        var diffMs = (actualDate as any) - (userDate as any);
-        var diffDays = Math.floor(diffMs / 86400000);
-        var diffHrs = Math.floor((diffMs % 86400000) / 3600000);
-        var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000);
+        const diffMs = (actualDate as any) - (userDate as any);
+        const diffDays = Math.floor(diffMs / 86400000);
+        const diffHrs = Math.floor((diffMs % 86400000) / 3600000);
+        const diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000);
 
         console.log(
           diffDays + ' days, ' + diffHrs + ' hours, ' + diffMins + ' difference'

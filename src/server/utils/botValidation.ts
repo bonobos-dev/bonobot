@@ -1,7 +1,7 @@
 import * as Discord from 'discord.js';
-import { CommandConfig, config } from '../botConfig';
+import { config } from '../botConfig';
 
-export function isBot(message: Discord.Message) {
+export function isBot(message: Discord.Message): boolean {
   if (!message.author.bot) {
     return false;
   }
@@ -9,10 +9,10 @@ export function isBot(message: Discord.Message) {
   return true;
 }
 
-export function isInvalidUser(message: Discord.Message) {
+export function isInvalidUser(message: Discord.Message): boolean {
   const ignoredUsers = config.ignored_users;
 
-  for (var i = 0; i < ignoredUsers.length; i++) {
+  for (let i = 0; i < ignoredUsers.length; i++) {
     if (ignoredUsers[i].id === message.author.id) {
       console.log(
         `The User (${message.author.username}) with id (${message.author.id}) will be ignored..`
@@ -26,7 +26,7 @@ export function isInvalidUser(message: Discord.Message) {
 export function GuildInWhitelist(message: Discord.Message): Discord.Guild {
   const validGuilds = config.valid_guilds;
 
-  for (var i = 0; i < validGuilds.length; i++) {
+  for (let i = 0; i < validGuilds.length; i++) {
     if (validGuilds[i].guildId === message.guild.id) {
       return message.guild;
     }
@@ -38,12 +38,12 @@ export function GuildInWhitelist(message: Discord.Message): Discord.Guild {
   return null;
 }
 
-export function RoleInWhitelist(message: Discord.Message) {
+export function RoleInWhitelist(message: Discord.Message): boolean {
   const validGuilds = config.valid_guilds;
 
-  for (var i = 0; i < validGuilds.length; i++) {
+  for (let i = 0; i < validGuilds.length; i++) {
     if (validGuilds[i].guildId === message.guild.id) {
-      for (var n = 0; n < validGuilds[i].roles.length; n++) {
+      for (let n = 0; n < validGuilds[i].roles.length; n++) {
         if (message.member.roles.cache.has(validGuilds[i].roles[n].roleId)) {
           return true;
         }
@@ -60,10 +60,7 @@ export function RoleInWhitelist(message: Discord.Message) {
   return false;
 }
 
-export function validateCommandRestrictions(
-  command: string,
-  message: Discord.Message
-) {
+export function validateCommandRestrictions( command: string, message: Discord.Message): boolean {
   const commands = config.commands;
 
   const guild = GuildInWhitelist(message);
@@ -72,11 +69,11 @@ export function validateCommandRestrictions(
     return;
   }
 
-  for (var n = 0; n < commands.length; n++) {
+  for (let n = 0; n < commands.length; n++) {
     if (commands[n].command === command) {
       const commandRestrictions = commands[n].restrictions;
 
-      for (var i = 0; i < commandRestrictions.length; i++) {
+      for (let i = 0; i < commandRestrictions.length; i++) {
         if (commandRestrictions[i].guildId === guild.id) {
           const guildRolesRestrictions = commandRestrictions[i].roles;
           if (guildRolesRestrictions.length < 1) {
