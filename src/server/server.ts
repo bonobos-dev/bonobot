@@ -29,6 +29,7 @@ const initServer = () => {
   }
 
   const bot = new Bot();
+  bot.start();
   app.use('/', globalRouter);
 
   app.listen(PORT, () => {
