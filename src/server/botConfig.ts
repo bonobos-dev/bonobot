@@ -15,7 +15,7 @@ export interface CommandConfig {
 }
 
 const config = {
-  prefix: 'bbpruebas-',
+  prefix: process.env.PREFIX,
   env: process.env.NODE_ENV,
   commands: [
     {
@@ -285,6 +285,7 @@ const roles = {
     rabioso: { id: '743714192435052564' },
     'komecanto esperantisto': { id: '742186094367604797' },
     'homo sonitus': { id: '770696924336619590' },
+    'Deutsche Primat': { id:'759502696813690940' }
   },
   cb_pruebas: {
     esencial: { id: '761729394750259230' },
@@ -319,6 +320,7 @@ const roles = {
     rabioso: { id: '759558925287948289' },
     'komecanto esperantisto': { id: '759558925237878808' },
     'homo sonitus': { id: '770696924336619590' },
+    'Deutsche Primat': { id:'759502696813690940' }
   },
 };
 
