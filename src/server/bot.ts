@@ -1,4 +1,4 @@
-import * as Discord from 'discord.js';
+import Discord from 'discord.js';
 import * as BotConfig from './botConfig';
 import { MigBotCommand } from './botApi';
 import {
@@ -18,12 +18,12 @@ const client = new Discord.Client({ fetchAllMembers: true });
 const commands: Array<MigBotCommand> = [];
 
 const LoadCommands = (): void => {
-  const denunciaCmd = new denuncia() as MigBotCommand;
-  const mensajesCmd = new mensajes() as MigBotCommand;
-  const temarioCmd = new temario() as MigBotCommand;
-  const turnosCmd = new turnos() as MigBotCommand;
-  const verificadorCmd = new verificador() as MigBotCommand;
-  const serverCmd = new server() as MigBotCommand;
+  const denunciaCmd = new denuncia();
+  const mensajesCmd = new mensajes();
+  const temarioCmd = new temario();
+  const turnosCmd = new turnos();
+  const verificadorCmd = new verificador();
+  const serverCmd = new server();
 
   const comandosClases = [
     denunciaCmd,
@@ -64,7 +64,7 @@ const handleCommand = async (msg: Discord.Message) => {
   }
 };
 
-const initBot = () => {
+const initBot = ():void => {
   LoadCommands();
 
   client.on('ready', () => {
