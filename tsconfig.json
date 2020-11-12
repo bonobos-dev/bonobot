@@ -11,5 +11,5 @@
     "resolveJsonModule": true
   },
   "include": ["./src/**/*"],
-  "exclude": ["node_modules","./src/public"]
+  "exclude": ["node_modules"]
 }

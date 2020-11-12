@@ -23,7 +23,7 @@ export default class Denuncia implements MigBotCommand {
       'migdrp-icon.png'
     );
     this.bonobotlogo = new Discord.MessageAttachment(
-      path.join(__dirname, `../assets/img/LOGO_bb_dsicordback.png`),
+      path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`),
       'bb-logo.png'
     );
   }
