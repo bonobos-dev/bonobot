@@ -14,64 +14,21 @@ import turnos from './bot-commands/turnos';
 import verificador from './bot-commands/verificador';
 import server from './bot-commands/server';
 
-const client = new Discord.Client({ fetchAllMembers: true });
-const commands: Array<MigBotCommand> = [];
+export default class Bot{
 
-const LoadCommands = (): void => {
-  const denunciaCmd = new denuncia();
-  const mensajesCmd = new mensajes();
-  const temarioCmd = new temario();
-  const turnosCmd = new turnos();
-  const verificadorCmd = new verificador();
-  const serverCmd = new server();
+private client:Discord.Client;
+private commands: Array<MigBotCommand>
 
-  const comandosClases = [
-    denunciaCmd,
-    mensajesCmd,
-    temarioCmd,
-    turnosCmd,
-    verificadorCmd,
-    serverCmd,
-  ];
 
-  if (!BotConfig.config || BotConfig.config.commands.length === 0) {
-    return;
-  }
+constructor() {
+  this.client = new Discord.Client({ fetchAllMembers: true });
+  this.loadCommands();
 
-  for (const commandClass of comandosClases) {
-    commands.push(commandClass);
-  }
-};
-
-const handleCommand = async (msg: Discord.Message) => {
-  const command = msg.content.split(' ')[0].replace(BotConfig.config.prefix, '');
-  const args = msg.content.split(' ').slice(1);
-
-  console.log('Handle cmd: ', command);
-  console.log('Handle args: ', args);
-
-  for (const commandClass of commands) {
-    try {
-      if (!commandClass.isThisCommand(command)) {
-        continue;
-      }
-
-      commandClass.runCommand(args, msg, client);
-    } catch (exception) {
-      console.log('ERROR EN handle Command');
-      throw new Error(exception);
-    }
-  }
-};
-
-const initBot = ():void => {
-  LoadCommands();
-
-  client.on('ready', () => {
+  this.client.on('ready', () => {
     console.log('Bot is ready on discord!!');
   });
 
-  client.on('message', async (message) => {
+  this.client.on('message', async (message) => {
 
     if (!message.content.startsWith(BotConfig.config.prefix)) {
       return;
@@ -129,9 +86,48 @@ const initBot = ():void => {
 
     console.log('New message recived from');
 
-    handleCommand(message);
+    this.handleCommand(message);
   });
-  client.login(process.env.DISCORD_TOKEN);
-};
+  this.client.login(process.env.DISCORD_TOKEN);
+}
 
-export { initBot };
+
+ loadCommands():void {
+  const denunciaCmd = new denuncia();
+  const mensajesCmd = new mensajes();
+  const temarioCmd = new temario();
+  const turnosCmd = new turnos();
+  const verificadorCmd = new verificador();
+  const serverCmd = new server();
+
+  this.commands = [
+    denunciaCmd,
+    mensajesCmd,
+    temarioCmd,
+    turnosCmd,
+    verificadorCmd,
+    serverCmd,
+  ];
+}
+
+ handleCommand(msg: Discord.Message):void {
+  const command = msg.content.split(' ')[0].replace(BotConfig.config.prefix, '');
+  const args = msg.content.split(' ').slice(1);
+
+  console.log('Handle cmd: ', command);
+  console.log('Handle args: ', args);
+
+  for (const commandClass of this.commands) {
+    try {
+      if (!commandClass.isThisCommand(command)) {
+        continue;
+      }
+
+      commandClass.runCommand(args, msg, this.client);
+    } catch (exception) {
+      console.log('ERROR EN handle Command');
+      throw new Error(exception);
+    }
+  }
+}
+}

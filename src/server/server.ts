@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import globalRouter from './routes/globalRouter';
-import { initBot } from './bot';
+import Bot  from './bot';
 
 dotenv.config({path: `../../.env` });
 dotenv.config();
@@ -28,7 +28,7 @@ const initServer = () => {
     //app.use(webpackDevDependencies.middleware);
   }
 
-  initBot();
+  const bot = new Bot();
   app.use('/', globalRouter);
 
   app.listen(PORT, () => {
