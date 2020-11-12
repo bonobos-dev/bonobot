@@ -17,23 +17,6 @@ import server from './bot-commands/server';
 const client = new Discord.Client({ fetchAllMembers: true });
 const commands: MigBotCommand[] = [];
 
-/*old
-const LoadCommands = ( commandsPath:string ): void => {
-
-    if( !BotConfig.config || (BotConfig.config.commands).length === 0 ) {    return    }
-
-    for (const commandObj of BotConfig.config.commands){
-
-        const commandClass =  require(`${commandsPath}/${commandObj.command}`).default;
-
-        const command =  new commandClass() as MigBotCommand;
-
-        commands.push(command);
-
-    }
-    //console.log('Commands loaded: ', commands);
-}
-*/
 
 const LoadCommands = (): void => {
   const denunciaCmd = new denuncia() as MigBotCommand;
@@ -42,7 +25,7 @@ const LoadCommands = (): void => {
   const turnosCmd = new turnos() as MigBotCommand;
   const verificadorCmd = new verificador() as MigBotCommand;
   const serverCmd = new server() as MigBotCommand;
-  //const cleanrolesCmd = new cleanroles() as MigBotCommand;
+
 
   const comandosClases = [
     denunciaCmd,
@@ -53,14 +36,18 @@ const LoadCommands = (): void => {
     serverCmd,
   ];
 
+
   if (!BotConfig.config || BotConfig.config.commands.length === 0) {
     return;
   }
 
+
   for (const commandClass of comandosClases) {
     commands.push(commandClass);
   }
+
 };
+
 
 const handleCommand = async (msg: Discord.Message) => {
   const command = msg.content.split(' ')[0].replace(BotConfig.config.prefix, '');
@@ -83,12 +70,16 @@ const handleCommand = async (msg: Discord.Message) => {
   }
 };
 
+
 const initBot = (): void => {
   LoadCommands();
 
+  client.on('ready', () => {
+    console.log('Bonobot is ready!');
+  });
 
   client.on('message', async (message) => {
-    //sconsole.log( 'Message content: ', message );
+    //console.log( 'Message content: ', message );
 
     if (!message.content.startsWith(BotConfig.config.prefix)) {
       return;
@@ -149,7 +140,7 @@ const initBot = (): void => {
     handleCommand(message);
   });
 
-  ///console.log('TOKEN : ', process.env.DISCORD_TOKEN )
+
   client.login(process.env.DISCORD_TOKEN);
 };
 

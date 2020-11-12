@@ -13,7 +13,7 @@ export default class Cleanroles implements MigBotCommand {
   }
 
   help(): string {
-    return 'Este comando es el sitema de tickets de la comunidad bonóbica';
+    return 'Este comando se utilizo para eliminar roles en los usuarios';
   }
 
   isThisCommand(command: string): boolean {

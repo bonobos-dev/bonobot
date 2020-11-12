@@ -3,12 +3,6 @@ import * as Discord from 'discord.js';
 import { MigBotCommand } from '../botApi';
 import { validateCommandRestrictions } from '../utils/botValidation';
 
-import {
-  TemarioEntity,
-  tema,
-  subtema,
-  TemarioData,
-} from '../utils/TemarioEntity';
 
 import { getHostUrl } from '../utils/networkUtil';
 
@@ -142,12 +136,12 @@ export default class Temario implements MigBotCommand {
     const temarioData = data;
 
     const fieldsForEmbed = () => {
-      let fields: any = [];
+      const fields: any = [];
 
       //Para todos los temas en el temario
-      for (var n = 0; n < temarioData.temas.length; n++) {
+      for (let n = 0; n < temarioData.temas.length; n++) {
         let field: any = {};
-        let fieldValues: any = [];
+        const fieldValues: any = [];
 
         //Si no hay subtemas el valord será un espacio en blanco
         if (!(temarioData.temas[n] as any).subtemas) {
@@ -163,7 +157,7 @@ export default class Temario implements MigBotCommand {
 
         //Si hay subtemas se agregarán al array 'value'
         for (
-          var i = 0;
+          let i = 0;
           i < (temarioData.temas[n] as any).subtemas.length;
           i++
         ) {
@@ -194,7 +188,7 @@ export default class Temario implements MigBotCommand {
     };
 
     if (aviso) {
-      let template = new Discord.MessageEmbed()
+      const template = new Discord.MessageEmbed()
         .attachFiles(this.migdrplogo as any)
         .attachFiles(this.bonobotlogo as any)
         .attachFiles(this.imgParla as any)
@@ -236,7 +230,7 @@ export default class Temario implements MigBotCommand {
 
       return template;
     } else {
-      let template = new Discord.MessageEmbed()
+      const template = new Discord.MessageEmbed()
         .attachFiles(this.migdrplogo as any)
         .attachFiles(this.bonobotlogo as any)
         .setColor('#a956bd')
@@ -278,9 +272,8 @@ export default class Temario implements MigBotCommand {
 
   public async runCommand(
     args: string[],
-    msgObject: Discord.Message,
-    client: Discord.Client
-  ) {
+    msgObject: Discord.Message
+  ): Promise<void> {
     if (!validateCommandRestrictions(this._command, msgObject)) {
       return;
     }
@@ -298,7 +291,7 @@ export default class Temario implements MigBotCommand {
           await this.currentEmbedMessage.delete();
         }
 
-        let TurnsEmbed = this.crearEmbedTemario(true, temarioDataTest);
+        const TurnsEmbed = this.crearEmbedTemario(true, temarioDataTest);
 
         await msgObject.channel.send(
           `${mention} Aquí tienen el temario para la parla sabatina, recuerden que cualquier información respecto al tema la pueden postear en <#698202549697773610>`
@@ -313,7 +306,7 @@ export default class Temario implements MigBotCommand {
       await this.currentEmbedMessage.delete();
     }
 
-    let TurnsEmbed = this.crearEmbedTemario(false, temarioDataTestFull);
+    const TurnsEmbed = this.crearEmbedTemario(false, temarioDataTestFull);
 
     await msgObject.channel.send(TurnsEmbed);
   }
