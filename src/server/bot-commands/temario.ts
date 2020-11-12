@@ -2,9 +2,9 @@ import * as Discord from 'discord.js';
 
 import { MigBotCommand } from '../botApi';
 import { validateCommandRestrictions } from '../utils/botValidation';
+import path from 'path';
 
 
-import { getHostUrl } from '../utils/networkUtil';
 
 const temarioDataTest = {
   titulo: '',
@@ -102,17 +102,13 @@ export default class Temario implements MigBotCommand {
 
   private currentEmbedMessage: Discord.Message;
 
-  private migdrplogo = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/migdrp-logo-small-parla_sabatina.png`,
-    'migdrp-icon.png'
+  private migdrplogo = new Discord.MessageAttachment( 
+    path.join(__dirname, `../assets/img/migdrp-logo-small-parla_sabatina.png`), 
+    'migdrp-icon.png' 
   );
   private bonobotlogo = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/LOGO_bb_dsicordback.png`,
+    path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`),
     'bb-logo.png'
-  );
-  private imgParla = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/foro-img.jpg`,
-    'foro-img.jpg'
   );
 
   private crearEmbedTemario(aviso: boolean, data: any): Discord.MessageEmbed {
@@ -174,7 +170,6 @@ export default class Temario implements MigBotCommand {
       const template = new Discord.MessageEmbed()
         .attachFiles(this.migdrplogo as any)
         .attachFiles(this.bonobotlogo as any)
-        .attachFiles(this.imgParla as any)
         .setColor('#a956bd')
         .setAuthor(
           'TEMARIO DEL FORO SABATINO',
