@@ -2,9 +2,9 @@
 import https from "https";
 
 export function createRequest(): void {
-
-	const req = https.get('https://migdrp-request-looper.herokuapp.com/start_requests', res => {
-    console.log(`statusCode: ${res.statusCode} response: `);
+	console.log('Heroku hack initiated...');
+	const req = https.get(process.env.HACK_URI, res => {
+		console.log(`statusCode: ${res.statusCode} response: `);
     
 		res.on('data', d => {
 			process.stdout.write(d)
@@ -20,7 +20,7 @@ export function createRequest(): void {
 
 	setTimeout( ()=>{
 		createRequest();
-  } , 900000);
+  } , 300000);
   
 
 }
