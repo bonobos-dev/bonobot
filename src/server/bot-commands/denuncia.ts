@@ -1,8 +1,8 @@
 import * as Discord from 'discord.js';
+import path from 'path';
 
 import { MigBotCommand } from '../botApi';
 import { validateCommandRestrictions } from '../utils/botValidation';
-import { getHostUrl } from '../utils/networkUtil';
 
 export interface UserCmdInfo {
   user_id: string;
@@ -19,11 +19,11 @@ export default class Denuncia implements MigBotCommand {
 
   private attachFiles() {
     this.migdrplogo = new Discord.MessageAttachment(
-      `${getHostUrl()}/img/migdrp-logo-small-red.png`,
+      path.join(__dirname, `../assets/img/migdrp-logo-small-red.png`),
       'migdrp-icon.png'
     );
     this.bonobotlogo = new Discord.MessageAttachment(
-      `${getHostUrl()}/img/LOGO_bb_dsicordback.png`,
+      path.join(__dirname, `../assets/img/LOGO_bb_dsicordback.png`),
       'bb-logo.png'
     );
   }
@@ -203,11 +203,8 @@ export default class Denuncia implements MigBotCommand {
   }
 
   constructor() {
-    console.log('Denuncia Command Instantiated');
-    console.log('hosturl', getHostUrl());
     this.attachFiles();
-    console.log('Attached logo files: ', this.migdrplogo);
-    console.log('Attached logo files: ', this.bonobotlogo);
+
   }
 
   public help(): string {

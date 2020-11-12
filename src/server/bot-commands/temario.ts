@@ -2,31 +2,28 @@ import * as Discord from 'discord.js';
 
 import { MigBotCommand } from '../botApi';
 import { validateCommandRestrictions } from '../utils/botValidation';
+import path from 'path';
 
 
-import { getHostUrl } from '../utils/networkUtil';
 
 const temarioDataTest = {
   titulo: '',
   temas: [
     {
-      titulo: '***__SALUD PERSONAL__*** ',
+      titulo: '***__¿QUÉ NOS HACE HUMANOS?__*** ',
       subtemas: [
         {
-          titulo: '*¿Qué es la salud?*',
+          titulo: '*Perspectiva Científica*',
         },
         {
-          titulo: '*Higiene*',
+          titulo: '*Perspectiva Sociocultural*',
         },
         {
-          titulo: '*Ambiente*',
+          titulo: '*Perspectiva Espiritual*',
         },
         {
-          titulo: '*Actividades Recreativas*',
-        },
-        {
-          titulo: '*Sexualidad*',
-        },
+          titulo: '*Perspectiva Filosófica*',
+        }
       ],
     },
   ],
@@ -34,83 +31,69 @@ const temarioDataTest = {
 
 const temarioDataTestFull = {
   titulo: `
-Salud Personal 
+¿Qué nos hace humanos?
 \u200B
     `,
   temas: [
     {
-      titulo: '¿Qué es la salud?',
-    },
-    {
-      titulo: 'Alimentación',
+      titulo: 'Perspectiva Científica.',
       subtemas: [
         {
-          titulo: 'Aspecto biológico.',
+          titulo: 'Biología animal: Etología.',
         },
         {
-          titulo: 'Aspecto psicológico.',
+          titulo: 'Genética: Evolución.',
         },
         {
-          titulo: 'Aspecto social.',
+          titulo: 'Biología humana: Fisiología, psicología y neurociencias.',
         },
       ],
     },
     {
-      titulo: 'Higiene',
+      titulo: 'Perspectiva Sociocultural',
       subtemas: [
         {
-          titulo: 'Aspecto biológico.',
+          titulo: 'Lenguaje.',
         },
         {
-          titulo: 'Aspecto psicológico.',
+          titulo: 'Creatividad: Utilitaria/Expresiva.',
+        }
+      ],
+    },
+    {
+      titulo: 'Perspectiva Espiritual',
+      subtemas: [
+        {
+          titulo: 'En respuesta a la muerte.',
         },
         {
-          titulo: 'Aspecto social.',
+          titulo: 'Mitos y religión para explicar el mundo.',
+        },
+        {
+          titulo: 'El ser y su relación con lo divino.',
         },
       ],
     },
     {
-      titulo: 'Ambiente',
+      titulo: 'Perspectiva Filosófica',
       subtemas: [
         {
-          titulo: 'Aspecto biológico.',
+          titulo: 'La Razón (Observación de 2do orden).',
         },
         {
-          titulo: 'Aspecto psicológico.',
+          titulo: 'El individuo.',
         },
         {
-          titulo: 'Aspecto social.',
+          titulo: 'Instrumentalización.',
+        },
+        {
+          titulo: 'La comunidad.',
+        },
+        {
+          titulo: 'El futuro del humano.',
         },
       ],
-    },
-    {
-      titulo: 'Actividades Recreativas',
-      subtemas: [
-        {
-          titulo: 'Aspecto biológico.',
-        },
-        {
-          titulo: 'Aspecto psicológico.',
-        },
-        {
-          titulo: 'Aspecto social.',
-        },
-      ],
-    },
-    {
-      titulo: 'Sexualidad',
-      subtemas: [
-        {
-          titulo: 'Aspecto biológico.',
-        },
-        {
-          titulo: 'Aspecto psicológico.',
-        },
-        {
-          titulo: 'Aspecto social.',
-        },
-      ],
-    },
+    }
   ],
 };
 
@@ -119,17 +102,13 @@ export default class Temario implements MigBotCommand {
 
   private currentEmbedMessage: Discord.Message;
 
-  private migdrplogo = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/migdrp-logo-small-parla_sabatina.png`,
-    'migdrp-icon.png'
+  private migdrplogo = new Discord.MessageAttachment( 
+    path.join(__dirname, `../assets/img/migdrp-logo-small-parla_sabatina.png`), 
+    'migdrp-icon.png' 
   );
   private bonobotlogo = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/LOGO_bb_dsicordback.png`,
+    path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`),
     'bb-logo.png'
-  );
-  private imgParla = new Discord.MessageAttachment(
-    `${getHostUrl()}/img/foro-img.jpg`,
-    'foro-img.jpg'
   );
 
   private crearEmbedTemario(aviso: boolean, data: any): Discord.MessageEmbed {
@@ -191,7 +170,6 @@ export default class Temario implements MigBotCommand {
       const template = new Discord.MessageEmbed()
         .attachFiles(this.migdrplogo as any)
         .attachFiles(this.bonobotlogo as any)
-        .attachFiles(this.imgParla as any)
         .setColor('#a956bd')
         .setAuthor(
           'TEMARIO DEL FORO SABATINO',
