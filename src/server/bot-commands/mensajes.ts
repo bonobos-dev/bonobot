@@ -18,7 +18,7 @@ export default class Mensajes implements MigBotCommand {
     path.join(__dirname, `../assets/img/migdrp-logo-small-green.png`), 'migdrp-icon-green.png'
   );
   private bonobotlogo = new Discord.MessageAttachment(
-    path.join(__dirname, `../assets/img/LOGO_bb_dsicordback.png`), 'bb-logo.png'
+    path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`), 'bb-logo.png'
   );
 
   private createEmbed(): Discord.MessageEmbed {

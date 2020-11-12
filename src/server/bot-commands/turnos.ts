@@ -24,7 +24,7 @@ export default class Turnos implements MigBotCommand {
     'migdrp-icon.png'
   );
   private bonobotlogo = new Discord.MessageAttachment(
-    path.join(__dirname, `../assets/img/LOGO_bb_dsicordback.png`),
+    path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`),
     'bb-logo.png'
   );
 
