@@ -10,7 +10,7 @@ import path from 'path';
 
 export default class Verificador implements MigBotCommand {
   private _command = 'verificador';
-  private channel = '✅・verificación-tests';
+  private channel = '✅・verificación';
   private rolesChannel = '💎・roles';
   private roles =
     BotConfig.config.env === 'production'
