@@ -6,6 +6,7 @@ import express from "express";
 import bodyParser from 'body-parser';
 import globalRouter from './routes/globalRouter';
 import Bot  from './Bot';
+import { createRequest } from './utils/bonobotsHerokuHack';
 
 
 
@@ -30,6 +31,9 @@ const initServer = () => {
 
   const bot = new Bot();
   bot.start();
+  
+  createRequest();
+
   app.use('/', globalRouter);
 
 
