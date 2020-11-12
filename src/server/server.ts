@@ -5,7 +5,7 @@ dotenv.config();
 import express from "express";
 import bodyParser from 'body-parser';
 import globalRouter from './routes/globalRouter';
-import { initBot } from './bot';
+import Bot  from './Bot';
 
 
 
@@ -28,7 +28,8 @@ const initServer = () => {
 
 
 
-  initBot();
+  const bot = new Bot();
+  bot.start();
   app.use('/', globalRouter);
 
 
