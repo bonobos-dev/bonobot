@@ -3,12 +3,12 @@ import * as BotConfig from './botConfig';
 import { MigBotCommand } from './botApi';
 import { GuildInWhitelist, isBot, isInvalidUser } from './utils/botValidation';
 
-import denuncia from './bot-commands/Denuncia';
-import mensajes from './bot-commands/Mensajes';
-import temario from './bot-commands/Temario';
-import turnos from './bot-commands/Turnos';
-import verificador from './bot-commands/Verificador';
-import server from './bot-commands/Server';
+import Denuncia from './bot-commands/Denuncia';
+import Mensajes from './bot-commands/Mensajes';
+import Temario from './bot-commands/Temario';
+import Turnos from './bot-commands/Turnos';
+import Verificador from './bot-commands/Verificador';
+import Server from './bot-commands/Server';
 
 export default class Bot {
   private client: Client;
@@ -89,12 +89,12 @@ export default class Bot {
   }
 
   loadCommands(): void {
-    const denunciaCmd = new denuncia();
-    const mensajesCmd = new mensajes();
-    const temarioCmd = new temario();
-    const turnosCmd = new turnos();
-    const verificadorCmd = new verificador();
-    const serverCmd = new server();
+    const denunciaCmd = new Denuncia();
+    const mensajesCmd = new Mensajes();
+    const temarioCmd = new Temario();
+    const turnosCmd = new Turnos();
+    const verificadorCmd = new Verificador();
+    const serverCmd = new Server();
 
     this.commands = [
       denunciaCmd,
