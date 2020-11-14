@@ -1,4 +1,4 @@
-import * as Discord from 'discord.js';
+import {MessageAttachment, Message, MessageEmbed, Client,ReactionCollector, TextChannel,MessageReaction} from 'discord.js';
 
 import { MigBotCommand } from '../botApi';
 
@@ -17,28 +17,28 @@ export default class Verificador implements MigBotCommand {
       ? BotConfig.roles.cb_real
       : BotConfig.roles.cb_pruebas;
 
-  private currentEmbedMessage: Discord.Message;
-  private reactionCollector: Discord.ReactionCollector;
+  private currentEmbedMessage: Message;
+  private reactionCollector: ReactionCollector;
 
-  private currentEmbedMessage2: Discord.Message;
-  private reactionCollector2: Discord.ReactionCollector;
+  private currentEmbedMessage2: Message;
+  private reactionCollector2: ReactionCollector;
 
-  private migdrplogo = new Discord.MessageAttachment(
+  private migdrplogo = new MessageAttachment(
     path.join(__dirname, `../assets/img/migdrp-logo-small-parla_sabatina.png`),
     'migdrp-icon.png'
   );
-  private bonobotlogo = new Discord.MessageAttachment(
+  private bonobotlogo = new MessageAttachment(
     path.join(__dirname, `../assets/img/cb-logo.png`),
     'bb-logo.png'
   );
-  private imgParla = new Discord.MessageAttachment(
+  private imgParla = new MessageAttachment(
     path.join(__dirname, `../assets/img/foro_img_horizontal.jpeg`),
     'foro-img.jpg'
   );
 
   private free = true;
 
-  private async checkSelectedChannel(message: Discord.Message) {
+  private async checkSelectedChannel(message: Message) {
     try {
       const channelFound = message.guild.channels.cache.findKey(
         (channel) => channel.name === this.channel
@@ -56,7 +56,7 @@ export default class Verificador implements MigBotCommand {
     }
   }
 
-  private async getSelectedChannel(client: Discord.Client, id: string) {
+  private async getSelectedChannel(client: Client, id: string) {
     try {
       const channelFound = client.channels.fetch(id);
       return channelFound;
@@ -65,7 +65,7 @@ export default class Verificador implements MigBotCommand {
     }
   }
 
-  private async checkSelectedChannel2(message: Discord.Message) {
+  private async checkSelectedChannel2(message: Message) {
     try {
       const channelFound = message.guild.channels.cache.findKey(
         (channel) => channel.name === this.rolesChannel
@@ -83,7 +83,7 @@ export default class Verificador implements MigBotCommand {
     }
   }
 
-  private async getSelectedChannel2(client: Discord.Client, id: string) {
+  private async getSelectedChannel2(client: Client, id: string) {
     try {
       const channelFound = client.channels.fetch(id);
       return channelFound;
@@ -96,8 +96,8 @@ export default class Verificador implements MigBotCommand {
     console.log('Verificador Command Instantiated');
   }
 
-  private crearEmbedVerificador(): Discord.MessageEmbed {
-    const template = new Discord.MessageEmbed()
+  private crearEmbedVerificador(): MessageEmbed {
+    const template = new MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
@@ -270,8 +270,8 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
     return template;
   }
 
-  private crearEmbedVerificador2(): Discord.MessageEmbed {
-    const template = new Discord.MessageEmbed()
+  private crearEmbedVerificador2(): MessageEmbed {
+    const template = new MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
@@ -455,8 +455,8 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
 
   public async runCommand(
     args: string[],
-    msgObject: Discord.Message,
-    client: Discord.Client
+    msgObject: Message,
+    client: Client
   ) {
     console.log('command verificador ejecutado');
 
@@ -504,11 +504,11 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         const channelVerificar = (await this.getSelectedChannel(
           msgObject.client,
           channel_Verificar_ID
-        )) as Discord.TextChannel;
+        )) as TextChannel;
         const channelRoles = (await this.getSelectedChannel(
           msgObject.client,
           channel_Roles_ID
-        )) as Discord.TextChannel;
+        )) as TextChannel;
 
         const embedVerificar = this.crearEmbedVerificador();
         const embedRoles = this.crearEmbedVerificador2();
@@ -596,7 +596,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
                     {   emoji:'🦗',  role:'' }
                 ];*/
 
-        const filter = (reaction: Discord.MessageReaction) => {
+        const filter = (reaction: MessageReaction) => {
           const currentEmoji = emojis.filter(
             (value) => value.emoji === reaction.emoji.name
           );
@@ -690,7 +690,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
 
         channelVerificar.client.on('message', (message) => {
           if (
-            (message.channel as Discord.TextChannel).name ===
+            (message.channel as TextChannel).name ===
             channelVerificar.name
           ) {
             console.log('Nuevo intento de verificación: ', message.content);
