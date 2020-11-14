@@ -31,6 +31,7 @@ const initServer = () => {
 
   const bot = new Bot();
   bot.start();
+  bot.apply();
   
   createRequest();
 

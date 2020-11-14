@@ -1,4 +1,4 @@
-import Discord from 'discord.js';
+import { Client, Message } from 'discord.js';
 import * as BotConfig from './botConfig';
 import { MigBotCommand } from './botApi';
 import { GuildInWhitelist, isBot, isInvalidUser } from './utils/botValidation';
@@ -11,11 +11,11 @@ import verificador from './bot-commands/verificador';
 import server from './bot-commands/server';
 
 export default class Bot {
-  private client: Discord.Client;
+  private client: Client;
   private commands: Array<MigBotCommand>;
 
   constructor() {
-    this.client = new Discord.Client();
+    this.client = new Client();
     this.loadCommands();
     this.client.login(process.env.DISCORD_TOKEN);
   }
@@ -24,8 +24,10 @@ export default class Bot {
     this.client.on('ready', () => {
       console.log('Bot is ready on discord!!!!!!!!!');
     });
+  }
 
-    this.client.on('message', async (message) => {
+  apply(): void {
+    this.client.on('message', async (message: Message) => {
       if (!message.content.startsWith(BotConfig.config.prefix)) {
         return;
       }
@@ -104,7 +106,7 @@ export default class Bot {
     ];
   }
 
-  handleCommand(msg: Discord.Message): void {
+  handleCommand(msg: Message): void {
     const command = msg.content
       .split(' ')[0]
       .replace(BotConfig.config.prefix, '');

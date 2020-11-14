@@ -1,7 +1,7 @@
-import * as Discord from 'discord.js';
+import { Message, Guild } from 'discord.js';
 import { config } from '../botConfig';
 
-export function isBot(message: Discord.Message): boolean {
+export function isBot(message: Message): boolean {
   if (!message.author.bot) {
     return false;
   }
@@ -9,7 +9,7 @@ export function isBot(message: Discord.Message): boolean {
   return true;
 }
 
-export function isInvalidUser(message: Discord.Message): boolean {
+export function isInvalidUser(message: Message): boolean {
   const ignoredUsers = config.ignored_users;
 
   for (let i = 0; i < ignoredUsers.length; i++) {
@@ -23,7 +23,7 @@ export function isInvalidUser(message: Discord.Message): boolean {
   return true;
 }
 
-export function GuildInWhitelist(message: Discord.Message): Discord.Guild {
+export function GuildInWhitelist(message: Message): Guild {
   const validGuilds = config.valid_guilds;
 
   for (let i = 0; i < validGuilds.length; i++) {
@@ -38,7 +38,7 @@ export function GuildInWhitelist(message: Discord.Message): Discord.Guild {
   return null;
 }
 
-export function RoleInWhitelist(message: Discord.Message): boolean {
+export function RoleInWhitelist(message: Message): boolean {
   const validGuilds = config.valid_guilds;
 
   for (let i = 0; i < validGuilds.length; i++) {
@@ -60,7 +60,7 @@ export function RoleInWhitelist(message: Discord.Message): boolean {
   return false;
 }
 
-export function validateCommandRestrictions( command: string, message: Discord.Message): boolean {
+export function validateCommandRestrictions( command: string, message: Message): boolean {
   const commands = config.commands;
 
   const guild = GuildInWhitelist(message);
