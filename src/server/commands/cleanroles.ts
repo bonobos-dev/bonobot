@@ -5,8 +5,6 @@ import { Message, Client } from 'discord.js';
 export default class Cleanroles implements CommandInterface {
   private readonly _command = 'cleanroles';
 
-  private currentEmbedMessage: Message;
-
   constructor() {
     console.log('Cleanroles Command Instantiated');
   }
