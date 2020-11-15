@@ -10,7 +10,7 @@ import Turnos from './commands/Turnos';
 import Verificador from './commands/Verificador';
 import Server from './commands/Server';
 
-export default class Bot {
+export default class Bonobot {
   private client: Client;
   private commands: Array<CommandInterface>;
 
@@ -22,7 +22,7 @@ export default class Bot {
 
   public start(): void {
     this.client.on('ready', () => {
-      console.log('Bot is ready on discord!!!!!!!!!');
+      console.log('Bonobot is ready on discord!!!!!!!!!');
     });
   }
 
