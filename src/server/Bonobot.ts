@@ -55,25 +55,6 @@ export default class Bonobot {
         roles.push(roleFound);
       });
 
-      const messageJson = {
-        server: {
-          name: message.guild.name,
-          id: message.guild.id,
-        },
-        channel: {
-          name: (message.channel as any).name,
-          id: message.channel.id,
-        },
-        user: {
-          username: message.author.username,
-          id: message.author.id,
-        },
-        message: message.content,
-        roles: roles,
-      };
-
-      console.log(`New message recibed: `, messageJson);
-
       if (message.channel.type === 'dm') {
         console.log(
           `El usuario ${message.author.username} mando un mensaje al bonobot`
