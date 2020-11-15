@@ -1,12 +1,11 @@
-import * as Discord from 'discord.js';
-
 import CommandInterface from '../interfaces/CommandInterface';
 import { validateCommandRestrictions } from '../utils/botValidation';
+import { Message, Client } from 'discord.js';
 
 export default class Cleanroles implements CommandInterface {
   private readonly _command = 'cleanroles';
 
-  private currentEmbedMessage: Discord.Message;
+  private currentEmbedMessage: Message;
 
   constructor() {
     console.log('Cleanroles Command Instantiated');
@@ -22,8 +21,8 @@ export default class Cleanroles implements CommandInterface {
 
   public async runCommand(
     args: string[],
-    msgObject: Discord.Message,
-    client: Discord.Client
+    msgObject: Message,
+    client: Client
   ) {
     console.log('cleanroles executed');
 
