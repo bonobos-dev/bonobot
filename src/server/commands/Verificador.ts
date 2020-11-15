@@ -1,10 +1,18 @@
-import {MessageAttachment, Message, MessageEmbed, Client,ReactionCollector, TextChannel,MessageReaction} from 'discord.js';
+import {
+  MessageAttachment,
+  Message,
+  MessageEmbed,
+  Client,
+  ReactionCollector,
+  TextChannel,
+  MessageReaction,
+} from 'discord.js';
 
 import CommandInterface from '../interfaces/CommandInterface';
 
 import { validateCommandRestrictions } from '../utils/botValidation';
 
-import { roles,config } from '../botConfig';
+import { roles, config } from '../botConfig';
 
 import path from 'path';
 
@@ -13,9 +21,7 @@ export default class Verificador implements CommandInterface {
   private channel = '✅・verificación';
   private rolesChannel = '💎・roles';
   private roles =
-    config.env === 'production'
-      ? roles.cb_real
-      : roles.cb_pruebas;
+    config.env === 'production' ? roles.cb_real : roles.cb_pruebas;
 
   private currentEmbedMessage: Message;
   private reactionCollector: ReactionCollector;
@@ -248,7 +254,7 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 ℎ𝑖𝑠𝑡𝑜𝑟𝑖𝑎 𝑑𝑒
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑒𝑛𝑡𝑜𝑚𝑜𝑙𝑜𝑔𝑖́𝑎.```'}
 \u200B \u200B :man_mage: \u200B <@&${this.roles['homo sonitus'].id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠𝑜𝑛𝑖𝑑𝑜 𝑐𝑜𝑛 𝐷𝐴𝑊.```'}
-\u200B \u200B :flag_de: \u200B <@&${this.roles["Deutsche Primat"].id}>
+\u200B \u200B :flag_de: \u200B <@&${this.roles['Deutsche Primat'].id}>
 ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         `,
       })
@@ -377,7 +383,7 @@ ${'```𝐴𝑏𝑠𝑡𝑒́𝑛𝑔𝑎𝑛𝑠𝑒 𝑑𝑒 𝑠𝑒𝑟 𝑜�
         value: `
 𝖤𝗑𝗂𝗌𝗍𝖾𝗇 𝖾𝗌𝗉𝖺𝖼𝗂𝗈𝗌 𝖽𝖾 𝖼𝗈𝗇𝗏𝖾𝗋𝗌𝖺𝖼𝗂𝗈́𝗇 𝖼𝖺𝗌𝗎𝖺𝗅 𝖾𝗇 ${'``🍺TABERNA BONÓBICA🍺``'} 𝗒 𝖾𝗌𝗉𝖺𝖼𝗂𝗈𝗌 𝖽𝖾𝗌𝗍𝗂𝗇𝖺𝖽𝗈𝗌 𝖺 𝗍𝖾𝗆𝖺𝗌 𝗆𝖺́𝗌 𝖾𝗌𝗉𝖾𝖼𝗂́𝖿𝗂𝖼𝗈𝗌.
 \u200B
-\u200B \u200B :microphone2: \u200B <@&${this.roles['parla sabatina'].id}>
+\u200B \u200B :microphone2: \u200B <@&${this.roles.parlaSabatina.id}>
 ${'```𝐹𝑜𝑟𝑜𝑠 𝑠𝑎𝑏𝑎𝑡𝑖𝑛𝑜𝑠 𝑐𝑎𝑑𝑎 𝑑𝑜𝑠 𝑠𝑒𝑚𝑎𝑛𝑎𝑠 𝑠𝑜𝑏𝑟𝑒 𝑢𝑛 𝑡𝑒𝑚𝑎 𝑒𝑠𝑐𝑜𝑔𝑖𝑑𝑜 𝑝𝑜𝑟 𝑙𝑎 𝑐𝑜𝑚𝑢𝑛𝑖𝑑𝑎𝑑.```'}
 \u200B \u200B :book: \u200B <@&${this.roles['lector avispado'].id}>
 ${'```𝐿𝑒𝑐𝑡𝑢𝑟𝑎 𝑑𝑒 𝑙𝑖𝑏𝑟𝑜𝑠, 𝑐𝑢𝑒𝑛𝑡𝑜𝑠, 𝑝𝑜𝑒𝑚𝑎𝑠 𝑜 𝑎𝑟𝑡𝑖́𝑐𝑢𝑙𝑜𝑠.```'}
@@ -422,7 +428,7 @@ ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 ℎ𝑖𝑠𝑡𝑜𝑟𝑖𝑎 𝑑𝑒
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑒𝑛𝑡𝑜𝑚𝑜𝑙𝑜𝑔𝑖́𝑎.```'}
 \u200B \u200B :man_mage: \u200B <@&${this.roles['homo sonitus'].id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠𝑜𝑛𝑖𝑑𝑜 𝑐𝑜𝑛 𝐷𝐴𝑊.```'}
-\u200B \u200B :flag_de: \u200B <@&${this.roles["Deutsche Primat"].id}>
+\u200B \u200B :flag_de: \u200B <@&${this.roles['Deutsche Primat'].id}>
 ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         `,
       })
@@ -453,11 +459,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
     return command === this._command;
   }
 
-  public async runCommand(
-    args: string[],
-    msgObject: Message,
-    client: Client
-  ) {
+  public async runCommand(args: string[], msgObject: Message, client: Client) {
     console.log('command verificador ejecutado');
 
     if (!validateCommandRestrictions(this._command, msgObject)) {
@@ -562,39 +564,22 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         this.free = true;
 
         const emojis = [
-          { emoji: '🎙️', role: roles.cb_real['parla sabatina'].id },
-          { emoji: '📖', role: roles.cb_real['lector avispado'].id },
+          { emoji: '🎙️', role: roles.cb_real.parlaSabatina },
+          { emoji: '📖', role: roles.cb_real.lectorAvispado.id },
           { emoji: '🎞️', role: roles.cb_real.lumierista.id },
-          { emoji: '📝', role: roles.cb_real['bonobo literario'].id },
+          { emoji: '📝', role: roles.cb_real.bonoboLiterario.id },
           { emoji: '👑', role: roles.cb_real.chaturanga.id },
-          { emoji: '🌿', role: roles.cb_real['eco bonobo'].id },
+          { emoji: '🌿', role: roles.cb_real.ecoBonobo.id },
           { emoji: '👅', role: roles.cb_real.políglota.id },
           { emoji: '🎬', role: roles.cb_real.cinéfilo.id },
           { emoji: '🍞', role: roles.cb_real.sabronobo.id },
-          { emoji: '💸', role: roles.cb_real['homo economicus'].id },
-          { emoji: '💻', role: roles.cb_real['photo shoppers'].id },
-          { emoji: '🏺', role: roles.cb_real['homo artem'].id },
+          { emoji: '💸', role: roles.cb_real.homoEconomicus.id },
+          { emoji: '💻', role: roles.cb_real.photoShoppers.id },
+          { emoji: '🏺', role: roles.cb_real.homoArtem.id },
           { emoji: '🦗', role: roles.cb_real.entomófagos.id },
-          { emoji: '🧙‍♂️', role: roles.cb_real['homo sonitus'].id },
-          { emoji: '🇩🇪', role: roles.cb_real["Deutsche Primat"].id }
+          { emoji: '🧙‍♂️', role: roles.cb_real.homoSonitus.id },
+          { emoji: '🇩🇪', role: roles.cb_real.DeutschePrimat.id },
         ];
-
-        /*
-                const emojis = [
-                    {   emoji:'🎙️',  role:'705975181688045598' },
-                    {   emoji:'📖',  role:'727351251041386526' },
-                    {   emoji:'🎞️',  role:'727357766561431552' },
-                    {   emoji:'📝',  role:'754532026366951434' },
-                    {   emoji:'👑',  role:'754825942701965342' },
-                    {   emoji:'🌿',  role:'' },
-                    {   emoji:'👅',  role:'' },
-                    {   emoji:'🎬',  role:'' },
-                    {   emoji:'🍞',  role:'' },
-                    {   emoji:'💸',  role:'746149379790078025' },
-                    {   emoji:'💻',  role:'754531018404528229' },
-                    {   emoji:'🏺',   role:'' },
-                    {   emoji:'🦗',  role:'' }
-                ];*/
 
         const filter = (reaction: MessageReaction) => {
           const currentEmoji = emojis.filter(
@@ -631,7 +616,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
           if (reactionExist) {
             const userId = user.id;
             const member = await msgObject.guild.members.fetch(userId);
-            member.roles.add(reactionExist[0].role);
+            member.roles.add(reactionExist[0].role.toString());
           } else {
             console.log('Error VERIFICADOR, role not found on emojis array..');
           }
@@ -648,7 +633,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
           if (reactionExist) {
             const userId = user.id;
             const member = await msgObject.guild.members.fetch(userId);
-            member.roles.remove(reactionExist[0].role);
+            member.roles.remove(reactionExist[0].role.toString());
           } else {
             console.log('Error VERIFICADOR, role not found on emojis array..');
           }
@@ -665,7 +650,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
           if (reactionExist) {
             const userId = user.id;
             const member = await msgObject.guild.members.fetch(userId);
-            member.roles.add(reactionExist[0].role);
+            member.roles.add(reactionExist[0].role.toString());
           } else {
             console.log('Error VERIFICADOR, role not found on emojis array..');
           }
@@ -682,17 +667,14 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
           if (reactionExist) {
             const userId = user.id;
             const member = await msgObject.guild.members.fetch(userId);
-            member.roles.remove(reactionExist[0].role);
+            member.roles.remove(reactionExist[0].role.toString());
           } else {
             console.log('Error VERIFICADOR, role not found on emojis array..');
           }
         });
 
         channelVerificar.client.on('message', (message) => {
-          if (
-            (message.channel as TextChannel).name ===
-            channelVerificar.name
-          ) {
+          if ((message.channel as TextChannel).name === channelVerificar.name) {
             console.log('Nuevo intento de verificación: ', message.content);
 
             if (
@@ -800,4 +782,3 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
     }
   }
 }
-
