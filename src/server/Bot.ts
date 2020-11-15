@@ -3,12 +3,12 @@ import * as BotConfig from './botConfig';
 import { MigBotCommand } from './botApi';
 import { GuildInWhitelist, isBot, isInvalidUser } from './utils/botValidation';
 
-import Denuncia from './bot-commands/Denuncia';
-import Mensajes from './bot-commands/Mensajes';
-import Temario from './bot-commands/Temario';
-import Turnos from './bot-commands/Turnos';
-import Verificador from './bot-commands/Verificador';
-import Server from './bot-commands/Server';
+import Denuncia from './commands/Denuncia';
+import Mensajes from './commands/Mensajes';
+import Temario from './commands/Temario';
+import Turnos from './commands/Turnos';
+import Verificador from './commands/Verificador';
+import Server from './commands/Server';
 
 export default class Bot {
   private client: Client;
