@@ -540,6 +540,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         await this.currentEmbedMessage.react('🏺');
         await this.currentEmbedMessage.react('🦗');
         await this.currentEmbedMessage.react('🧙‍♂️');
+        await this.currentEmbedMessage.react('🇩🇪');
 
         this.currentEmbedMessage2 = await channelRoles.send(embedRoles);
 
@@ -558,6 +559,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         await this.currentEmbedMessage2.react('🦗');
         await this.currentEmbedMessage2.react('🧙‍♂️');
         await this.currentEmbedMessage2.react('🇩🇪');
+        await this.currentEmbedMessage.react('🇩🇪');
 
         console.log('Verificador here called....');
 
