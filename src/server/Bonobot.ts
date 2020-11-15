@@ -1,5 +1,5 @@
 import { Client, Message } from 'discord.js';
-import * as BotConfig from './botConfig';
+import { config } from './botConfig';
 import CommandInterface from './interfaces/CommandInterface';
 import { GuildInWhitelist, isBot, isInvalidUser } from './utils/botValidation';
 
@@ -28,7 +28,7 @@ export default class Bonobot {
 
   apply(): void {
     this.client.on('message', async (message: Message) => {
-      if (!message.content.startsWith(BotConfig.config.prefix)) {
+      if (!message.content.startsWith(config.prefix)) {
         return;
       }
 
@@ -109,7 +109,7 @@ export default class Bonobot {
   handleCommand(msg: Message): void {
     const command = msg.content
       .split(' ')[0]
-      .replace(BotConfig.config.prefix, '');
+      .replace(config.prefix, '');
     const args = msg.content.split(' ').slice(1);
 
     console.log('Handle cmd: ', command);

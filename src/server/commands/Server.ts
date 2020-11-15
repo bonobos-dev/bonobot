@@ -11,7 +11,7 @@ import CommandInterface from '../interfaces/CommandInterface';
 
 import { validateCommandRestrictions } from '../utils/botValidation';
 
-import * as BotConfig from '../botConfig';
+import { config, roles } from '../botConfig';
 
 import path from 'path';
 
@@ -20,9 +20,9 @@ export default class Server implements CommandInterface {
   private channel = '📌・sobre_el_servidor';
 
   private roles =
-    BotConfig.config.env === 'production'
-      ? BotConfig.roles.cb_real
-      : BotConfig.roles.cb_pruebas;
+    config.env === 'production'
+      ? roles.cb_real
+      : roles.cb_pruebas;
 
   private currentEmbedMessage0: Message;
   private currentEmbedMessage1: Message;

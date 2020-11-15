@@ -4,7 +4,7 @@ import CommandInterface from '../interfaces/CommandInterface';
 
 import { validateCommandRestrictions } from '../utils/botValidation';
 
-import * as BotConfig from '../botConfig';
+import { roles,config } from '../botConfig';
 
 import path from 'path';
 
@@ -13,9 +13,9 @@ export default class Verificador implements CommandInterface {
   private channel = '✅・verificación';
   private rolesChannel = '💎・roles';
   private roles =
-    BotConfig.config.env === 'production'
-      ? BotConfig.roles.cb_real
-      : BotConfig.roles.cb_pruebas;
+    config.env === 'production'
+      ? roles.cb_real
+      : roles.cb_pruebas;
 
   private currentEmbedMessage: Message;
   private reactionCollector: ReactionCollector;
@@ -562,21 +562,21 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         this.free = true;
 
         const emojis = [
-          { emoji: '🎙️', role: BotConfig.roles.cb_real['parla sabatina'].id },
-          { emoji: '📖', role: BotConfig.roles.cb_real['lector avispado'].id },
-          { emoji: '🎞️', role: BotConfig.roles.cb_real.lumierista.id },
-          { emoji: '📝', role: BotConfig.roles.cb_real['bonobo literario'].id },
-          { emoji: '👑', role: BotConfig.roles.cb_real.chaturanga.id },
-          { emoji: '🌿', role: BotConfig.roles.cb_real['eco bonobo'].id },
-          { emoji: '👅', role: BotConfig.roles.cb_real.políglota.id },
-          { emoji: '🎬', role: BotConfig.roles.cb_real.cinéfilo.id },
-          { emoji: '🍞', role: BotConfig.roles.cb_real.sabronobo.id },
-          { emoji: '💸', role: BotConfig.roles.cb_real['homo economicus'].id },
-          { emoji: '💻', role: BotConfig.roles.cb_real['photo shoppers'].id },
-          { emoji: '🏺', role: BotConfig.roles.cb_real['homo artem'].id },
-          { emoji: '🦗', role: BotConfig.roles.cb_real.entomófagos.id },
-          { emoji: '🧙‍♂️', role: BotConfig.roles.cb_real['homo sonitus'].id },
-          { emoji: '🇩🇪', role: BotConfig.roles.cb_real["Deutsche Primat"].id }
+          { emoji: '🎙️', role: roles.cb_real['parla sabatina'].id },
+          { emoji: '📖', role: roles.cb_real['lector avispado'].id },
+          { emoji: '🎞️', role: roles.cb_real.lumierista.id },
+          { emoji: '📝', role: roles.cb_real['bonobo literario'].id },
+          { emoji: '👑', role: roles.cb_real.chaturanga.id },
+          { emoji: '🌿', role: roles.cb_real['eco bonobo'].id },
+          { emoji: '👅', role: roles.cb_real.políglota.id },
+          { emoji: '🎬', role: roles.cb_real.cinéfilo.id },
+          { emoji: '🍞', role: roles.cb_real.sabronobo.id },
+          { emoji: '💸', role: roles.cb_real['homo economicus'].id },
+          { emoji: '💻', role: roles.cb_real['photo shoppers'].id },
+          { emoji: '🏺', role: roles.cb_real['homo artem'].id },
+          { emoji: '🦗', role: roles.cb_real.entomófagos.id },
+          { emoji: '🧙‍♂️', role: roles.cb_real['homo sonitus'].id },
+          { emoji: '🇩🇪', role: roles.cb_real["Deutsche Primat"].id }
         ];
 
         /*
