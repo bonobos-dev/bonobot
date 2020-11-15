@@ -118,7 +118,7 @@ ${'```Usuarios con funciones administrativas.```'}
         name: `**Pᴏʀ ᴀᴄᴛɪᴠɪᴅᴀᴅᴇs**`,
         value: `
 \u200B
-\u200B \u200B <@&${this.roles['parla sabatina'].id}>
+\u200B \u200B <@&${this.roles.parlaSabatina.id}>
 ${'```Para recibir los avisos relacionados al foro sabatino.```'}
 \u200B \u200B <@&${this.roles.lumierista.id}>
 ${'```Se te informará sobre las transmisiones de series, películas o cualquier otro contenido audiovisual.```'}

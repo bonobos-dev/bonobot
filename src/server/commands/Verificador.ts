@@ -772,7 +772,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
               const winner = Math.random() * (10 - 0) + 0;
 
               if (winner === 5) {
-                message.member.roles.add(this.roles['bonobo de la suerte'].id);
+                message.member.roles.add(this.roles.bonoboDeLaSuerte.id);
                 message.member.roles.add(this.roles.bonobo.id);
                 message.member.roles.remove(this.roles.austalopitecus.id);
                 message.author.send(
