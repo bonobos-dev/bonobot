@@ -1,6 +1,6 @@
 import {MessageAttachment, Message, MessageEmbed, Client,ReactionCollector, TextChannel,MessageReaction} from 'discord.js';
 
-import { MigBotCommand } from '../botApi';
+import { MigBotCommand } from '../interfaces/botApi';
 
 import { validateCommandRestrictions } from '../utils/botValidation';
 

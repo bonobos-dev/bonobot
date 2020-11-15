@@ -7,7 +7,7 @@ import {
 } from 'discord.js';
 import path from 'path';
 
-import { MigBotCommand } from '../botApi';
+import { MigBotCommand } from '../interfaces/botApi';
 import { validateCommandRestrictions } from '../utils/botValidation';
 
 export interface UserCmdInfo {

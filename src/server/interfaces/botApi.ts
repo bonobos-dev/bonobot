@@ -1,12 +1,12 @@
-import * as Discord from 'discord.js';
+import { Message, Client } from 'discord.js';
 
 export interface MigBotCommand {
   help(): string;
   isThisCommand(command: string): boolean;
   runCommand(
     args: string[],
-    msgObject: Discord.Message,
-    client: Discord.Client
+    msgObject: Message,
+    client: Client
   ): void;
 }
 

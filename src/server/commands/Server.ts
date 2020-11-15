@@ -7,7 +7,7 @@ import {
   TextChannel,
 } from 'discord.js';
 
-import { MigBotCommand } from '../botApi';
+import { MigBotCommand } from '../interfaces/botApi';
 
 import { validateCommandRestrictions } from '../utils/botValidation';
 

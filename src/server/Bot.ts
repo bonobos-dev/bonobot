@@ -1,6 +1,6 @@
 import { Client, Message } from 'discord.js';
 import * as BotConfig from './botConfig';
-import { MigBotCommand } from './botApi';
+import { MigBotCommand } from './interfaces/botApi';
 import { GuildInWhitelist, isBot, isInvalidUser } from './utils/botValidation';
 
 import Denuncia from './commands/Denuncia';
