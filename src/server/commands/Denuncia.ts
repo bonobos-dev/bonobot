@@ -7,7 +7,7 @@ import {
 } from 'discord.js';
 import path from 'path';
 
-import { MigBotCommand } from '../interfaces/botApi';
+import CommandInterface from '../interfaces/CommandInterface';
 import { validateCommandRestrictions } from '../utils/botValidation';
 
 export interface UserCmdInfo {
@@ -15,7 +15,7 @@ export interface UserCmdInfo {
   last_call: number;
 }
 
-export default class Denuncia implements MigBotCommand {
+export default class Denuncia implements CommandInterface {
   private readonly _command = 'denuncia';
   private migdrplogo: MessageAttachment;
   private bonobotlogo: MessageAttachment;

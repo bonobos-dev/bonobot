@@ -1,6 +1,6 @@
 import { Message, Client } from 'discord.js';
 
-export interface CommandInterface {
+export default interface MigBotCommand {
   help(): string;
   isThisCommand(command: string): boolean;
   runCommand(

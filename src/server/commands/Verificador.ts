@@ -1,6 +1,6 @@
 import {MessageAttachment, Message, MessageEmbed, Client,ReactionCollector, TextChannel,MessageReaction} from 'discord.js';
 
-import { MigBotCommand } from '../interfaces/botApi';
+import CommandInterface from '../interfaces/CommandInterface';
 
 import { validateCommandRestrictions } from '../utils/botValidation';
 
@@ -8,7 +8,7 @@ import * as BotConfig from '../botConfig';
 
 import path from 'path';
 
-export default class Verificador implements MigBotCommand {
+export default class Verificador implements CommandInterface {
   private _command = 'verificador';
   private channel = '✅・verificación';
   private rolesChannel = '💎・roles';

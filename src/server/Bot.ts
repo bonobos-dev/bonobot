@@ -1,6 +1,6 @@
 import { Client, Message } from 'discord.js';
 import * as BotConfig from './botConfig';
-import { MigBotCommand } from './interfaces/botApi';
+import CommandInterface from './interfaces/CommandInterface';
 import { GuildInWhitelist, isBot, isInvalidUser } from './utils/botValidation';
 
 import Denuncia from './commands/Denuncia';
@@ -12,7 +12,7 @@ import Server from './commands/Server';
 
 export default class Bot {
   private client: Client;
-  private commands: Array<MigBotCommand>;
+  private commands: Array<CommandInterface>;
 
   constructor() {
     this.client = new Client();

@@ -7,7 +7,7 @@ import {
   TextChannel,
 } from 'discord.js';
 
-import { MigBotCommand } from '../interfaces/botApi';
+import CommandInterface from '../interfaces/CommandInterface';
 
 import { validateCommandRestrictions } from '../utils/botValidation';
 
@@ -15,7 +15,7 @@ import * as BotConfig from '../botConfig';
 
 import path from 'path';
 
-export default class Server implements MigBotCommand {
+export default class Server implements CommandInterface {
   private _command = 'server';
   private channel = '📌・sobre_el_servidor';
 

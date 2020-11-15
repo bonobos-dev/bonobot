@@ -6,7 +6,7 @@ import {
   ReactionCollector,
   MessageReaction,
 } from 'discord.js';
-import { MigBotCommand } from '../interfaces/botApi';
+import CommandInterface from '../interfaces/CommandInterface';
 import { validateCommandRestrictions } from '../utils/botValidation';
 import path from 'path';
 
@@ -15,7 +15,7 @@ export enum turnos_states {
   free = ' free',
 }
 
-export default class Turnos implements MigBotCommand {
+export default class Turnos implements CommandInterface {
   private readonly _command = 'turnos';
 
   private users: string[] = ['\u200B'];

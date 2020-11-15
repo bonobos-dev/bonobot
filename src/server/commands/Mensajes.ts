@@ -1,10 +1,10 @@
 import { Message, MessageEmbed, MessageAttachment, Client } from 'discord.js';
 import path from 'path';
 
-import { MigBotCommand } from '../interfaces/botApi';
+import CommandInterface from '../interfaces/CommandInterface';
 import { validateCommandRestrictions } from '../utils/botValidation';
 
-export default class Mensajes implements MigBotCommand {
+export default class Mensajes implements CommandInterface {
   private readonly _command = 'mensajes';
   private currentEmbedMessage: Message;
   private migdrplogo = new MessageAttachment(

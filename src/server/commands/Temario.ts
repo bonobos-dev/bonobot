@@ -1,6 +1,6 @@
 import {Message, MessageEmbed, MessageAttachment} from 'discord.js';
 
-import { MigBotCommand } from '../interfaces/botApi';
+import CommandInterface from '../interfaces/CommandInterface';
 import { validateCommandRestrictions } from '../utils/botValidation';
 import path from 'path';
 
@@ -97,7 +97,7 @@ const temarioDataTestFull = {
   ],
 };
 
-export default class Temario implements MigBotCommand {
+export default class Temario implements CommandInterface {
   private readonly _command = 'temario';
 
   private currentEmbedMessage: Message;
