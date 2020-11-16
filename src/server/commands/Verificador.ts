@@ -18,7 +18,7 @@ import path from 'path';
 
 export default class Verificador implements CommandInterface {
   private _command = 'verificador';
-  private channel = '✅・verificación-tests';
+  private channel = '✅・verificación';
   private rolesChannel = '💎・roles';
   private roles =
     config.env === 'production' ? roles.cb_real : roles.cb_pruebas;
