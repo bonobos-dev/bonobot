@@ -1,43 +1,50 @@
-import * as Discord from 'discord.js';
+import {
+  Client,
+  MessageAttachment,
+  Message,
+  MessageEmbed,
+  ReactionCollector,
+  TextChannel,
+} from 'discord.js';
 
-import { MigBotCommand } from '../botApi';
+import CommandInterface from '../interfaces/CommandInterface';
 
 import { validateCommandRestrictions } from '../utils/botValidation';
 
-import * as BotConfig from '../botConfig';
+import { config, roles } from '../botConfig';
 
 import path from 'path';
 
-export default class Server implements MigBotCommand {
+export default class Server implements CommandInterface {
   private _command = 'server';
   private channel = '📌・sobre_el_servidor';
 
   private roles =
-    BotConfig.config.env === 'production'
-      ? BotConfig.roles.cb_real
-      : BotConfig.roles.cb_pruebas;
+    config.env === 'production'
+      ? roles.cb_real
+      : roles.cb_pruebas;
 
-  private currentEmbedMessage0: Discord.Message;
-  private currentEmbedMessage1: Discord.Message;
-  private currentEmbedMessage2: Discord.Message;
-  private reactionCollector: Discord.ReactionCollector;
+  private currentEmbedMessage0: Message;
+  private currentEmbedMessage1: Message;
+  private currentEmbedMessage2: Message;
+  private reactionCollector: ReactionCollector;
 
-  private migdrplogo = new Discord.MessageAttachment(
+  private migdrplogo = new MessageAttachment(
     path.join(__dirname, `../assets/img/migdrp-logo-small-parla_sabatina.png`),
     'migdrp-icon.png'
   );
-  private bonobotlogo = new Discord.MessageAttachment(
+  private bonobotlogo = new MessageAttachment(
     path.join(__dirname, `../assets/img/cb-logo.png`),
     'bb-logo.png'
   );
-  private imgParla = new Discord.MessageAttachment(
+  private imgParla = new MessageAttachment(
     path.join(__dirname, `../assets/img/foro_img_horizontal.jpeg`),
     'foro-img.jpg'
   );
 
   private free = true;
 
-  private async checkSelectedChannel(message: Discord.Message) {
+  private async checkSelectedChannel(message: Message) {
     try {
       const channelFound = message.guild.channels.cache.findKey(
         (channel) => channel.name === this.channel
@@ -55,7 +62,7 @@ export default class Server implements MigBotCommand {
     }
   }
 
-  private async getSelectedChannel(client: Discord.Client, id: string) {
+  private async getSelectedChannel(client: Client, id: string) {
     try {
       const channelFound = client.channels.fetch(id);
       return channelFound;
@@ -68,8 +75,8 @@ export default class Server implements MigBotCommand {
     console.log('Server Command Instantiated');
   }
 
-  private crearEmbedSobreRoles(): Discord.MessageEmbed {
-    const template = new Discord.MessageEmbed()
+  private crearEmbedSobreRoles(): MessageEmbed {
+    const template = new MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
@@ -111,7 +118,7 @@ ${'```Usuarios con funciones administrativas.```'}
         name: `**Pᴏʀ ᴀᴄᴛɪᴠɪᴅᴀᴅᴇs**`,
         value: `
 \u200B
-\u200B \u200B <@&${this.roles['parla sabatina'].id}>
+\u200B \u200B <@&${this.roles.parlaSabatina.id}>
 ${'```Para recibir los avisos relacionados al foro sabatino.```'}
 \u200B \u200B <@&${this.roles.lumierista.id}>
 ${'```Se te informará sobre las transmisiones de series, películas o cualquier otro contenido audiovisual.```'}
@@ -153,7 +160,7 @@ ${'```Para quienes deseen asistir a las clases de historia del arte.```'}
 ${'```Para quienes deseen asistir a las clases de entomología.```'}
 \u200B \u200B <@&${this.roles['homo sonitus'].id}>
 ${'```Para quienes desean asistir a clases de diseño sonoro con DAW```'}
-\u200B \u200B <@&${this.roles["Deutsche Primat"].id}>
+\u200B \u200B <@&${this.roles['Deutsche Primat'].id}>
 ${'```Para quienes desean asistir a clases de alemán```'}
 \u200B
 \u200B
@@ -199,8 +206,8 @@ ${'```Rol correspondiente a las clases de esperanto que se impartieron en la com
     return template;
   }
 
-  private crearEmbedSobreElServidor1(): Discord.MessageEmbed {
-    const template = new Discord.MessageEmbed()
+  private crearEmbedSobreElServidor1(): MessageEmbed {
+    const template = new MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
@@ -380,8 +387,8 @@ ${'```Canales de audio para utilizarse en las actividades de la estación praxis
     return template;
   }
 
-  private crearEmbedSobreElServidor2(): Discord.MessageEmbed {
-    const template = new Discord.MessageEmbed()
+  private crearEmbedSobreElServidor2(): MessageEmbed {
+    const template = new MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
@@ -486,11 +493,7 @@ ${'```Los canales de voz no son para dormir, si entraste a uno y estuviste inact
     return command === this._command;
   }
 
-  public async runCommand(
-    args: string[],
-    msgObject: Discord.Message,
-    client: Discord.Client
-  ) {
+  public async runCommand(args: string[], msgObject: Message, client: Client) {
     console.log('command verificador ejecutado');
 
     if (!validateCommandRestrictions(this._command, msgObject)) {
@@ -516,7 +519,7 @@ ${'```Los canales de voz no son para dormir, si entraste a uno y estuviste inact
         const channelDenuncias = (await this.getSelectedChannel(
           msgObject.client,
           channel_ID
-        )) as Discord.TextChannel;
+        )) as TextChannel;
 
         const embedRoles = this.crearEmbedSobreRoles();
         const embedservidor1 = this.crearEmbedSobreElServidor1();
@@ -544,4 +547,3 @@ ${'```Los canales de voz no son para dormir, si entraste a uno y estuviste inact
     }
   }
 }
-

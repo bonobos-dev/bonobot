@@ -1,6 +1,6 @@
-import * as Discord from 'discord.js';
+import {Message, MessageEmbed, MessageAttachment} from 'discord.js';
 
-import { MigBotCommand } from '../botApi';
+import CommandInterface from '../interfaces/CommandInterface';
 import { validateCommandRestrictions } from '../utils/botValidation';
 import path from 'path';
 
@@ -97,21 +97,21 @@ const temarioDataTestFull = {
   ],
 };
 
-export default class Temario implements MigBotCommand {
+export default class Temario implements CommandInterface {
   private readonly _command = 'temario';
 
-  private currentEmbedMessage: Discord.Message;
+  private currentEmbedMessage: Message;
 
-  private migdrplogo = new Discord.MessageAttachment( 
+  private migdrplogo = new MessageAttachment( 
     path.join(__dirname, `../assets/img/migdrp-logo-small-parla_sabatina.png`), 
     'migdrp-icon.png' 
   );
-  private bonobotlogo = new Discord.MessageAttachment(
+  private bonobotlogo = new MessageAttachment(
     path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`),
     'bb-logo.png'
   );
 
-  private crearEmbedTemario(aviso: boolean, data: any): Discord.MessageEmbed {
+  private crearEmbedTemario(aviso: boolean, data: any): MessageEmbed {
     const temarioData = data;
 
     const fieldsForEmbed = () => {
@@ -167,7 +167,7 @@ export default class Temario implements MigBotCommand {
     };
 
     if (aviso) {
-      const template = new Discord.MessageEmbed()
+      const template = new MessageEmbed()
         .attachFiles(this.migdrplogo as any)
         .attachFiles(this.bonobotlogo as any)
         .setColor('#a956bd')
@@ -208,7 +208,7 @@ export default class Temario implements MigBotCommand {
 
       return template;
     } else {
-      const template = new Discord.MessageEmbed()
+      const template = new MessageEmbed()
         .attachFiles(this.migdrplogo as any)
         .attachFiles(this.bonobotlogo as any)
         .setColor('#a956bd')
@@ -250,7 +250,7 @@ export default class Temario implements MigBotCommand {
 
   public async runCommand(
     args: string[],
-    msgObject: Discord.Message
+    msgObject: Message
   ): Promise<void> {
     if (!validateCommandRestrictions(this._command, msgObject)) {
       return;

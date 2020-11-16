@@ -1,44 +1,50 @@
-import * as Discord from 'discord.js';
+import {
+  MessageAttachment,
+  Message,
+  MessageEmbed,
+  Client,
+  ReactionCollector,
+  TextChannel,
+  MessageReaction,
+} from 'discord.js';
 
-import { MigBotCommand } from '../botApi';
+import CommandInterface from '../interfaces/CommandInterface';
 
 import { validateCommandRestrictions } from '../utils/botValidation';
 
-import * as BotConfig from '../botConfig';
+import { roles, config } from '../botConfig';
 
 import path from 'path';
 
-export default class Verificador implements MigBotCommand {
+export default class Verificador implements CommandInterface {
   private _command = 'verificador';
-  private channel = '✅・verificación';
+  private channel = '✅・verificación-tests';
   private rolesChannel = '💎・roles';
   private roles =
-    BotConfig.config.env === 'production'
-      ? BotConfig.roles.cb_real
-      : BotConfig.roles.cb_pruebas;
+    config.env === 'production' ? roles.cb_real : roles.cb_pruebas;
 
-  private currentEmbedMessage: Discord.Message;
-  private reactionCollector: Discord.ReactionCollector;
+  private currentEmbedMessage: Message;
+  private reactionCollector: ReactionCollector;
 
-  private currentEmbedMessage2: Discord.Message;
-  private reactionCollector2: Discord.ReactionCollector;
+  private currentEmbedMessage2: Message;
+  private reactionCollector2: ReactionCollector;
 
-  private migdrplogo = new Discord.MessageAttachment(
+  private migdrplogo = new MessageAttachment(
     path.join(__dirname, `../assets/img/migdrp-logo-small-parla_sabatina.png`),
     'migdrp-icon.png'
   );
-  private bonobotlogo = new Discord.MessageAttachment(
+  private bonobotlogo = new MessageAttachment(
     path.join(__dirname, `../assets/img/cb-logo.png`),
     'bb-logo.png'
   );
-  private imgParla = new Discord.MessageAttachment(
+  private imgParla = new MessageAttachment(
     path.join(__dirname, `../assets/img/foro_img_horizontal.jpeg`),
     'foro-img.jpg'
   );
 
   private free = true;
 
-  private async checkSelectedChannel(message: Discord.Message) {
+  private async checkSelectedChannel(message: Message) {
     try {
       const channelFound = message.guild.channels.cache.findKey(
         (channel) => channel.name === this.channel
@@ -56,7 +62,7 @@ export default class Verificador implements MigBotCommand {
     }
   }
 
-  private async getSelectedChannel(client: Discord.Client, id: string) {
+  private async getSelectedChannel(client: Client, id: string) {
     try {
       const channelFound = client.channels.fetch(id);
       return channelFound;
@@ -65,7 +71,7 @@ export default class Verificador implements MigBotCommand {
     }
   }
 
-  private async checkSelectedChannel2(message: Discord.Message) {
+  private async checkSelectedChannel2(message: Message) {
     try {
       const channelFound = message.guild.channels.cache.findKey(
         (channel) => channel.name === this.rolesChannel
@@ -83,7 +89,7 @@ export default class Verificador implements MigBotCommand {
     }
   }
 
-  private async getSelectedChannel2(client: Discord.Client, id: string) {
+  private async getSelectedChannel2(client: Client, id: string) {
     try {
       const channelFound = client.channels.fetch(id);
       return channelFound;
@@ -96,8 +102,8 @@ export default class Verificador implements MigBotCommand {
     console.log('Verificador Command Instantiated');
   }
 
-  private crearEmbedVerificador(): Discord.MessageEmbed {
-    const template = new Discord.MessageEmbed()
+  private crearEmbedVerificador(): MessageEmbed {
+    const template = new MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
@@ -203,9 +209,9 @@ ${'```𝐴𝑏𝑠𝑡𝑒́𝑛𝑔𝑎𝑛𝑠𝑒 𝑑𝑒 𝑠𝑒𝑟 𝑜�
         value: `
 𝖤𝗑𝗂𝗌𝗍𝖾𝗇 𝖾𝗌𝗉𝖺𝖼𝗂𝗈𝗌 𝖽𝖾 𝖼𝗈𝗇𝗏𝖾𝗋𝗌𝖺𝖼𝗂𝗈́𝗇 𝖼𝖺𝗌𝗎𝖺𝗅 𝖾𝗇 ${'``🍺TABERNA BONÓBICA🍺``'} 𝗒 𝖾𝗌𝗉𝖺𝖼𝗂𝗈𝗌 𝖽𝖾𝗌𝗍𝗂𝗇𝖺𝖽𝗈𝗌 𝖺 𝗍𝖾𝗆𝖺𝗌 𝗆𝖺́𝗌 𝖾𝗌𝗉𝖾𝖼𝗂́𝖿𝗂𝖼𝗈𝗌.
 \u200B
-\u200B \u200B :microphone2: \u200B <@&${this.roles['parla sabatina'].id}>
+\u200B \u200B :microphone2: \u200B <@&${this.roles.parlaSabatina.id}>
 ${'```𝐹𝑜𝑟𝑜𝑠 𝑠𝑎𝑏𝑎𝑡𝑖𝑛𝑜𝑠 𝑐𝑎𝑑𝑎 𝑑𝑜𝑠 𝑠𝑒𝑚𝑎𝑛𝑎𝑠 𝑠𝑜𝑏𝑟𝑒 𝑢𝑛 𝑡𝑒𝑚𝑎 𝑒𝑠𝑐𝑜𝑔𝑖𝑑𝑜 𝑝𝑜𝑟 𝑙𝑎 𝑐𝑜𝑚𝑢𝑛𝑖𝑑𝑎𝑑.```'}
-\u200B \u200B :book: \u200B <@&${this.roles['lector avispado'].id}>
+\u200B \u200B :book: \u200B <@&${this.roles.lectorAvispado.id}>
 ${'```𝐿𝑒𝑐𝑡𝑢𝑟𝑎 𝑑𝑒 𝑙𝑖𝑏𝑟𝑜𝑠, 𝑐𝑢𝑒𝑛𝑡𝑜𝑠, 𝑝𝑜𝑒𝑚𝑎𝑠 𝑜 𝑎𝑟𝑡𝑖́𝑐𝑢𝑙𝑜𝑠.```'}
 \u200B \u200B :film_frames: \u200B <@&${this.roles.lumierista.id}>
 ${'```𝑇𝑟𝑎𝑛𝑠𝑚𝑖𝑠𝑖𝑜́𝑛 𝑑𝑒 𝑠𝑒𝑟𝑖𝑒𝑠, 𝑝𝑒𝑙𝑖́𝑐𝑢𝑙𝑎𝑠 𝑜 𝑐𝑢𝑎𝑙𝑞𝑢𝑖𝑒𝑟 𝑐𝑜𝑛𝑡𝑒𝑛𝑖𝑑𝑜 𝑚𝑢𝑙𝑡𝑖𝑚𝑒𝑑𝑖𝑎.```'}
@@ -218,11 +224,11 @@ ${'```𝑇𝑟𝑎𝑛𝑠𝑚𝑖𝑠𝑖𝑜́𝑛 𝑑𝑒 𝑠𝑒𝑟𝑖�
 \u200B
 **Cɪ́ʀᴄᴜʟᴏs ᴅᴇ ᴀᴘʀᴇɴᴅɪᴢᴀᴊᴇ ᴄᴏɴ ᴍᴜ́ʟᴛɪᴘʟᴇs ᴀᴄᴛɪᴠɪᴅᴀᴅᴇs:**
 \u200B
-\u200B \u200B :pencil: \u200B <@&${this.roles['bonobo literario'].id}>
+\u200B \u200B :pencil: \u200B <@&${this.roles.bonoboLiterario.id}>
 ${'```𝗖𝗶́𝗿𝗰𝘂𝗹𝗼 𝗟𝗶𝘁𝗲𝗿𝗮𝗿𝗶𝗼 𝗕𝗼𝗻𝗼́𝗯𝗶𝗰𝗼: 𝑃𝑎𝑟𝑎 𝑝𝑒𝑟𝑠𝑜𝑛𝑎𝑠 𝑞𝑢𝑒 𝑡𝑒𝑛𝑔𝑎𝑛 𝑖𝑛𝑡𝑒𝑟𝑒́𝑠 𝑝𝑜𝑟 𝑒𝑠𝑐𝑟𝑖𝑏𝑖𝑟 𝑜 𝑒𝑠𝑐𝑟𝑖𝑡𝑜𝑟𝑒𝑠 𝑎𝑓𝑖𝑐𝑖𝑜𝑛𝑎𝑑𝑜𝑠.```'}
 \u200B \u200B :crown: \u200B <@&${this.roles.chaturanga.id}>
 ${'```𝗖𝗹𝘂𝗯 𝗱𝗲 𝗮𝗷𝗲𝗱𝗿𝗲𝘇: 𝑇𝑎𝑙𝑙𝑒𝑟𝑒𝑠 𝑑𝑒 𝑎𝑝𝑟𝑒𝑛𝑑𝑖𝑧𝑎𝑗𝑒, 𝑡𝑜𝑟𝑛𝑒𝑜𝑠 𝑦 𝑝𝑎𝑟𝑡𝑖𝑑𝑎𝑠 𝑐𝑎𝑠𝑢𝑎𝑙𝑒𝑠 𝑒𝑛 𝑙𝑖́𝑛𝑒𝑎.```'}
-\u200B \u200B :herb: \u200B <@&${this.roles['eco bonobo'].id}>
+\u200B \u200B :herb: \u200B <@&${this.roles.ecoBonobo.id}>
 ${'```𝗘𝗰𝗼 𝗕𝗼𝗻𝗼𝗯𝗼: 𝐴𝑐𝑡𝑖𝑣𝑖𝑑𝑎𝑑𝑒𝑠 𝑒𝑛𝑓𝑜𝑐𝑎𝑑𝑎𝑠 𝑎 𝑡𝑜𝑑𝑜 𝑙𝑜 𝑟𝑒𝑙𝑎𝑐𝑖𝑜𝑛𝑎𝑑𝑜 𝑎 𝑙𝑎 𝑒𝑐𝑜𝑙𝑜𝑔𝑖́𝑎 𝑦 𝑙𝑎 𝑎𝑔𝑟𝑖𝑐𝑢𝑙𝑡𝑢𝑟𝑎.```'}
 \u200B \u200B :tongue: \u200B <@&${this.roles.políglota.id}>
 ${'```𝗟𝗲𝗻𝗴𝘂𝗮𝘀 𝗛𝗼𝗺𝗶́𝗻𝗶𝗱𝗮𝘀: 𝐴𝑐𝑡𝑖𝑣𝑖𝑑𝑎𝑑𝑒𝑠 𝑒𝑛𝑓𝑜𝑐𝑎𝑑𝑎𝑠 𝑒𝑛 𝑒𝑙 𝑎𝑝𝑟𝑒𝑛𝑑𝑖𝑧𝑎𝑗𝑒 𝑑𝑒 𝑖𝑑𝑖𝑜𝑚𝑎𝑠.```'}
@@ -238,17 +244,17 @@ ${'```𝗝𝗮𝗿𝗱𝗶́𝗻 𝗱𝗲 𝗹𝗮𝘀 𝗱𝗲𝗹𝗶𝗰𝗶�
 \u200B
 **Dɪᴠᴇʀsᴀs ᴀᴄᴛɪᴠɪᴅᴀᴅᴇs ᴇᴅᴜᴄᴀᴛɪᴠᴀs, ᴄᴜʀsᴏs ᴏ ᴛᴀʟʟᴇʀᴇs ᴄᴏɴ ᴍᴀᴇsᴛʀᴏs ᴠᴏʟᴜɴᴛᴀʀɪᴏs:**
 \u200B
-\u200B \u200B :money_with_wings: <@&${this.roles['homo economicus'].id}>
+\u200B \u200B :money_with_wings: <@&${this.roles.homoEconomicus.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑒𝑐𝑜𝑛𝑜𝑚𝑖́𝑎.```'}
-\u200B \u200B :computer: \u200B <@&${this.roles['photo shoppers'].id}>
+\u200B \u200B :computer: \u200B <@&${this.roles.photoShoppers.id}>
 ${'```𝑇𝑎𝑙𝑙𝑒𝑟 𝑑𝑒 𝑃ℎ𝑜𝑡𝑜𝑠ℎ𝑜𝑝.```'}
-\u200B \u200B :amphora: \u200B <@&${this.roles['homo artem'].id}>
+\u200B \u200B :amphora: \u200B <@&${this.roles.homoArtem.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 ℎ𝑖𝑠𝑡𝑜𝑟𝑖𝑎 𝑑𝑒𝑙 𝑎𝑟𝑡𝑒.```'}
 \u200B \u200B :cricket: \u200B <@&${this.roles.entomófagos.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑒𝑛𝑡𝑜𝑚𝑜𝑙𝑜𝑔𝑖́𝑎.```'}
-\u200B \u200B :man_mage: \u200B <@&${this.roles['homo sonitus'].id}>
+\u200B \u200B :man_mage: \u200B <@&${this.roles.homoSonitus.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠𝑜𝑛𝑖𝑑𝑜 𝑐𝑜𝑛 𝐷𝐴𝑊.```'}
-\u200B \u200B :flag_de: \u200B <@&${this.roles["Deutsche Primat"].id}>
+\u200B \u200B :flag_de: \u200B <@&${this.roles.DeutschePrimat.id}>
 ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         `,
       })
@@ -270,8 +276,8 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
     return template;
   }
 
-  private crearEmbedVerificador2(): Discord.MessageEmbed {
-    const template = new Discord.MessageEmbed()
+  private crearEmbedVerificador2(): MessageEmbed {
+    const template = new MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
@@ -377,9 +383,9 @@ ${'```𝐴𝑏𝑠𝑡𝑒́𝑛𝑔𝑎𝑛𝑠𝑒 𝑑𝑒 𝑠𝑒𝑟 𝑜�
         value: `
 𝖤𝗑𝗂𝗌𝗍𝖾𝗇 𝖾𝗌𝗉𝖺𝖼𝗂𝗈𝗌 𝖽𝖾 𝖼𝗈𝗇𝗏𝖾𝗋𝗌𝖺𝖼𝗂𝗈́𝗇 𝖼𝖺𝗌𝗎𝖺𝗅 𝖾𝗇 ${'``🍺TABERNA BONÓBICA🍺``'} 𝗒 𝖾𝗌𝗉𝖺𝖼𝗂𝗈𝗌 𝖽𝖾𝗌𝗍𝗂𝗇𝖺𝖽𝗈𝗌 𝖺 𝗍𝖾𝗆𝖺𝗌 𝗆𝖺́𝗌 𝖾𝗌𝗉𝖾𝖼𝗂́𝖿𝗂𝖼𝗈𝗌.
 \u200B
-\u200B \u200B :microphone2: \u200B <@&${this.roles['parla sabatina'].id}>
+\u200B \u200B :microphone2: \u200B <@&${this.roles.parlaSabatina.id}>
 ${'```𝐹𝑜𝑟𝑜𝑠 𝑠𝑎𝑏𝑎𝑡𝑖𝑛𝑜𝑠 𝑐𝑎𝑑𝑎 𝑑𝑜𝑠 𝑠𝑒𝑚𝑎𝑛𝑎𝑠 𝑠𝑜𝑏𝑟𝑒 𝑢𝑛 𝑡𝑒𝑚𝑎 𝑒𝑠𝑐𝑜𝑔𝑖𝑑𝑜 𝑝𝑜𝑟 𝑙𝑎 𝑐𝑜𝑚𝑢𝑛𝑖𝑑𝑎𝑑.```'}
-\u200B \u200B :book: \u200B <@&${this.roles['lector avispado'].id}>
+\u200B \u200B :book: \u200B <@&${this.roles.lectorAvispado.id}>
 ${'```𝐿𝑒𝑐𝑡𝑢𝑟𝑎 𝑑𝑒 𝑙𝑖𝑏𝑟𝑜𝑠, 𝑐𝑢𝑒𝑛𝑡𝑜𝑠, 𝑝𝑜𝑒𝑚𝑎𝑠 𝑜 𝑎𝑟𝑡𝑖́𝑐𝑢𝑙𝑜𝑠.```'}
 \u200B \u200B :film_frames: \u200B <@&${this.roles.lumierista.id}>
 ${'```𝑇𝑟𝑎𝑛𝑠𝑚𝑖𝑠𝑖𝑜́𝑛 𝑑𝑒 𝑠𝑒𝑟𝑖𝑒𝑠, 𝑝𝑒𝑙𝑖́𝑐𝑢𝑙𝑎𝑠 𝑜 𝑐𝑢𝑎𝑙𝑞𝑢𝑖𝑒𝑟 𝑐𝑜𝑛𝑡𝑒𝑛𝑖𝑑𝑜 𝑚𝑢𝑙𝑡𝑖𝑚𝑒𝑑𝑖𝑎.```'}
@@ -392,11 +398,11 @@ ${'```𝑇𝑟𝑎𝑛𝑠𝑚𝑖𝑠𝑖𝑜́𝑛 𝑑𝑒 𝑠𝑒𝑟𝑖�
 \u200B
 **Cɪ́ʀᴄᴜʟᴏs ᴅᴇ ᴀᴘʀᴇɴᴅɪᴢᴀᴊᴇ ᴄᴏɴ ᴍᴜ́ʟᴛɪᴘʟᴇs ᴀᴄᴛɪᴠɪᴅᴀᴅᴇs:**
 \u200B
-\u200B \u200B :pencil: \u200B <@&${this.roles['bonobo literario'].id}>
+\u200B \u200B :pencil: \u200B <@&${this.roles.bonoboLiterario.id}>
 ${'```𝗖𝗶́𝗿𝗰𝘂𝗹𝗼 𝗟𝗶𝘁𝗲𝗿𝗮𝗿𝗶𝗼 𝗕𝗼𝗻𝗼́𝗯𝗶𝗰𝗼: 𝑃𝑎𝑟𝑎 𝑝𝑒𝑟𝑠𝑜𝑛𝑎𝑠 𝑞𝑢𝑒 𝑡𝑒𝑛𝑔𝑎𝑛 𝑖𝑛𝑡𝑒𝑟𝑒́𝑠 𝑝𝑜𝑟 𝑒𝑠𝑐𝑟𝑖𝑏𝑖𝑟 𝑜 𝑒𝑠𝑐𝑟𝑖𝑡𝑜𝑟𝑒𝑠 𝑎𝑓𝑖𝑐𝑖𝑜𝑛𝑎𝑑𝑜𝑠.```'}
 \u200B \u200B :crown: \u200B <@&${this.roles.chaturanga.id}>
 ${'```𝗖𝗹𝘂𝗯 𝗱𝗲 𝗮𝗷𝗲𝗱𝗿𝗲𝘇: 𝑇𝑎𝑙𝑙𝑒𝑟𝑒𝑠 𝑑𝑒 𝑎𝑝𝑟𝑒𝑛𝑑𝑖𝑧𝑎𝑗𝑒, 𝑡𝑜𝑟𝑛𝑒𝑜𝑠 𝑦 𝑝𝑎𝑟𝑡𝑖𝑑𝑎𝑠 𝑐𝑎𝑠𝑢𝑎𝑙𝑒𝑠 𝑒𝑛 𝑙𝑖́𝑛𝑒𝑎.```'}
-\u200B \u200B :herb: \u200B <@&${this.roles['eco bonobo'].id}>
+\u200B \u200B :herb: \u200B <@&${this.roles.ecoBonobo.id}>
 ${'```𝗘𝗰𝗼 𝗕𝗼𝗻𝗼𝗯𝗼: 𝐴𝑐𝑡𝑖𝑣𝑖𝑑𝑎𝑑𝑒𝑠 𝑒𝑛𝑓𝑜𝑐𝑎𝑑𝑎𝑠 𝑎 𝑡𝑜𝑑𝑜 𝑙𝑜 𝑟𝑒𝑙𝑎𝑐𝑖𝑜𝑛𝑎𝑑𝑜 𝑎 𝑙𝑎 𝑒𝑐𝑜𝑙𝑜𝑔𝑖́𝑎 𝑦 𝑙𝑎 𝑎𝑔𝑟𝑖𝑐𝑢𝑙𝑡𝑢𝑟𝑎.```'}
 \u200B \u200B :tongue: \u200B <@&${this.roles.políglota.id}>
 ${'```𝗟𝗲𝗻𝗴𝘂𝗮𝘀 𝗛𝗼𝗺𝗶́𝗻𝗶𝗱𝗮𝘀: 𝐴𝑐𝑡𝑖𝑣𝑖𝑑𝑎𝑑𝑒𝑠 𝑒𝑛𝑓𝑜𝑐𝑎𝑑𝑎𝑠 𝑒𝑛 𝑒𝑙 𝑎𝑝𝑟𝑒𝑛𝑑𝑖𝑧𝑎𝑗𝑒 𝑑𝑒 𝑖𝑑𝑖𝑜𝑚𝑎𝑠.```'}
@@ -412,17 +418,17 @@ ${'```𝗝𝗮𝗿𝗱𝗶́𝗻 𝗱𝗲 𝗹𝗮𝘀 𝗱𝗲𝗹𝗶𝗰𝗶�
 \u200B
 **Dɪᴠᴇʀsᴀs ᴀᴄᴛɪᴠɪᴅᴀᴅᴇs ᴇᴅᴜᴄᴀᴛɪᴠᴀs, ᴄᴜʀsᴏs ᴏ ᴛᴀʟʟᴇʀᴇs ᴄᴏɴ ᴍᴀᴇsᴛʀᴏs ᴠᴏʟᴜɴᴛᴀʀɪᴏs:**
 \u200B
-\u200B \u200B :money_with_wings: <@&${this.roles['homo economicus'].id}>
+\u200B \u200B :money_with_wings: <@&${this.roles.homoEconomicus.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑒𝑐𝑜𝑛𝑜𝑚𝑖́𝑎.```'}
-\u200B \u200B :computer: \u200B <@&${this.roles['photo shoppers'].id}>
+\u200B \u200B :computer: \u200B <@&${this.roles.photoShoppers.id}>
 ${'```𝑇𝑎𝑙𝑙𝑒𝑟 𝑑𝑒 𝑃ℎ𝑜𝑡𝑜𝑠ℎ𝑜𝑝.```'}
-\u200B \u200B :amphora: \u200B <@&${this.roles['homo artem'].id}>
+\u200B \u200B :amphora: \u200B <@&${this.roles.homoArtem.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 ℎ𝑖𝑠𝑡𝑜𝑟𝑖𝑎 𝑑𝑒𝑙 𝑎𝑟𝑡𝑒.```'}
 \u200B \u200B :cricket: \u200B <@&${this.roles.entomófagos.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑒𝑛𝑡𝑜𝑚𝑜𝑙𝑜𝑔𝑖́𝑎.```'}
-\u200B \u200B :man_mage: \u200B <@&${this.roles['homo sonitus'].id}>
+\u200B \u200B :man_mage: \u200B <@&${this.roles.homoSonitus.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠𝑜𝑛𝑖𝑑𝑜 𝑐𝑜𝑛 𝐷𝐴𝑊.```'}
-\u200B \u200B :flag_de: \u200B <@&${this.roles["Deutsche Primat"].id}>
+\u200B \u200B :flag_de: \u200B <@&${this.roles.DeutschePrimat.id}>
 ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         `,
       })
@@ -453,11 +459,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
     return command === this._command;
   }
 
-  public async runCommand(
-    args: string[],
-    msgObject: Discord.Message,
-    client: Discord.Client
-  ) {
+  public async runCommand(args: string[], msgObject: Message, client: Client) {
     console.log('command verificador ejecutado');
 
     if (!validateCommandRestrictions(this._command, msgObject)) {
@@ -504,11 +506,11 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         const channelVerificar = (await this.getSelectedChannel(
           msgObject.client,
           channel_Verificar_ID
-        )) as Discord.TextChannel;
+        )) as TextChannel;
         const channelRoles = (await this.getSelectedChannel(
           msgObject.client,
           channel_Roles_ID
-        )) as Discord.TextChannel;
+        )) as TextChannel;
 
         const embedVerificar = this.crearEmbedVerificador();
         const embedRoles = this.crearEmbedVerificador2();
@@ -538,6 +540,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         await this.currentEmbedMessage.react('🏺');
         await this.currentEmbedMessage.react('🦗');
         await this.currentEmbedMessage.react('🧙‍♂️');
+        await this.currentEmbedMessage.react('🇩🇪');
 
         this.currentEmbedMessage2 = await channelRoles.send(embedRoles);
 
@@ -556,47 +559,31 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         await this.currentEmbedMessage2.react('🦗');
         await this.currentEmbedMessage2.react('🧙‍♂️');
         await this.currentEmbedMessage2.react('🇩🇪');
+        await this.currentEmbedMessage.react('🇩🇪');
 
         console.log('Verificador here called....');
 
         this.free = true;
 
         const emojis = [
-          { emoji: '🎙️', role: BotConfig.roles.cb_real['parla sabatina'].id },
-          { emoji: '📖', role: BotConfig.roles.cb_real['lector avispado'].id },
-          { emoji: '🎞️', role: BotConfig.roles.cb_real.lumierista.id },
-          { emoji: '📝', role: BotConfig.roles.cb_real['bonobo literario'].id },
-          { emoji: '👑', role: BotConfig.roles.cb_real.chaturanga.id },
-          { emoji: '🌿', role: BotConfig.roles.cb_real['eco bonobo'].id },
-          { emoji: '👅', role: BotConfig.roles.cb_real.políglota.id },
-          { emoji: '🎬', role: BotConfig.roles.cb_real.cinéfilo.id },
-          { emoji: '🍞', role: BotConfig.roles.cb_real.sabronobo.id },
-          { emoji: '💸', role: BotConfig.roles.cb_real['homo economicus'].id },
-          { emoji: '💻', role: BotConfig.roles.cb_real['photo shoppers'].id },
-          { emoji: '🏺', role: BotConfig.roles.cb_real['homo artem'].id },
-          { emoji: '🦗', role: BotConfig.roles.cb_real.entomófagos.id },
-          { emoji: '🧙‍♂️', role: BotConfig.roles.cb_real['homo sonitus'].id },
-          { emoji: '🇩🇪', role: BotConfig.roles.cb_real["Deutsche Primat"].id }
+          { emoji: '🎙️', role: roles.cb_real.parlaSabatina },
+          { emoji: '📖', role: roles.cb_real.lectorAvispado.id },
+          { emoji: '🎞️', role: roles.cb_real.lumierista.id },
+          { emoji: '📝', role: roles.cb_real.bonoboLiterario.id },
+          { emoji: '👑', role: roles.cb_real.chaturanga.id },
+          { emoji: '🌿', role: roles.cb_real.ecoBonobo.id },
+          { emoji: '👅', role: roles.cb_real.políglota.id },
+          { emoji: '🎬', role: roles.cb_real.cinéfilo.id },
+          { emoji: '🍞', role: roles.cb_real.sabronobo.id },
+          { emoji: '💸', role: roles.cb_real.homoEconomicus.id },
+          { emoji: '💻', role: roles.cb_real.photoShoppers.id },
+          { emoji: '🏺', role: roles.cb_real.homoArtem.id },
+          { emoji: '🦗', role: roles.cb_real.entomófagos.id },
+          { emoji: '🧙‍♂️', role: roles.cb_real.homoSonitus.id },
+          { emoji: '🇩🇪', role: roles.cb_real.DeutschePrimat.id },
         ];
 
-        /*
-                const emojis = [
-                    {   emoji:'🎙️',  role:'705975181688045598' },
-                    {   emoji:'📖',  role:'727351251041386526' },
-                    {   emoji:'🎞️',  role:'727357766561431552' },
-                    {   emoji:'📝',  role:'754532026366951434' },
-                    {   emoji:'👑',  role:'754825942701965342' },
-                    {   emoji:'🌿',  role:'' },
-                    {   emoji:'👅',  role:'' },
-                    {   emoji:'🎬',  role:'' },
-                    {   emoji:'🍞',  role:'' },
-                    {   emoji:'💸',  role:'746149379790078025' },
-                    {   emoji:'💻',  role:'754531018404528229' },
-                    {   emoji:'🏺',   role:'' },
-                    {   emoji:'🦗',  role:'' }
-                ];*/
-
-        const filter = (reaction: Discord.MessageReaction) => {
+        const filter = (reaction: MessageReaction) => {
           const currentEmoji = emojis.filter(
             (value) => value.emoji === reaction.emoji.name
           );
@@ -631,7 +618,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
           if (reactionExist) {
             const userId = user.id;
             const member = await msgObject.guild.members.fetch(userId);
-            member.roles.add(reactionExist[0].role);
+            member.roles.add(reactionExist[0].role.toString());
           } else {
             console.log('Error VERIFICADOR, role not found on emojis array..');
           }
@@ -648,7 +635,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
           if (reactionExist) {
             const userId = user.id;
             const member = await msgObject.guild.members.fetch(userId);
-            member.roles.remove(reactionExist[0].role);
+            member.roles.remove(reactionExist[0].role.toString());
           } else {
             console.log('Error VERIFICADOR, role not found on emojis array..');
           }
@@ -665,7 +652,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
           if (reactionExist) {
             const userId = user.id;
             const member = await msgObject.guild.members.fetch(userId);
-            member.roles.add(reactionExist[0].role);
+            member.roles.add(reactionExist[0].role.toString());
           } else {
             console.log('Error VERIFICADOR, role not found on emojis array..');
           }
@@ -682,17 +669,14 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
           if (reactionExist) {
             const userId = user.id;
             const member = await msgObject.guild.members.fetch(userId);
-            member.roles.remove(reactionExist[0].role);
+            member.roles.remove(reactionExist[0].role.toString());
           } else {
             console.log('Error VERIFICADOR, role not found on emojis array..');
           }
         });
 
         channelVerificar.client.on('message', (message) => {
-          if (
-            (message.channel as Discord.TextChannel).name ===
-            channelVerificar.name
-          ) {
+          if ((message.channel as TextChannel).name === channelVerificar.name) {
             console.log('Nuevo intento de verificación: ', message.content);
 
             if (
@@ -772,7 +756,7 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
               const winner = Math.random() * (10 - 0) + 0;
 
               if (winner === 5) {
-                message.member.roles.add(this.roles['bonobo de la suerte'].id);
+                message.member.roles.add(this.roles.bonoboDeLaSuerte.id);
                 message.member.roles.add(this.roles.bonobo.id);
                 message.member.roles.remove(this.roles.austalopitecus.id);
                 message.author.send(
@@ -800,4 +784,3 @@ ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
     }
   }
 }
-
