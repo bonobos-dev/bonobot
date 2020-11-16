@@ -18,7 +18,7 @@ import path from 'path';
 
 export default class Verificador implements CommandInterface {
   private _command = 'verificador';
-  private channel = '✅・verificación';
+  private channel = '✅・verificación-tests';
   private rolesChannel = '💎・roles';
   private roles =
     config.env === 'production' ? roles.cb_real : roles.cb_pruebas;
@@ -209,9 +209,9 @@ ${'```𝐴𝑏𝑠𝑡𝑒́𝑛𝑔𝑎𝑛𝑠𝑒 𝑑𝑒 𝑠𝑒𝑟 𝑜�
         value: `
 𝖤𝗑𝗂𝗌𝗍𝖾𝗇 𝖾𝗌𝗉𝖺𝖼𝗂𝗈𝗌 𝖽𝖾 𝖼𝗈𝗇𝗏𝖾𝗋𝗌𝖺𝖼𝗂𝗈́𝗇 𝖼𝖺𝗌𝗎𝖺𝗅 𝖾𝗇 ${'``🍺TABERNA BONÓBICA🍺``'} 𝗒 𝖾𝗌𝗉𝖺𝖼𝗂𝗈𝗌 𝖽𝖾𝗌𝗍𝗂𝗇𝖺𝖽𝗈𝗌 𝖺 𝗍𝖾𝗆𝖺𝗌 𝗆𝖺́𝗌 𝖾𝗌𝗉𝖾𝖼𝗂́𝖿𝗂𝖼𝗈𝗌.
 \u200B
-\u200B \u200B :microphone2: \u200B <@&${this.roles['parla sabatina'].id}>
+\u200B \u200B :microphone2: \u200B <@&${this.roles.parlaSabatina.id}>
 ${'```𝐹𝑜𝑟𝑜𝑠 𝑠𝑎𝑏𝑎𝑡𝑖𝑛𝑜𝑠 𝑐𝑎𝑑𝑎 𝑑𝑜𝑠 𝑠𝑒𝑚𝑎𝑛𝑎𝑠 𝑠𝑜𝑏𝑟𝑒 𝑢𝑛 𝑡𝑒𝑚𝑎 𝑒𝑠𝑐𝑜𝑔𝑖𝑑𝑜 𝑝𝑜𝑟 𝑙𝑎 𝑐𝑜𝑚𝑢𝑛𝑖𝑑𝑎𝑑.```'}
-\u200B \u200B :book: \u200B <@&${this.roles['lector avispado'].id}>
+\u200B \u200B :book: \u200B <@&${this.roles.lectorAvispado.id}>
 ${'```𝐿𝑒𝑐𝑡𝑢𝑟𝑎 𝑑𝑒 𝑙𝑖𝑏𝑟𝑜𝑠, 𝑐𝑢𝑒𝑛𝑡𝑜𝑠, 𝑝𝑜𝑒𝑚𝑎𝑠 𝑜 𝑎𝑟𝑡𝑖́𝑐𝑢𝑙𝑜𝑠.```'}
 \u200B \u200B :film_frames: \u200B <@&${this.roles.lumierista.id}>
 ${'```𝑇𝑟𝑎𝑛𝑠𝑚𝑖𝑠𝑖𝑜́𝑛 𝑑𝑒 𝑠𝑒𝑟𝑖𝑒𝑠, 𝑝𝑒𝑙𝑖́𝑐𝑢𝑙𝑎𝑠 𝑜 𝑐𝑢𝑎𝑙𝑞𝑢𝑖𝑒𝑟 𝑐𝑜𝑛𝑡𝑒𝑛𝑖𝑑𝑜 𝑚𝑢𝑙𝑡𝑖𝑚𝑒𝑑𝑖𝑎.```'}
@@ -224,11 +224,11 @@ ${'```𝑇𝑟𝑎𝑛𝑠𝑚𝑖𝑠𝑖𝑜́𝑛 𝑑𝑒 𝑠𝑒𝑟𝑖�
 \u200B
 **Cɪ́ʀᴄᴜʟᴏs ᴅᴇ ᴀᴘʀᴇɴᴅɪᴢᴀᴊᴇ ᴄᴏɴ ᴍᴜ́ʟᴛɪᴘʟᴇs ᴀᴄᴛɪᴠɪᴅᴀᴅᴇs:**
 \u200B
-\u200B \u200B :pencil: \u200B <@&${this.roles['bonobo literario'].id}>
+\u200B \u200B :pencil: \u200B <@&${this.roles.bonoboLiterario.id}>
 ${'```𝗖𝗶́𝗿𝗰𝘂𝗹𝗼 𝗟𝗶𝘁𝗲𝗿𝗮𝗿𝗶𝗼 𝗕𝗼𝗻𝗼́𝗯𝗶𝗰𝗼: 𝑃𝑎𝑟𝑎 𝑝𝑒𝑟𝑠𝑜𝑛𝑎𝑠 𝑞𝑢𝑒 𝑡𝑒𝑛𝑔𝑎𝑛 𝑖𝑛𝑡𝑒𝑟𝑒́𝑠 𝑝𝑜𝑟 𝑒𝑠𝑐𝑟𝑖𝑏𝑖𝑟 𝑜 𝑒𝑠𝑐𝑟𝑖𝑡𝑜𝑟𝑒𝑠 𝑎𝑓𝑖𝑐𝑖𝑜𝑛𝑎𝑑𝑜𝑠.```'}
 \u200B \u200B :crown: \u200B <@&${this.roles.chaturanga.id}>
 ${'```𝗖𝗹𝘂𝗯 𝗱𝗲 𝗮𝗷𝗲𝗱𝗿𝗲𝘇: 𝑇𝑎𝑙𝑙𝑒𝑟𝑒𝑠 𝑑𝑒 𝑎𝑝𝑟𝑒𝑛𝑑𝑖𝑧𝑎𝑗𝑒, 𝑡𝑜𝑟𝑛𝑒𝑜𝑠 𝑦 𝑝𝑎𝑟𝑡𝑖𝑑𝑎𝑠 𝑐𝑎𝑠𝑢𝑎𝑙𝑒𝑠 𝑒𝑛 𝑙𝑖́𝑛𝑒𝑎.```'}
-\u200B \u200B :herb: \u200B <@&${this.roles['eco bonobo'].id}>
+\u200B \u200B :herb: \u200B <@&${this.roles.ecoBonobo.id}>
 ${'```𝗘𝗰𝗼 𝗕𝗼𝗻𝗼𝗯𝗼: 𝐴𝑐𝑡𝑖𝑣𝑖𝑑𝑎𝑑𝑒𝑠 𝑒𝑛𝑓𝑜𝑐𝑎𝑑𝑎𝑠 𝑎 𝑡𝑜𝑑𝑜 𝑙𝑜 𝑟𝑒𝑙𝑎𝑐𝑖𝑜𝑛𝑎𝑑𝑜 𝑎 𝑙𝑎 𝑒𝑐𝑜𝑙𝑜𝑔𝑖́𝑎 𝑦 𝑙𝑎 𝑎𝑔𝑟𝑖𝑐𝑢𝑙𝑡𝑢𝑟𝑎.```'}
 \u200B \u200B :tongue: \u200B <@&${this.roles.políglota.id}>
 ${'```𝗟𝗲𝗻𝗴𝘂𝗮𝘀 𝗛𝗼𝗺𝗶́𝗻𝗶𝗱𝗮𝘀: 𝐴𝑐𝑡𝑖𝑣𝑖𝑑𝑎𝑑𝑒𝑠 𝑒𝑛𝑓𝑜𝑐𝑎𝑑𝑎𝑠 𝑒𝑛 𝑒𝑙 𝑎𝑝𝑟𝑒𝑛𝑑𝑖𝑧𝑎𝑗𝑒 𝑑𝑒 𝑖𝑑𝑖𝑜𝑚𝑎𝑠.```'}
@@ -244,17 +244,17 @@ ${'```𝗝𝗮𝗿𝗱𝗶́𝗻 𝗱𝗲 𝗹𝗮𝘀 𝗱𝗲𝗹𝗶𝗰𝗶�
 \u200B
 **Dɪᴠᴇʀsᴀs ᴀᴄᴛɪᴠɪᴅᴀᴅᴇs ᴇᴅᴜᴄᴀᴛɪᴠᴀs, ᴄᴜʀsᴏs ᴏ ᴛᴀʟʟᴇʀᴇs ᴄᴏɴ ᴍᴀᴇsᴛʀᴏs ᴠᴏʟᴜɴᴛᴀʀɪᴏs:**
 \u200B
-\u200B \u200B :money_with_wings: <@&${this.roles['homo economicus'].id}>
+\u200B \u200B :money_with_wings: <@&${this.roles.homoEconomicus.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑒𝑐𝑜𝑛𝑜𝑚𝑖́𝑎.```'}
-\u200B \u200B :computer: \u200B <@&${this.roles['photo shoppers'].id}>
+\u200B \u200B :computer: \u200B <@&${this.roles.photoShoppers.id}>
 ${'```𝑇𝑎𝑙𝑙𝑒𝑟 𝑑𝑒 𝑃ℎ𝑜𝑡𝑜𝑠ℎ𝑜𝑝.```'}
-\u200B \u200B :amphora: \u200B <@&${this.roles['homo artem'].id}>
+\u200B \u200B :amphora: \u200B <@&${this.roles.homoArtem.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 ℎ𝑖𝑠𝑡𝑜𝑟𝑖𝑎 𝑑𝑒𝑙 𝑎𝑟𝑡𝑒.```'}
 \u200B \u200B :cricket: \u200B <@&${this.roles.entomófagos.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑒𝑛𝑡𝑜𝑚𝑜𝑙𝑜𝑔𝑖́𝑎.```'}
-\u200B \u200B :man_mage: \u200B <@&${this.roles['homo sonitus'].id}>
+\u200B \u200B :man_mage: \u200B <@&${this.roles.homoSonitus.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠𝑜𝑛𝑖𝑑𝑜 𝑐𝑜𝑛 𝐷𝐴𝑊.```'}
-\u200B \u200B :flag_de: \u200B <@&${this.roles['Deutsche Primat'].id}>
+\u200B \u200B :flag_de: \u200B <@&${this.roles.DeutschePrimat.id}>
 ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         `,
       })
@@ -385,7 +385,7 @@ ${'```𝐴𝑏𝑠𝑡𝑒́𝑛𝑔𝑎𝑛𝑠𝑒 𝑑𝑒 𝑠𝑒𝑟 𝑜�
 \u200B
 \u200B \u200B :microphone2: \u200B <@&${this.roles.parlaSabatina.id}>
 ${'```𝐹𝑜𝑟𝑜𝑠 𝑠𝑎𝑏𝑎𝑡𝑖𝑛𝑜𝑠 𝑐𝑎𝑑𝑎 𝑑𝑜𝑠 𝑠𝑒𝑚𝑎𝑛𝑎𝑠 𝑠𝑜𝑏𝑟𝑒 𝑢𝑛 𝑡𝑒𝑚𝑎 𝑒𝑠𝑐𝑜𝑔𝑖𝑑𝑜 𝑝𝑜𝑟 𝑙𝑎 𝑐𝑜𝑚𝑢𝑛𝑖𝑑𝑎𝑑.```'}
-\u200B \u200B :book: \u200B <@&${this.roles['lector avispado'].id}>
+\u200B \u200B :book: \u200B <@&${this.roles.lectorAvispado.id}>
 ${'```𝐿𝑒𝑐𝑡𝑢𝑟𝑎 𝑑𝑒 𝑙𝑖𝑏𝑟𝑜𝑠, 𝑐𝑢𝑒𝑛𝑡𝑜𝑠, 𝑝𝑜𝑒𝑚𝑎𝑠 𝑜 𝑎𝑟𝑡𝑖́𝑐𝑢𝑙𝑜𝑠.```'}
 \u200B \u200B :film_frames: \u200B <@&${this.roles.lumierista.id}>
 ${'```𝑇𝑟𝑎𝑛𝑠𝑚𝑖𝑠𝑖𝑜́𝑛 𝑑𝑒 𝑠𝑒𝑟𝑖𝑒𝑠, 𝑝𝑒𝑙𝑖́𝑐𝑢𝑙𝑎𝑠 𝑜 𝑐𝑢𝑎𝑙𝑞𝑢𝑖𝑒𝑟 𝑐𝑜𝑛𝑡𝑒𝑛𝑖𝑑𝑜 𝑚𝑢𝑙𝑡𝑖𝑚𝑒𝑑𝑖𝑎.```'}
@@ -398,11 +398,11 @@ ${'```𝑇𝑟𝑎𝑛𝑠𝑚𝑖𝑠𝑖𝑜́𝑛 𝑑𝑒 𝑠𝑒𝑟𝑖�
 \u200B
 **Cɪ́ʀᴄᴜʟᴏs ᴅᴇ ᴀᴘʀᴇɴᴅɪᴢᴀᴊᴇ ᴄᴏɴ ᴍᴜ́ʟᴛɪᴘʟᴇs ᴀᴄᴛɪᴠɪᴅᴀᴅᴇs:**
 \u200B
-\u200B \u200B :pencil: \u200B <@&${this.roles['bonobo literario'].id}>
+\u200B \u200B :pencil: \u200B <@&${this.roles.bonoboLiterario.id}>
 ${'```𝗖𝗶́𝗿𝗰𝘂𝗹𝗼 𝗟𝗶𝘁𝗲𝗿𝗮𝗿𝗶𝗼 𝗕𝗼𝗻𝗼́𝗯𝗶𝗰𝗼: 𝑃𝑎𝑟𝑎 𝑝𝑒𝑟𝑠𝑜𝑛𝑎𝑠 𝑞𝑢𝑒 𝑡𝑒𝑛𝑔𝑎𝑛 𝑖𝑛𝑡𝑒𝑟𝑒́𝑠 𝑝𝑜𝑟 𝑒𝑠𝑐𝑟𝑖𝑏𝑖𝑟 𝑜 𝑒𝑠𝑐𝑟𝑖𝑡𝑜𝑟𝑒𝑠 𝑎𝑓𝑖𝑐𝑖𝑜𝑛𝑎𝑑𝑜𝑠.```'}
 \u200B \u200B :crown: \u200B <@&${this.roles.chaturanga.id}>
 ${'```𝗖𝗹𝘂𝗯 𝗱𝗲 𝗮𝗷𝗲𝗱𝗿𝗲𝘇: 𝑇𝑎𝑙𝑙𝑒𝑟𝑒𝑠 𝑑𝑒 𝑎𝑝𝑟𝑒𝑛𝑑𝑖𝑧𝑎𝑗𝑒, 𝑡𝑜𝑟𝑛𝑒𝑜𝑠 𝑦 𝑝𝑎𝑟𝑡𝑖𝑑𝑎𝑠 𝑐𝑎𝑠𝑢𝑎𝑙𝑒𝑠 𝑒𝑛 𝑙𝑖́𝑛𝑒𝑎.```'}
-\u200B \u200B :herb: \u200B <@&${this.roles['eco bonobo'].id}>
+\u200B \u200B :herb: \u200B <@&${this.roles.ecoBonobo.id}>
 ${'```𝗘𝗰𝗼 𝗕𝗼𝗻𝗼𝗯𝗼: 𝐴𝑐𝑡𝑖𝑣𝑖𝑑𝑎𝑑𝑒𝑠 𝑒𝑛𝑓𝑜𝑐𝑎𝑑𝑎𝑠 𝑎 𝑡𝑜𝑑𝑜 𝑙𝑜 𝑟𝑒𝑙𝑎𝑐𝑖𝑜𝑛𝑎𝑑𝑜 𝑎 𝑙𝑎 𝑒𝑐𝑜𝑙𝑜𝑔𝑖́𝑎 𝑦 𝑙𝑎 𝑎𝑔𝑟𝑖𝑐𝑢𝑙𝑡𝑢𝑟𝑎.```'}
 \u200B \u200B :tongue: \u200B <@&${this.roles.políglota.id}>
 ${'```𝗟𝗲𝗻𝗴𝘂𝗮𝘀 𝗛𝗼𝗺𝗶́𝗻𝗶𝗱𝗮𝘀: 𝐴𝑐𝑡𝑖𝑣𝑖𝑑𝑎𝑑𝑒𝑠 𝑒𝑛𝑓𝑜𝑐𝑎𝑑𝑎𝑠 𝑒𝑛 𝑒𝑙 𝑎𝑝𝑟𝑒𝑛𝑑𝑖𝑧𝑎𝑗𝑒 𝑑𝑒 𝑖𝑑𝑖𝑜𝑚𝑎𝑠.```'}
@@ -418,17 +418,17 @@ ${'```𝗝𝗮𝗿𝗱𝗶́𝗻 𝗱𝗲 𝗹𝗮𝘀 𝗱𝗲𝗹𝗶𝗰𝗶�
 \u200B
 **Dɪᴠᴇʀsᴀs ᴀᴄᴛɪᴠɪᴅᴀᴅᴇs ᴇᴅᴜᴄᴀᴛɪᴠᴀs, ᴄᴜʀsᴏs ᴏ ᴛᴀʟʟᴇʀᴇs ᴄᴏɴ ᴍᴀᴇsᴛʀᴏs ᴠᴏʟᴜɴᴛᴀʀɪᴏs:**
 \u200B
-\u200B \u200B :money_with_wings: <@&${this.roles['homo economicus'].id}>
+\u200B \u200B :money_with_wings: <@&${this.roles.homoEconomicus.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑒𝑐𝑜𝑛𝑜𝑚𝑖́𝑎.```'}
-\u200B \u200B :computer: \u200B <@&${this.roles['photo shoppers'].id}>
+\u200B \u200B :computer: \u200B <@&${this.roles.photoShoppers.id}>
 ${'```𝑇𝑎𝑙𝑙𝑒𝑟 𝑑𝑒 𝑃ℎ𝑜𝑡𝑜𝑠ℎ𝑜𝑝.```'}
-\u200B \u200B :amphora: \u200B <@&${this.roles['homo artem'].id}>
+\u200B \u200B :amphora: \u200B <@&${this.roles.homoArtem.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 ℎ𝑖𝑠𝑡𝑜𝑟𝑖𝑎 𝑑𝑒𝑙 𝑎𝑟𝑡𝑒.```'}
 \u200B \u200B :cricket: \u200B <@&${this.roles.entomófagos.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑒𝑛𝑡𝑜𝑚𝑜𝑙𝑜𝑔𝑖́𝑎.```'}
-\u200B \u200B :man_mage: \u200B <@&${this.roles['homo sonitus'].id}>
+\u200B \u200B :man_mage: \u200B <@&${this.roles.homoSonitus.id}>
 ${'```𝐶𝑙𝑎𝑠𝑒𝑠 𝑑𝑒 𝑑𝑖𝑠𝑒𝑛̃𝑜 𝑑𝑒 𝑠𝑜𝑛𝑖𝑑𝑜 𝑐𝑜𝑛 𝐷𝐴𝑊.```'}
-\u200B \u200B :flag_de: \u200B <@&${this.roles['Deutsche Primat'].id}>
+\u200B \u200B :flag_de: \u200B <@&${this.roles.DeutschePrimat.id}>
 ${'```𝘊𝘭𝘢𝘴𝘦𝘴 𝘥𝘦 𝘢𝘭𝘦𝘮𝘢́𝘯.```'}
         `,
       })
