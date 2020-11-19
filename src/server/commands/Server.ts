@@ -122,9 +122,9 @@ ${'```Usuarios con funciones administrativas.```'}
 ${'```Para recibir los avisos relacionados al foro sabatino.```'}
 \u200B \u200B <@&${this.roles.lumierista.id}>
 ${'```Se te informará sobre las transmisiones de series, películas o cualquier otro contenido audiovisual.```'}
-\u200B \u200B <@&${this.roles['lector avispado'].id}>
+\u200B \u200B <@&${this.roles.lectorAvispado.id}>
 ${'```Se te informará sobre las actividades de lectura.```'}
-\u200B \u200B <@&${this.roles['bonobo literario'].id}>
+\u200B \u200B <@&${this.roles.bonoboLiterario.id}>
 ${'```Rol del Círculo Literario Bonóbico, para personas que tengan interés por escribir o escritores aficionados.```'}
 \u200B \u200B <@&${this.roles.chaturanga.id}>
 ${'```Rol del club de ajedrez, para aquellos que disfruten de este deporte o quieran aprender a jugarlo.```'}        
@@ -133,7 +133,7 @@ ${'```Rol del club de ajedrez, para aquellos que disfruten de este deporte o qui
       .addFields({
         name: `\u200B`,
         value: `
-\u200B \u200B <@&${this.roles['eco bonobo'].id}>
+\u200B \u200B <@&${this.roles.ecoBonobo.id}>
 ${'```Rol de La reserva, para todos aquellos que tengan interés por temas relacionados con la ecología, huertos, y biósfera en general.```'}
 \u200B \u200B <@&${this.roles.políglota.id}>
 ${'```Rol del club Lenguas Homínidas, para quienes disfruten de aprender idiomas.```'}
@@ -150,17 +150,17 @@ ${'```Rol del club Jardín de las delicias, para todos los que tengan interés e
         name: `**Pᴏʀ ᴀᴄᴛɪᴠɪᴅᴀᴅᴇs ᴇᴅᴜᴄᴀᴛɪᴠᴀs**`,
         value: `
 \u200B
-\u200B \u200B <@&${this.roles['homo economicus'].id}>
+\u200B \u200B <@&${this.roles.homoEconomicus.id}>
 ${'```Para quienes deseen asistir a las clases de economía.```'}
-\u200B \u200B <@&${this.roles['photo shoppers'].id}>
+\u200B \u200B <@&${this.roles.photoShoppers.id}>
 ${'```Para quienes desean asistir a nuestro taller de Photoshop.```'}
-\u200B \u200B <@&${this.roles['homo artem'].id}>
+\u200B \u200B <@&${this.roles.homoArtem.id}>
 ${'```Para quienes deseen asistir a las clases de historia del arte.```'}
 \u200B \u200B <@&${this.roles.entomófagos.id}>
 ${'```Para quienes deseen asistir a las clases de entomología.```'}
-\u200B \u200B <@&${this.roles['homo sonitus'].id}>
+\u200B \u200B <@&${this.roles.homoSonitus.id}>
 ${'```Para quienes desean asistir a clases de diseño sonoro con DAW```'}
-\u200B \u200B <@&${this.roles['Deutsche Primat'].id}>
+\u200B \u200B <@&${this.roles.DeutschePrimat.id}>
 ${'```Para quienes desean asistir a clases de alemán```'}
 \u200B
 \u200B
@@ -193,7 +193,7 @@ ${'```Rol de relaciones públicas, reservado para los administradores de otros s
         name: `**Aʀᴄʜɪᴠᴀᴅᴏs**`,
         value: `
 \u200B
-\u200B \u200B <@&${this.roles['komecanto esperantisto'].id}>
+\u200B \u200B <@&${this.roles.komecantoEsperantisto.id}>
 ${'```Rol correspondiente a las clases de esperanto que se impartieron en la comunidad, puedes verlo en nuestros canales archivados asignándote el rol.```'}
 \u200B
 \u200B
