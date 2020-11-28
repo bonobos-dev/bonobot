@@ -10,19 +10,19 @@ const temarioDataTest = {
   titulo: '',
   temas: [
     {
-      titulo: '***__¿QUÉ NOS HACE HUMANOS?__*** ',
+      titulo: '***__LA EDUCACIÓN__*** ',
       subtemas: [
         {
-          titulo: '*Perspectiva Científica*',
+          titulo: '*¿Qué es la educación y el aprendizaje?*',
         },
         {
-          titulo: '*Perspectiva Sociocultural*',
+          titulo: '*Historia de la educación*',
         },
         {
-          titulo: '*Perspectiva Espiritual*',
+          titulo: '*Educación desde diversas ramas*',
         },
         {
-          titulo: '*Perspectiva Filosófica*',
+          titulo: '*Perspectivas de la educación*',
         }
       ],
     },
@@ -31,67 +31,70 @@ const temarioDataTest = {
 
 const temarioDataTestFull = {
   titulo: `
-¿Qué nos hace humanos?
+La Educación
 \u200B
     `,
   temas: [
     {
-      titulo: 'Perspectiva Científica.',
+      titulo: '¿Qué es la educación y el aprendizaje?',
       subtemas: [
         {
-          titulo: 'Biología animal: Etología.',
+          titulo: 'Una definición de la educación y sus conceptos.',
         },
         {
-          titulo: 'Genética: Evolución.',
+          titulo: 'Tipos de educación.',
         },
         {
-          titulo: 'Biología humana: Fisiología, psicología y neurociencias.',
+          titulo: 'Tipos de aprendizaje.',
         },
       ],
     },
     {
-      titulo: 'Perspectiva Sociocultural',
+      titulo: 'Historia de la educación',
       subtemas: [
         {
-          titulo: 'Lenguaje.',
+          titulo: 'Educación antigua.',
         },
         {
-          titulo: 'Creatividad: Utilitaria/Expresiva.',
+          titulo: 'Educación en el medievo.',
+        },
+        {
+          titulo: 'Educación Moderna.',
         }
       ],
     },
     {
-      titulo: 'Perspectiva Espiritual',
+      titulo: 'Educación desde diversas ramas',
       subtemas: [
         {
-          titulo: 'En respuesta a la muerte.',
+          titulo: ' Sociología.',
         },
         {
-          titulo: 'Mitos y religión para explicar el mundo.',
+          titulo: 'Psicología.',
         },
         {
-          titulo: 'El ser y su relación con lo divino.',
+          titulo: 'Pedagogía.',
         },
+        {
+          titulo: 'Filosófica.',
+        }
       ],
     },
     {
-      titulo: 'Perspectiva Filosófica',
+      titulo: 'Perspectivas de la educación',
       subtemas: [
         {
-          titulo: 'La Razón (Observación de 2do orden).',
+          titulo: 'Sistémica.',
         },
         {
-          titulo: 'El individuo.',
+          titulo: 'Latinoamericana.',
         },
         {
-          titulo: 'Instrumentalización.',
+          titulo: 'Alternativa.',
         },
         {
-          titulo: 'La comunidad.',
-        },
-        {
-          titulo: 'El futuro del humano.',
-        },
+          titulo: 'Educación del futuro.',
+        }
       ],
     }
   ],

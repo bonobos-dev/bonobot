@@ -10,7 +10,10 @@ import Turnos from './commands/Turnos';
 import Verificador from './commands/Verificador';
 import Server from './commands/Server';
 
+
+
 export default class Bonobot {
+  
   private client: Client;
   private commands: Array<CommandInterface>;
 

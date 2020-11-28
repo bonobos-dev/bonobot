@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config({path: `../../.env` });
 dotenv.config();
 
-import express from "express";
+import express from 'express';
 import bodyParser from 'body-parser';
 import globalRouter from './routes/globalRouter';
 import Bonobot  from './Bonobot';
@@ -26,8 +26,6 @@ console.log(
 const initServer = () => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
-
-
 
   const bot = new Bonobot();
   bot.start();
