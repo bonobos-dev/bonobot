@@ -1,28 +1,27 @@
-import * as Discord from 'discord.js';
+import { Message, MessageEmbed, MessageAttachment, Client } from 'discord.js';
 import path from 'path';
 
-import { MigBotCommand } from '../botApi';
+import CommandInterface from '../interfaces/CommandInterface';
 import { validateCommandRestrictions } from '../utils/botValidation';
 
-
-
-export default class Mensajes implements MigBotCommand {
+export default class Mensajes implements CommandInterface {
   private readonly _command = 'mensajes';
-
-  private currentEmbedMessage: Discord.Message;
-
-  private migdrplogo = new Discord.MessageAttachment(
-    path.join(__dirname, `../assets/img/migdrp-logo-small-red.png`), 'migdrp-icon.png'
+  private currentEmbedMessage: Message;
+  private migdrplogo = new MessageAttachment(
+    path.join(__dirname, `../assets/img/migdrp-logo-small-red.png`),
+    'migdrp-icon.png'
   );
-  private migdrplogoGreen = new Discord.MessageAttachment(
-    path.join(__dirname, `../assets/img/migdrp-logo-small-green.png`), 'migdrp-icon-green.png'
+  private migdrplogoGreen = new MessageAttachment(
+    path.join(__dirname, `../assets/img/migdrp-logo-small-green.png`),
+    'migdrp-icon-green.png'
   );
-  private bonobotlogo = new Discord.MessageAttachment(
-    path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`), 'bb-logo.png'
+  private bonobotlogo = new MessageAttachment(
+    path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`),
+    'bb-logo.png'
   );
 
-  private createEmbed(): Discord.MessageEmbed {
-    const template = new Discord.MessageEmbed()
+  private createEmbed(): MessageEmbed {
+    const template = new MessageEmbed()
       .attachFiles(this.migdrplogoGreen as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#d5ae00')
@@ -64,11 +63,7 @@ export default class Mensajes implements MigBotCommand {
     return command === this._command;
   }
 
-  public async runCommand(
-    args: string[],
-    msgObject: Discord.Message,
-    client: Discord.Client
-  ) {
+  public async runCommand(args: string[], msgObject: Message, client: Client) {
     if (!validateCommandRestrictions(this._command, msgObject)) {
       return;
     }
@@ -92,4 +87,3 @@ Aqui tienen el temario para la parla sabatina, recuerden que cualquier informaci
     await msgObject.channel.send(TurnsEmbed);
   }
 }
-

@@ -1,7 +1,13 @@
-import * as Discord from 'discord.js';
+import {
+  MessageAttachment,
+  Message,
+  MessageEmbed,
+  TextChannel,
+  Client,
+} from 'discord.js';
 import path from 'path';
 
-import { MigBotCommand } from '../botApi';
+import CommandInterface from '../interfaces/CommandInterface';
 import { validateCommandRestrictions } from '../utils/botValidation';
 
 export interface UserCmdInfo {
@@ -9,20 +15,20 @@ export interface UserCmdInfo {
   last_call: number;
 }
 
-export default class Denuncia implements MigBotCommand {
+export default class Denuncia implements CommandInterface {
   private readonly _command = 'denuncia';
-  private migdrplogo: Discord.MessageAttachment;
-  private bonobotlogo: Discord.MessageAttachment;
-  private channel = '🔴・usuarios_denunciados';
+  private migdrplogo: MessageAttachment;
+  private bonobotlogo: MessageAttachment;
+  private title = '🔴・usuarios_denunciados';
 
   private usuarios: Array<UserCmdInfo> = [];
 
   private attachFiles() {
-    this.migdrplogo = new Discord.MessageAttachment(
+    this.migdrplogo = new MessageAttachment(
       path.join(__dirname, `../assets/img/migdrp-logo-small-red.png`),
       'migdrp-icon.png'
     );
-    this.bonobotlogo = new Discord.MessageAttachment(
+    this.bonobotlogo = new MessageAttachment(
       path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`),
       'bb-logo.png'
     );
@@ -81,12 +87,12 @@ export default class Denuncia implements MigBotCommand {
   }
 
   private crearEmbedDenuncia(
-    message: Discord.Message,
+    message: Message,
     denunciado: string,
     canal: string,
     regla: string
-  ): Discord.MessageEmbed {
-    const template = new Discord.MessageEmbed()
+  ): MessageEmbed {
+    const template = new MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#e31452')
@@ -120,10 +126,10 @@ export default class Denuncia implements MigBotCommand {
     return template;
   }
 
-  private async checkSelectedChannel(message: Discord.Message) {
+  private async checkSelectedChannel(message: Message) {
     try {
       const channelFound = message.guild.channels.cache.findKey(
-        (channel) => channel.name === this.channel
+        (channel) => channel.name === this.title
       );
 
       if (channelFound) {
@@ -139,7 +145,7 @@ export default class Denuncia implements MigBotCommand {
     }
   }
 
-  private async getSelectedChannel(client: Discord.Client, id: string) {
+  private async getSelectedChannel(client: Client, id: string) {
     try {
       const channelFound = client.channels.fetch(id);
       return channelFound;
@@ -154,7 +160,7 @@ export default class Denuncia implements MigBotCommand {
 
   private async compareUserDates(
     user: UserCmdInfo,
-    msgObject: Discord.Message
+    msgObject: Message
   ): Promise<boolean> {
     try {
       const currentUserId = msgObject.author.id;
@@ -204,7 +210,6 @@ export default class Denuncia implements MigBotCommand {
 
   constructor() {
     this.attachFiles();
-
   }
 
   public help(): string {
@@ -215,11 +220,7 @@ export default class Denuncia implements MigBotCommand {
     return command === this._command;
   }
 
-  public async runCommand(
-    args: string[],
-    msgObject: Discord.Message,
-    client: Discord.Client
-  ) {
+  public async runCommand(args: string[], msgObject: Message, client: Client) {
     if (!validateCommandRestrictions(this._command, msgObject)) {
       return;
     }
@@ -246,7 +247,7 @@ export default class Denuncia implements MigBotCommand {
     const channelDenuncias = (await this.getSelectedChannel(
       msgObject.client,
       channel_ID
-    )) as Discord.TextChannel;
+    )) as TextChannel;
 
     if (args.length > 0) {
       if (args[0] === '') {
@@ -290,4 +291,3 @@ export default class Denuncia implements MigBotCommand {
     }
   }
 }
-

@@ -2,10 +2,10 @@ import dotenv from 'dotenv';
 dotenv.config({path: `../../.env` });
 dotenv.config();
 
-import express from "express";
+import express from 'express';
 import bodyParser from 'body-parser';
 import globalRouter from './routes/globalRouter';
-import Bot  from './Bot';
+import Bonobot  from './Bonobot';
 import { createRequest } from './utils/bonobotsHerokuHack';
 
 
@@ -27,10 +27,9 @@ const initServer = () => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
-
-
-  const bot = new Bot();
+  const bot = new Bonobot();
   bot.start();
+  bot.apply();
   
   createRequest();
 

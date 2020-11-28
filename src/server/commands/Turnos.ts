@@ -1,5 +1,12 @@
-import * as Discord from 'discord.js';
-import { MigBotCommand } from '../botApi';
+import {
+  MessageAttachment,
+  Message,
+  MessageEmbed,
+  Client,
+  ReactionCollector,
+  MessageReaction,
+} from 'discord.js';
+import CommandInterface from '../interfaces/CommandInterface';
 import { validateCommandRestrictions } from '../utils/botValidation';
 import path from 'path';
 
@@ -8,30 +15,30 @@ export enum turnos_states {
   free = ' free',
 }
 
-export default class Turnos implements MigBotCommand {
+export default class Turnos implements CommandInterface {
   private readonly _command = 'turnos';
 
   private users: string[] = ['\u200B'];
   private currentUser: string[] = ['\u200B', 'No hay nadie en la lista'];
   private lastUser = 'No hay nadie en la lista';
 
-  private reactionCollector: Discord.ReactionCollector;
+  private reactionCollector: ReactionCollector;
 
-  private currentEmbedMessage: Discord.Message;
+  private currentEmbedMessage: Message;
 
-  private migdrplogo = new Discord.MessageAttachment(
+  private migdrplogo = new MessageAttachment(
     path.join(__dirname, `../assets/img/migdrp-logo-small-red.png`),
     'migdrp-icon.png'
   );
-  private bonobotlogo = new Discord.MessageAttachment(
+  private bonobotlogo = new MessageAttachment(
     path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`),
     'bb-logo.png'
   );
 
   private state: turnos_states = turnos_states.free;
 
-  private createEmbed(): Discord.MessageEmbed {
-    const template = new Discord.MessageEmbed()
+  private createEmbed(): MessageEmbed {
+    const template = new MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#e31452')
@@ -93,11 +100,7 @@ export default class Turnos implements MigBotCommand {
     return command === this._command;
   }
 
-  public async runCommand(
-    args: string[],
-    msgObject: Discord.Message,
-    client: Discord.Client
-  ) {
+  public async runCommand(args: string[], msgObject: Message, client: Client) {
     if (!validateCommandRestrictions(this._command, msgObject)) {
       return;
     }
@@ -159,13 +162,13 @@ export default class Turnos implements MigBotCommand {
     await this.currentEmbedMessage.react('⛔');
     await this.currentEmbedMessage.react('✅');
 
-    const filter = (reaction: Discord.MessageReaction) =>
+    const filter = (reaction: MessageReaction) =>
       reaction.emoji.name === '🎟️' ||
       reaction.emoji.name === '⛔' ||
       reaction.emoji.name === '✅';
 
     /*
-        const result = await ( embedMesage as Discord.Message ).awaitReactions(filter, { time: 10000 })
+        const result = await ( embedMesage as Message ).awaitReactions(filter, { time: 10000 })
         
         .then(collected => console.log(`Collected ${collected.size} reactions`))
         .catch(console.error);
@@ -251,7 +254,9 @@ export default class Turnos implements MigBotCommand {
           });
 
           if (found) {
-            const result = this.users.filter((value) => value !== user.username);
+            const result = this.users.filter(
+              (value) => value !== user.username
+            );
             this.users = result;
             reaction.message.edit(this.createEmbed());
             this.state = turnos_states.free;
@@ -303,4 +308,3 @@ export default class Turnos implements MigBotCommand {
     this.state = turnos_states.free;
   }
 }
-

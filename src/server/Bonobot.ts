@@ -1,32 +1,37 @@
-import Discord from 'discord.js';
-import * as BotConfig from './botConfig';
-import { MigBotCommand } from './botApi';
+import { Client, Message } from 'discord.js';
+import { config } from './botConfig';
+import CommandInterface from './interfaces/CommandInterface';
 import { GuildInWhitelist, isBot, isInvalidUser } from './utils/botValidation';
 
-import denuncia from './bot-commands/denuncia';
-import mensajes from './bot-commands/mensajes';
-import temario from './bot-commands/temario';
-import turnos from './bot-commands/turnos';
-import verificador from './bot-commands/verificador';
-import server from './bot-commands/server';
+import Denuncia from './commands/Denuncia';
+import Mensajes from './commands/Mensajes';
+import Temario from './commands/Temario';
+import Turnos from './commands/Turnos';
+import Verificador from './commands/Verificador';
+import Server from './commands/Server';
 
-export default class Bot {
-  private client: Discord.Client;
-  private commands: Array<MigBotCommand>;
+
+
+export default class Bonobot {
+  
+  private client: Client;
+  private commands: Array<CommandInterface>;
 
   constructor() {
-    this.client = new Discord.Client();
+    this.client = new Client();
     this.loadCommands();
     this.client.login(process.env.DISCORD_TOKEN);
   }
 
   public start(): void {
     this.client.on('ready', () => {
-      console.log('Bot is ready on discord!!!!!!!!!');
+      console.log('Bonobot is ready on discord!!!!!!!!!');
     });
+  }
 
-    this.client.on('message', async (message) => {
-      if (!message.content.startsWith(BotConfig.config.prefix)) {
+  apply(): void {
+    this.client.on('message', async (message: Message) => {
+      if (!message.content.startsWith(config.prefix)) {
         return;
       }
 
@@ -53,25 +58,6 @@ export default class Bot {
         roles.push(roleFound);
       });
 
-      const messageJson = {
-        server: {
-          name: message.guild.name,
-          id: message.guild.id,
-        },
-        channel: {
-          name: (message.channel as any).name,
-          id: message.channel.id,
-        },
-        user: {
-          username: message.author.username,
-          id: message.author.id,
-        },
-        message: message.content,
-        roles: roles,
-      };
-
-      console.log(`New message recibed: `, messageJson);
-
       if (message.channel.type === 'dm') {
         console.log(
           `El usuario ${message.author.username} mando un mensaje al bonobot`
@@ -87,12 +73,12 @@ export default class Bot {
   }
 
   loadCommands(): void {
-    const denunciaCmd = new denuncia();
-    const mensajesCmd = new mensajes();
-    const temarioCmd = new temario();
-    const turnosCmd = new turnos();
-    const verificadorCmd = new verificador();
-    const serverCmd = new server();
+    const denunciaCmd = new Denuncia();
+    const mensajesCmd = new Mensajes();
+    const temarioCmd = new Temario();
+    const turnosCmd = new Turnos();
+    const verificadorCmd = new Verificador();
+    const serverCmd = new Server();
 
     this.commands = [
       denunciaCmd,
@@ -104,10 +90,10 @@ export default class Bot {
     ];
   }
 
-  handleCommand(msg: Discord.Message): void {
+  handleCommand(msg: Message): void {
     const command = msg.content
       .split(' ')[0]
-      .replace(BotConfig.config.prefix, '');
+      .replace(config.prefix, '');
     const args = msg.content.split(' ').slice(1);
 
     console.log('Handle cmd: ', command);

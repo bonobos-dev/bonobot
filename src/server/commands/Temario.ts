@@ -1,6 +1,6 @@
-import * as Discord from 'discord.js';
+import {Message, MessageEmbed, MessageAttachment} from 'discord.js';
 
-import { MigBotCommand } from '../botApi';
+import CommandInterface from '../interfaces/CommandInterface';
 import { validateCommandRestrictions } from '../utils/botValidation';
 import path from 'path';
 
@@ -10,19 +10,19 @@ const temarioDataTest = {
   titulo: '',
   temas: [
     {
-      titulo: '***__¿QUÉ NOS HACE HUMANOS?__*** ',
+      titulo: '***__LA EDUCACIÓN__*** ',
       subtemas: [
         {
-          titulo: '*Perspectiva Científica*',
+          titulo: '*¿Qué es la educación y el aprendizaje?*',
         },
         {
-          titulo: '*Perspectiva Sociocultural*',
+          titulo: '*Historia de la educación*',
         },
         {
-          titulo: '*Perspectiva Espiritual*',
+          titulo: '*Educación desde diversas ramas*',
         },
         {
-          titulo: '*Perspectiva Filosófica*',
+          titulo: '*Perspectivas de la educación*',
         }
       ],
     },
@@ -31,87 +31,90 @@ const temarioDataTest = {
 
 const temarioDataTestFull = {
   titulo: `
-¿Qué nos hace humanos?
+La Educación
 \u200B
     `,
   temas: [
     {
-      titulo: 'Perspectiva Científica.',
+      titulo: '¿Qué es la educación y el aprendizaje?',
       subtemas: [
         {
-          titulo: 'Biología animal: Etología.',
+          titulo: 'Una definición de la educación y sus conceptos.',
         },
         {
-          titulo: 'Genética: Evolución.',
+          titulo: 'Tipos de educación.',
         },
         {
-          titulo: 'Biología humana: Fisiología, psicología y neurociencias.',
+          titulo: 'Tipos de aprendizaje.',
         },
       ],
     },
     {
-      titulo: 'Perspectiva Sociocultural',
+      titulo: 'Historia de la educación',
       subtemas: [
         {
-          titulo: 'Lenguaje.',
+          titulo: 'Educación antigua.',
         },
         {
-          titulo: 'Creatividad: Utilitaria/Expresiva.',
+          titulo: 'Educación en el medievo.',
+        },
+        {
+          titulo: 'Educación Moderna.',
         }
       ],
     },
     {
-      titulo: 'Perspectiva Espiritual',
+      titulo: 'Educación desde diversas ramas',
       subtemas: [
         {
-          titulo: 'En respuesta a la muerte.',
+          titulo: ' Sociología.',
         },
         {
-          titulo: 'Mitos y religión para explicar el mundo.',
+          titulo: 'Psicología.',
         },
         {
-          titulo: 'El ser y su relación con lo divino.',
+          titulo: 'Pedagogía.',
         },
+        {
+          titulo: 'Filosófica.',
+        }
       ],
     },
     {
-      titulo: 'Perspectiva Filosófica',
+      titulo: 'Perspectivas de la educación',
       subtemas: [
         {
-          titulo: 'La Razón (Observación de 2do orden).',
+          titulo: 'Sistémica.',
         },
         {
-          titulo: 'El individuo.',
+          titulo: 'Latinoamericana.',
         },
         {
-          titulo: 'Instrumentalización.',
+          titulo: 'Alternativa.',
         },
         {
-          titulo: 'La comunidad.',
-        },
-        {
-          titulo: 'El futuro del humano.',
-        },
+          titulo: 'Educación del futuro.',
+        }
       ],
     }
   ],
 };
 
-export default class Temario implements MigBotCommand {
+export default class Temario implements CommandInterface {
   private readonly _command = 'temario';
 
-  private currentEmbedMessage: Discord.Message;
+  private currentEmbedMessage: Message;
 
-  private migdrplogo = new Discord.MessageAttachment( 
+  private migdrplogo = new MessageAttachment( 
     path.join(__dirname, `../assets/img/migdrp-logo-small-parla_sabatina.png`), 
     'migdrp-icon.png' 
   );
-  private bonobotlogo = new Discord.MessageAttachment(
+  private bonobotlogo = new MessageAttachment(
     path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`),
     'bb-logo.png'
   );
 
-  private crearEmbedTemario(aviso: boolean, data: any): Discord.MessageEmbed {
+  private crearEmbedTemario(aviso: boolean, data: any): MessageEmbed {
     const temarioData = data;
 
     const fieldsForEmbed = () => {
@@ -167,7 +170,7 @@ export default class Temario implements MigBotCommand {
     };
 
     if (aviso) {
-      const template = new Discord.MessageEmbed()
+      const template = new MessageEmbed()
         .attachFiles(this.migdrplogo as any)
         .attachFiles(this.bonobotlogo as any)
         .setColor('#a956bd')
@@ -208,7 +211,7 @@ export default class Temario implements MigBotCommand {
 
       return template;
     } else {
-      const template = new Discord.MessageEmbed()
+      const template = new MessageEmbed()
         .attachFiles(this.migdrplogo as any)
         .attachFiles(this.bonobotlogo as any)
         .setColor('#a956bd')
@@ -250,7 +253,7 @@ export default class Temario implements MigBotCommand {
 
   public async runCommand(
     args: string[],
-    msgObject: Discord.Message
+    msgObject: Message
   ): Promise<void> {
     if (!validateCommandRestrictions(this._command, msgObject)) {
       return;
