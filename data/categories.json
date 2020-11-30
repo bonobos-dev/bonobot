@@ -1,0 +1,17 @@
+
+
+{
+    "name": "Las puertas del samsara",
+    "emoji" : ":3",
+    "desc" : "lorem",
+    "channels" : [
+        {
+            "_id": "",
+            "name": "Verificación",
+            "emoji": "//",
+            "type": "text | voice | add",
+            "desc": "lorem"
+        }
+    ]
+    
+}
