@@ -4,14 +4,16 @@ services:
 
   mongo:
     image: mongo
-    restart: always
+    container_name: mongo
+    volumes:
+      - ./mongodb:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
 
   mongo-express:
     image: mongo-express
-    restart: always
+    container_name: mongo-express
     ports:
       - 8081:8081
     environment:
