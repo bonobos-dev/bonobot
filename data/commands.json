@@ -1,0 +1,11 @@
+{
+    "name": "temario",
+    "desc": "lorem",
+    "args": [
+         {
+            "name":"aviso",
+            "input": "example",
+            "desc": "lorem"
+         }
+     ]
+}

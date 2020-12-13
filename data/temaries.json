@@ -1,0 +1,22 @@
+[
+    {
+        "name": "La soledad",
+        "date": "sábado, 12 de diciembre de 2020 18:22:41 GMT-06:00",
+        "schedule": "sábado, 12 de diciembre de 2020 18:22:41 GMT-06:00)",
+        "active": true,
+        "content": [
+            {
+                "title": "La soledad",
+                "subtitles": [
+                    "¿Qué es la soledad?",
+                    "¿Por qué me siento sol@?",
+                    "*Intermedio*",
+                    "¿Qué hace la soledad?",
+                    "¿Cómo no sentirme sol@?",
+                    "*Bonus Round*",
+                    "¿Estamos más solos ahora?"
+                ]
+            }
+        ]
+    }
+]
