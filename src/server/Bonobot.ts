@@ -24,50 +24,43 @@ export default class Bonobot {
 
   public start(): void {
     this.client.on('ready', () => {
-      console.log('Bonobot is ready on discord!!!!!!!!!');
+      console.info('Bonobot is ready on discord!!!!!!!!!');
     });
   }
+  validate(message: Message): boolean {
+    const { prefix } = config;
+    const { type: channelType } = message.channel;
+    let valid: boolean;
+    valid = false;
+    if (message.content.startsWith(prefix)) {
+      valid = true;
+    }
 
-  apply(): void {
+    if (!isBot(message)) {
+      valid = true;
+    }
+
+    if (isInvalidUser(message)) {
+      valid = true;
+    }
+
+    if (GuildInWhitelist(message) !== null) {
+      valid = true;
+    }
+
+    if (channelType !== 'dm') {
+      console.info(
+        `El usuario ${message.author.username} mando un mensaje al bonobot`
+      );
+      valid = true;
+    }
+    return valid;
+  }
+  run(): void {
     this.client.on('message', async (message: Message) => {
-      if (!message.content.startsWith(config.prefix)) {
-        return;
+      if (this.validate(message)) {
+        this.handleCommand(message);
       }
-
-      if (isBot(message)) {
-        return;
-      }
-
-      if (!isInvalidUser(message)) {
-        return;
-      }
-
-      if (GuildInWhitelist(message) === null) {
-        return;
-      }
-
-      const roles: any = [];
-
-      message.member.roles.cache.forEach((role) => {
-        const roleFound = {
-          roleName: role.name,
-          roleId: role.id,
-        };
-
-        roles.push(roleFound);
-      });
-
-      if (message.channel.type === 'dm') {
-        console.log(
-          `El usuario ${message.author.username} mando un mensaje al bonobot`
-        );
-
-        return;
-      }
-
-      console.log('New message recived from');
-
-      this.handleCommand(message);
     });
   }
 
@@ -88,25 +81,29 @@ export default class Bonobot {
       serverCmd,
     ];
   }
-
-  handleCommand(msg: Message): void {
-    const command = msg.content
-      .split(' ')[0]
-      .replace(config.prefix, '');
-    const args = msg.content.split(' ').slice(1);
-
-    console.log('Handle cmd: ', command);
-    console.log('Handle args: ', args);
+  command(content: string): string {
+    const commandSplited = content.split(' ');
+    const allCommand = commandSplited[0];
+    const command = allCommand.replace(config.prefix, '');
+    return command;
+  }
+  arguments(content: string): Array<string> {
+    const argsSplited = content.split(' ');
+    const args = argsSplited.slice(1);
+    return args;
+  }
+  handleCommand(message: Message): void {
+    const { content } = message;
+    const command = this.command(content);
+    const args = this.arguments(content);
 
     for (const commandClass of this.commands) {
       try {
         if (!commandClass.isThisCommand(command)) {
           continue;
         }
-
-        commandClass.runCommand(args, msg, this.client);
+        commandClass.runCommand(args, message, this.client);
       } catch (exception) {
-        console.log('ERROR EN handle Command');
         throw new Error(exception);
       }
     }
