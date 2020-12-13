@@ -109,11 +109,11 @@ export default class Temario implements CommandInterface {
           name: 'Horario de las charlas',
           value: [
             '\u200b',
-            '08:10 PM :flag_mx:  (CDMX)',
-            '09:10 PM :flag_co:  /  :flag_pe: / :flag_ec:',
-            '010:10 PM :flag_bo:  /  :flag_ve:',
-            '11:10 PM :flag_ar:  /  :flag_uy: / :flag_cl:',
-            '04:10 AM :flag_ea:',
+            '07:30 PM :flag_mx:  (CDMX)',
+            '08:30 PM :flag_co:  /  :flag_pe: / :flag_ec:',
+            '09:30 PM :flag_bo:  /  :flag_ve:',
+            '10:30 PM :flag_ar:  /  :flag_uy: / :flag_cl:',
+            '03:30 AM :flag_ea:',
             '\u200b',
           ],
         })
