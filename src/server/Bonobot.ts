@@ -1,3 +1,5 @@
+
+
 import { Client, Message } from 'discord.js';
 import { config } from './botConfig';
 import CommandInterface from './interfaces/CommandInterface';
