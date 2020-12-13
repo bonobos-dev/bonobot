@@ -98,6 +98,8 @@ export default class Temario implements CommandInterface {
         
                 El tema para esta charla es: 
                 \u200B     
+                __**${data.name}**__
+                \u200B     
             `
         )
         .addFields(embedFileds)
@@ -132,6 +134,16 @@ export default class Temario implements CommandInterface {
           'https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg'
         )
         .setThumbnail('attachment://bb-logo.png')
+        .setDescription(
+          `
+                :microphone2:  \u200B \u200B \u200B ***__ Sobre el foro sabatino __***  \u200B \u200B \u200B :microphone2: 
+        
+                El tema para esta charla es: 
+                \u200B     
+                __**${data.name}**__
+                \u200B     
+            `
+        )
         .addFields(embedFileds)
         .setTimestamp()
         .setFooter(
