@@ -1,4 +1,4 @@
-# El proyecto del bonobot de la CB por Migdrp
+# El proyecto del bonobot de la CB por Bonobos Dev
 
 El bot de discord multiproposito oficial de la Comunidad Bonóbica de discord.
 

@@ -77,7 +77,6 @@ export default class Temario implements CommandInterface {
   }
 
   private generateEmbedMessage(aviso: boolean, data: TemarioData): MessageEmbed {
-    const temarioData = data;
 
     const embedFileds = this.generateEmbedFields(data, aviso);
 
