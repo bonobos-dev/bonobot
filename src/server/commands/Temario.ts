@@ -98,6 +98,8 @@ export default class Temario implements CommandInterface {
         
                 El tema para esta charla es: 
                 \u200B     
+                __**${data.name}**__
+                \u200B     
             `
         )
         .addFields(embedFileds)
@@ -107,11 +109,11 @@ export default class Temario implements CommandInterface {
           name: 'Horario de las charlas',
           value: [
             '\u200b',
-            '08:10 PM :flag_mx:  (CDMX)',
-            '09:10 PM :flag_co:  /  :flag_pe: / :flag_ec:',
-            '010:10 PM :flag_bo:  /  :flag_ve:',
-            '11:10 PM :flag_ar:  /  :flag_uy: / :flag_cl:',
-            '04:10 AM :flag_ea:',
+            '07:30 PM :flag_mx:  (CDMX)',
+            '08:30 PM :flag_co:  /  :flag_pe: / :flag_ec:',
+            '09:30 PM :flag_bo:  /  :flag_ve:',
+            '10:30 PM :flag_ar:  /  :flag_uy: / :flag_cl:',
+            '03:30 AM :flag_ea:',
             '\u200b',
           ],
         })
@@ -132,6 +134,16 @@ export default class Temario implements CommandInterface {
           'https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg'
         )
         .setThumbnail('attachment://bb-logo.png')
+        .setDescription(
+          `
+                :microphone2:  \u200B \u200B \u200B ***__ Sobre el foro sabatino __***  \u200B \u200B \u200B :microphone2: 
+        
+                El tema para esta charla es: 
+                \u200B     
+                __**${data.name}**__
+                \u200B     
+            `
+        )
         .addFields(embedFileds)
         .setTimestamp()
         .setFooter(
