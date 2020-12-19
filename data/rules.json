@@ -2,57 +2,101 @@
   {
     "name" : "Regla 1",
     "rule" : "No se permite hacer spam.",
-    "severity" : 1
+    "severity" : 1,
+    "createdAt":0,
+    "createdBy":"-",
+    "modifiedAt":0,
+    "modifiedBy":"-"
   },
   {
     "name" : "Regla 2",
     "rule" : "No se permite ninguna clase de ruido molesto malintencionado en los canales de voz, deben silenciar su micrófono si no están hablando.",
-    "severity" : 1
+    "severity" : 1,
+    "createdAt":0,
+    "createdBy":"-",
+    "modifiedAt":0,
+    "modifiedBy":"-"
   },
   {
     "name" : "Regla 3",
     "rule" : "Se deben leer las descripciones de cada canal, no se permite compartir contenido fuera del canal correspondiente.",
-    "severity" : 1
+    "severity" : 1,
+    "createdAt":0,
+    "createdBy":"-",
+    "modifiedAt":0,
+    "modifiedBy":"-"
   },
   {
     "name" : "Regla 4",
     "rule" : "No se permite el contenido NSFW.",
-    "severity" : 1
+    "severity" : 1,
+    "createdAt":0,
+    "createdBy":"-",
+    "modifiedAt":0,
+    "modifiedBy":"-"
   },
   {
     "name" : "Regla 5",
     "rule" : "No se permite la propaganda, la publicidad debe ser autorizada por la administración.",
-    "severity" : 1
+    "severity" : 1,
+    "createdAt":0,
+    "createdBy":"-",
+    "modifiedAt":0,
+    "modifiedBy":"-"
   },
   {
     "name" : "Regla 6",
     "rule" : "No se permite abusar de los emojis, hay un límite de 20 emojis por mensaje.",
-    "severity" : 1
+    "severity" : 1,
+    "createdAt":0,
+    "createdBy":"-",
+    "modifiedAt":0,
+    "modifiedBy":"-"
   },
   {
     "name" : "Regla 7",
     "rule" : "No se permiten nombres con símbolos extravagantes ni fotos de perfil NSFW.",
-    "severity" : 1
+    "severity" : 1,
+    "createdAt":0,
+    "createdBy":"-",
+    "modifiedAt":0,
+    "modifiedBy":"-"
   },
   {
     "name" : "Regla 8",
     "rule" : "Solo se permiten dos cuentas por persona.",
-    "severity" : 1
+    "severity" : 1,
+    "createdAt":0,
+    "createdBy":"-",
+    "modifiedAt":0,
+    "modifiedBy":"-"
   },
   {
     "name" : "Regla 9",
     "rule" : "Priorizamos el respeto mutuo, deben cuidar la forma de expresarse, no impongan ideas y lleven las conversaciones y debates de manera tranquila.",
-    "severity" : 1
+    "severity" : 1,
+    "createdAt":0,
+    "createdBy":"-",
+    "modifiedAt":0,
+    "modifiedBy":"-"
   },
   {
     "name" : "Regla 10",
     "rule" : "No se tolera el acoso a otros miembros del servidor, ante un caso comprobado se optará por el ban inmediato y se notificará al equipo de discord.",
-    "severity" : 1
+    "severity" : 1,
+    "createdAt":0,
+    "createdBy":"-",
+    "modifiedAt":0,
+    "modifiedBy":"-"
   },
   {
     "name" : "Regla 11",
     "rule" : "Absténganse de ser obstinados cuando se les advierta sobre alguna acción, mantener el orden de la comunidad es una labor de todos los bonobos.",
-    "severity" : 1
+    "severity" : 1,
+    "createdAt":0,
+    "createdBy":"-",
+    "modifiedAt":0,
+    "modifiedBy":"-"
   }
 ]
 
