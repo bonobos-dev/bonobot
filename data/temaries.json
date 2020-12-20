@@ -6,15 +6,59 @@
         "active": true,
         "content": [
             {
-                "title": "La soledad",
+                "title": "¿Qué es la soledad?",
                 "subtitles": [
-                    "¿Qué es la soledad?",
-                    "¿Por qué me siento sol@?",
-                    "*Intermedio*",
+                    "La soledad como emoción",
+                    "La soledad y el aislamiento",
+                    "La soledad emocional",
                     "¿Qué hace la soledad?",
                     "¿Cómo no sentirme sol@?",
-                    "*Bonus Round*",
-                    "¿Estamos más solos ahora?"
+                    "La soledad social "
+                ]
+            },
+            {
+                "title": "¿Por qué me siento sol@?",
+                "subtitles": [
+                    "Por la existencia",
+                    "Por la cultura",
+                    "Por pérdida",
+                    "Autoperpetuada y socioperpetuada",
+                    "¿Cómo no sentirme sol@?",
+                    "Por el internét"
+                ]
+            },
+            {
+                "title": "Intermedio",
+                "subtitles": []
+            },
+            {
+                "title": "¿Qué hace la soledad?",
+                "subtitles": [
+                    "Temporalmente",
+                    "Crónicamente",
+                    "Socialmente"
+                ]
+            },
+            {
+                "title": "¿Cómo no sentirme sol@?",
+                "subtitles": [
+                    "Desde la medicina",
+                    "Desde la comunidad",
+                    "Desde el gobierno",
+                    "Desde la espiritualidad"
+
+                ]
+            },
+            {
+                "title": "Bonus Round",
+                "subtitles": []
+            },
+            {
+                "title": "¿Estamos más solos ahora?",
+                "subtitles": [
+                    "La soledad en la actualidad",
+                    "¿La soledad como futuro?"
+
                 ]
             }
         ]
