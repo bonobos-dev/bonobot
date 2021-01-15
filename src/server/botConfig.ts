@@ -1,18 +1,4 @@
-export interface Role {
-  roleId: string;
-  roleName: string;
-}
-
-export interface CommandRestriction {
-  guildNmae: string;
-  guildId: string;
-  roles: Array<Role>;
-}
-
-export interface CommandConfig {
-  command: string;
-  restrictions: Array<CommandRestriction>;
-}
+import { BonobotConfiguration } from './interfaces';
 
 const config = {
   prefix: process.env.PREFIX,
@@ -285,7 +271,7 @@ const roles = {
     rabioso: { id: '743714192435052564' },
     komecantoEsperantisto: { id: '742186094367604797' },
     homoSonitus: { id: '770696924336619590' },
-    DeutschePrimat: { id:'759502696813690940' }
+    DeutschePrimat: { id: '759502696813690940' },
   },
   cb_pruebas: {
     esencial: { id: '761729394750259230' },
@@ -320,9 +306,16 @@ const roles = {
     rabioso: { id: '759558925287948289' },
     komecantoEsperantisto: { id: '759558925237878808' },
     homoSonitus: { id: '770696924336619590' },
-    DeutschePrimat: { id:'759502696813690940' }
+    DeutschePrimat: { id: '759502696813690940' },
   },
 };
 
-export { config, roles };
+const newBotConfigurationObject: BonobotConfiguration = {
+  prefix: process.env.BONOBOT_PREFIX,
+  mainGuildId: process.env.BONOBOT_MAIN_GUILD_ID,
+  ignoredUsers: ['775514271621840908', '737167797871837265'],
+  ignoredGuilds: [],
+  ignoredRoles: [],
+};
 
+export { config, roles, newBotConfigurationObject };

@@ -1,108 +1,102 @@
-
-
 import { Client, Message } from 'discord.js';
-import { config } from './botConfig';
-import CommandInterface from './interfaces/CommandInterface';
-import { GuildInWhitelist, isBot, isInvalidUser } from './utils/botValidation';
 
-import Denuncia from './commands/Denuncia';
-import Mensajes from './commands/Mensajes';
-import Temario from './commands/Temario';
-import Turnos from './commands/Turnos';
-import Verificador from './commands/Verificador';
-import Server from './commands/Server';
+import { GuildUseCases } from './usecases';
+
+import { isBot, ignoreGuild, ignoreRoles, ignoreUser } from './utils';
+
+import { BonobotConfiguration } from './interfaces';
+
+import { TurnsCommand, RolesCommand, TemaryCommand, CategoryCommand, VerificationCommand, InfoCommand } from './commands';
+//import Denuncia from './commands/Denuncia';
+//import Mensajes from './commands/Mensajes';
+//import Turnos from './commands/Turnos';
+//import Verificador from './commands/Verificador';
+//import Server from './commands/Server';
 
 export default class Bonobot {
-  private client: Client;
-  private commands: Array<CommandInterface>;
+  public config: BonobotConfiguration;
+  public client: Client;
 
-  constructor() {
+  constructor(config: BonobotConfiguration) {
+    this.config = config;
     this.client = new Client();
-    this.loadCommands();
-    this.client.login(process.env.DISCORD_TOKEN);
   }
 
-  public start(): void {
-    this.client.on('ready', () => {
-      console.info('Bonobot is ready on discord!!!!!!!!!');
+  public async start(): Promise<void> {
+    try {
+      await this.client.login(process.env.DISCORD_TOKEN);
+      await Promise.resolve(this.discordLoginReady(this.client));
+      this.config.mainGuild = await this.client.guilds.fetch(this.config.mainGuildId);
+      this.config.mainGuildData = await new GuildUseCases().findById(this.config.mainGuildId);
+
+      this.loadCommands();
+
+      this.startEventListeners();
+    } catch (exception) {
+      console.error('Some exception starting bonobot', exception.message);
+    }
+  }
+
+  private discordLoginReady(client: Client) {
+    return new Promise((resolve) => {
+      client.on('ready', () => {
+        resolve(console.log('Bot is ready on discord. (Loged in)'));
+      });
     });
   }
-  validate(message: Message): boolean {
-    const { prefix } = config;
-    const { type: channelType } = message.channel;
-    let valid: boolean;
-    valid = false;
-    if (message.content.startsWith(prefix)) {
-      valid = true;
-    }
 
-    if (!isBot(message)) {
-      valid = true;
-    }
-
-    if (isInvalidUser(message)) {
-      valid = true;
-    }
-
-    if (GuildInWhitelist(message) !== null) {
-      valid = true;
-    }
-
-    if (channelType !== 'dm') {
-      console.info(
-        `El usuario ${message.author.username} mando un mensaje al bonobot`
-      );
-      valid = true;
-    }
-    return valid;
-  }
-  run(): void {
+  private startEventListeners(): void {
+    console.log('Bot is listening messages...');
     this.client.on('message', async (message: Message) => {
-      if (this.validate(message)) {
-        this.handleCommand(message);
-      }
+      if (this.validate(message)) this.handleCommand(message);
     });
   }
 
-  loadCommands(): void {
-    const denunciaCmd = new Denuncia();
-    const mensajesCmd = new Mensajes();
-    const temarioCmd = new Temario();
-    const turnosCmd = new Turnos();
-    const verificadorCmd = new Verificador();
-    const serverCmd = new Server();
+  private validate(message: Message): boolean {
+    const prefix = this.config.prefix;
+    const { type: channelType } = message.channel;
 
-    this.commands = [
-      denunciaCmd,
-      mensajesCmd,
-      temarioCmd,
-      turnosCmd,
-      verificadorCmd,
-      serverCmd,
-    ];
+    if (channelType === 'dm') {
+      console.info(`El usuario ${message.author.username}#${message.author.discriminator} con id ${message.author.id} mando un mensaje privado al bonobot: ${message.content}`);
+      return false;
+    }
+
+    if (!message.content.startsWith(prefix)) return false;
+    if (isBot(message)) return false;
+    if (ignoreUser(message, this.config.ignoredUsers)) return false;
+    if (ignoreGuild(message, this.config.ignoredGuilds)) return false;
+    if (ignoreRoles(message, this.config.ignoredRoles)) return false;
+
+    return true;
   }
+
+  private loadCommands(): void {
+    this.config.commands = [new TurnsCommand(), new RolesCommand(this.client), new TemaryCommand(), new CategoryCommand(), new VerificationCommand(this.client), new InfoCommand()];
+  }
+
   command(content: string): string {
     const commandSplited = content.split(' ');
     const allCommand = commandSplited[0];
-    const command = allCommand.replace(config.prefix, '');
+    const command = allCommand.replace(this.config.prefix, '');
     return command;
   }
-  arguments(content: string): Array<string> {
-    const argsSplited = content.split(' ');
-    const args = argsSplited.slice(1);
-    return args;
+
+  fullargs(content: string): string {
+    const fullargs = content.replace(this.config.prefix, '');
+    return fullargs;
   }
+
   handleCommand(message: Message): void {
     const { content } = message;
     const command = this.command(content);
-    const args = this.arguments(content);
+    const fullargs = this.fullargs(content);
 
-    for (const commandClass of this.commands) {
+    for (const commandClass of this.config.commands) {
       try {
         if (!commandClass.isThisCommand(command)) {
           continue;
         }
-        commandClass.runCommand(args, message, this.client);
+        commandClass.runCommand(fullargs, message);
       } catch (exception) {
         throw new Error(exception);
       }
