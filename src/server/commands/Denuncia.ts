@@ -1,14 +1,8 @@
-import {
-  MessageAttachment,
-  Message,
-  MessageEmbed,
-  TextChannel,
-  Client,
-} from 'discord.js';
+import { MessageAttachment, Message, MessageEmbed, TextChannel, Client } from 'discord.js';
 import path from 'path';
 
-import CommandInterface from '../interfaces/CommandInterface';
-import { validateCommandRestrictions } from '../utils/botValidation';
+import { CommandInterface } from '../interfaces/CommandInterface';
+import { memberRolesHaveCommandPermission } from '../utils';
 
 export interface UserCmdInfo {
   user_id: string;
@@ -24,14 +18,8 @@ export default class Denuncia implements CommandInterface {
   private usuarios: Array<UserCmdInfo> = [];
 
   private attachFiles() {
-    this.migdrplogo = new MessageAttachment(
-      path.join(__dirname, `../assets/img/migdrp-logo-small-red.png`),
-      'migdrp-icon.png'
-    );
-    this.bonobotlogo = new MessageAttachment(
-      path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`),
-      'bb-logo.png'
-    );
+    this.migdrplogo = new MessageAttachment(path.join(__dirname, `../assets/img/migdrp-logo-small-red.png`), 'migdrp-icon.png');
+    this.bonobotlogo = new MessageAttachment(path.join(__dirname, `../assets/img/bb_dsicordbackcolor.png`), 'bb-logo.png');
   }
 
   private getRule(rule: number) {
@@ -86,26 +74,15 @@ export default class Denuncia implements CommandInterface {
     return selectedRule;
   }
 
-  private crearEmbedDenuncia(
-    message: Message,
-    denunciado: string,
-    canal: string,
-    regla: string
-  ): MessageEmbed {
+  private crearEmbedDenuncia(message: Message, denunciado: string, canal: string, regla: string): MessageEmbed {
     const template = new MessageEmbed()
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#e31452')
-      .setAuthor(
-        'DENUNCIA BONÓBICA',
-        'attachment://migdrp-icon.png',
-        'https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg'
-      )
+      .setAuthor('DENUNCIA BONÓBICA', 'attachment://migdrp-icon.png', 'https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg')
       .setThumbnail('attachment://bb-logo.png')
 
-      .setDescription(
-        `El usuario **${message.author.username}** con ID **${message.author.id}** ha levantado una denuncia anónima`
-      )
+      .setDescription(`El usuario **${message.author.username}** con ID **${message.author.id}** ha levantado una denuncia anónima`)
       .addFields({
         name: '\u200B',
         value: `
@@ -118,30 +95,25 @@ export default class Denuncia implements CommandInterface {
         `,
       })
       .setTimestamp()
-      .setFooter(
-        'Fecha y hora de la denuncia:',
-        'attachment://migdrp-icon.png'
-      );
+      .setFooter('Fecha y hora de la denuncia:', 'attachment://migdrp-icon.png');
 
     return template;
   }
 
   private async checkSelectedChannel(message: Message) {
     try {
-      const channelFound = message.guild.channels.cache.findKey(
-        (channel) => channel.name === this.title
-      );
+      const channelFound = message.guild.channels.cache.findKey((channel) => channel.name === this.title);
 
       if (channelFound) {
-        console.log('Channel Found: ', channelFound);
+        //console.log('Channel Found: ', channelFound);
         return channelFound;
       }
 
-      console.log('Channel not found..');
+      //console.log('Channel not found..');
 
       return null;
     } catch (e) {
-      console.log('Error on checkSelectedChannel().. ', e);
+      //console.log('Error on checkSelectedChannel().. ', e);
     }
   }
 
@@ -150,7 +122,7 @@ export default class Denuncia implements CommandInterface {
       const channelFound = client.channels.fetch(id);
       return channelFound;
     } catch (e) {
-      console.log('Error on getSelectedChannel().. ', e);
+      //console.log('Error on getSelectedChannel().. ', e);
     }
   }
 
@@ -158,10 +130,7 @@ export default class Denuncia implements CommandInterface {
     this.usuarios = [];
   }
 
-  private async compareUserDates(
-    user: UserCmdInfo,
-    msgObject: Message
-  ): Promise<boolean> {
+  private async compareUserDates(user: UserCmdInfo, msgObject: Message): Promise<boolean> {
     try {
       const currentUserId = msgObject.author.id;
       const actualDate = new Date(Date.now());
@@ -173,7 +142,7 @@ export default class Denuncia implements CommandInterface {
       });
 
       if (usersRegistered) {
-        console.log('User FOUND comparing dates... ');
+        //console.log('User FOUND comparing dates... ');
 
         const userDate = new Date(usersRegistered.last_call);
 
@@ -182,15 +151,11 @@ export default class Denuncia implements CommandInterface {
         const diffHrs = Math.floor((diffMs % 86400000) / 3600000);
         const diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000);
 
-        console.log(
-          diffDays + ' days, ' + diffHrs + ' hours, ' + diffMins + ' difference'
-        );
+        //console.log(diffDays + ' days, ' + diffHrs + ' hours, ' + diffMins + ' difference');
 
         if (diffMins > 1) {
-          this.usuarios = this.usuarios.filter(
-            (user) => user.user_id !== currentUserId
-          );
-          console.log('Filtered: ', this.usuarios);
+          this.usuarios = this.usuarios.filter((user) => user.user_id !== currentUserId);
+          //console.log('Filtered: ', this.usuarios);
           this.usuarios.push({ user_id: currentUserId, last_call: Date.now() });
 
           return true;
@@ -198,13 +163,13 @@ export default class Denuncia implements CommandInterface {
           return false;
         }
       } else {
-        console.log('User NOT found pushing user.. ');
+        //console.log('User NOT found pushing user.. ');
         this.usuarios.push(user);
-        console.log('Usuarios: ', this.usuarios);
+        //console.log('Usuarios: ', this.usuarios);
         return true;
       }
     } catch (e) {
-      console.log('Error on getSelectedChannel().. ', e);
+      //console.log('Error on getSelectedChannel().. ', e);
     }
   }
 
@@ -220,17 +185,12 @@ export default class Denuncia implements CommandInterface {
     return command === this._command;
   }
 
-  public async runCommand(args: string[], msgObject: Message, client: Client) {
-    if (!validateCommandRestrictions(this._command, msgObject)) {
+  public async runCommand(args: string[], content: string, msgObject: Message, client: Client) {
+    if (!memberRolesHaveCommandPermission(this._command, msgObject)) {
       return;
     }
 
-    if (
-      !(await this.compareUserDates(
-        { user_id: msgObject.author.id, last_call: Date.now() },
-        msgObject
-      ))
-    ) {
+    if (!(await this.compareUserDates({ user_id: msgObject.author.id, last_call: Date.now() }, msgObject))) {
       msgObject.author.send('No puedes levantar denuncias tan rápido...');
       return;
     }
@@ -238,55 +198,36 @@ export default class Denuncia implements CommandInterface {
     const channel_ID = await this.checkSelectedChannel(msgObject);
 
     if (channel_ID === null) {
-      msgObject.author.send(
-        'No encuentro el canal de denuncias, no puedo postear tu denuncia.'
-      );
+      msgObject.author.send('No encuentro el canal de denuncias, no puedo postear tu denuncia.');
       return;
     }
 
-    const channelDenuncias = (await this.getSelectedChannel(
-      msgObject.client,
-      channel_ID
-    )) as TextChannel;
+    const channelDenuncias = (await this.getSelectedChannel(msgObject.client, channel_ID)) as TextChannel;
 
     if (args.length > 0) {
       if (args[0] === '') {
         msgObject.author.send('Faltan argumentos (denunciado)');
-        console.log(`Args: `, args);
+        //console.log(`Args: `, args);
         return;
       } else if (args[1] === '') {
         msgObject.author.send('Faltan argumentos (canal)');
-        console.log(`Args: `, args);
+        //console.log(`Args: `, args);
         return;
       } else if (args[2] === '') {
         msgObject.author.send('Faltan argumentos (regla)');
 
-        console.log(`Args: `, args);
+        //console.log(`Args: `, args);
         return;
       } else {
-        if (
-          args[2] !== '1' &&
-          args[2] !== '2' &&
-          args[2] !== '3' &&
-          args[2] !== '4' &&
-          args[2] !== '5' &&
-          args[2] !== '6' &&
-          args[2] !== '7' &&
-          args[2] !== '8' &&
-          args[2] !== '9'
-        ) {
+        if (args[2] !== '1' && args[2] !== '2' && args[2] !== '3' && args[2] !== '4' && args[2] !== '5' && args[2] !== '6' && args[2] !== '7' && args[2] !== '8' && args[2] !== '9') {
           msgObject.author.send('Lo siento Bonobo, esa regla no existe');
           return;
         }
 
         const rule = this.getRule(parseInt(args[2]));
 
-        channelDenuncias.send(
-          this.crearEmbedDenuncia(msgObject, args[0], args[1], rule)
-        );
-        msgObject.author.send(
-          'He mandado tu denuncia. Gracias por hablar conmigo, me siento solo y me aburro :C'
-        );
+        channelDenuncias.send(this.crearEmbedDenuncia(msgObject, args[0], args[1], rule));
+        msgObject.author.send('He mandado tu denuncia. Gracias por hablar conmigo, me siento solo y me aburro :C');
       }
     }
   }
