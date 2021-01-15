@@ -1,0 +1,61 @@
+[
+  {
+    "name":"Junta Personalizada",
+    "type":"meeting",
+    "description":"Formato para juntas precenciales personalizadas.",
+    "emoji": "🤖",
+    "staticDate":false,
+    "staticHour":false,
+    "date":"dd-mm-aa",
+    "hour":"hh:mm",
+    "role":"roleID",
+    "category":"categoryID",
+    "defaultChannel":"channelID",
+    "customParams":[
+      { 
+        "name":"titulo-junta",
+        "type":"text",
+        "defaultValue":"Junta ordinaria de programadores."
+      },
+      { 
+        "name":"motivo-junta",
+        "type":"text",
+        "defaultValue":"dar seguimiento a los diferentes proyectos y actividades de los programadores de la comunidad."
+      }
+    ],
+    "customEmbedContent": {
+      "thumbnailUrl":"https://cdn.discordapp.com/attachments/759558927657599007/791631687460061184/bb-logo.png",
+      "imageUrl":"https://cdn.discordapp.com/attachments/759558927657599007/791631687460061184/bb-logo.png",
+      "author":{
+        "hasCustomParams":false,
+        "name":"Sobre el club de programación",
+        "url":"https://github.com/bonobos-dev",
+        "icon_url":"https://cdn.discordapp.com/attachments/759558927657599007/791631687460061184/bb-logo.png"
+      },
+      "description":{
+        "hasCustomParams":false,
+        "content":"🤖 **__Hola Coders__** 🤖"
+      },
+      "customFields":[
+        {
+          "hasCustomParams":true,
+          "name":"[titulo-junta]",
+          "value":"Se llevará a cabo una junta con el propósito de [motivo-junta]",
+          "inline":false
+        },
+        {
+          "hasCustomParams":false,
+          "name":"",
+          "value":"Si deseas formar parte del club de programación no olvides adquirir tu rol de Coder.",
+          "inline":false
+        }
+      ],
+      "footer": {
+        "hasCustomParams":false,
+        "icon_url": "https://cdn.discordapp.com/attachments/759558927657599007/791631687460061184/bb-logo.png",
+        "text": "footer text"
+      }
+    }
+  }
+]
+

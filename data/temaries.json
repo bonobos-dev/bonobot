@@ -1,66 +1,46 @@
 [
-    {
-        "name": "La soledad",
-        "date": "sábado, 12 de diciembre de 2020 18:22:41 GMT-06:00",
-        "schedule": "sábado, 12 de diciembre de 2020 18:22:41 GMT-06:00)",
-        "active": true,
-        "content": [
-            {
-                "title": "¿Qué es la soledad?",
-                "subtitles": [
-                    "La soledad como emoción",
-                    "La soledad y el aislamiento",
-                    "La soledad emocional",
-                    "¿Qué hace la soledad?",
-                    "¿Cómo no sentirme sol@?",
-                    "La soledad social "
-                ]
-            },
-            {
-                "title": "¿Por qué me siento sol@?",
-                "subtitles": [
-                    "Por la existencia",
-                    "Por la cultura",
-                    "Por pérdida",
-                    "Autoperpetuada y socioperpetuada",
-                    "¿Cómo no sentirme sol@?",
-                    "Por el internét"
-                ]
-            },
-            {
-                "title": "Intermedio",
-                "subtitles": []
-            },
-            {
-                "title": "¿Qué hace la soledad?",
-                "subtitles": [
-                    "Temporalmente",
-                    "Crónicamente",
-                    "Socialmente"
-                ]
-            },
-            {
-                "title": "¿Cómo no sentirme sol@?",
-                "subtitles": [
-                    "Desde la medicina",
-                    "Desde la comunidad",
-                    "Desde el gobierno",
-                    "Desde la espiritualidad"
-
-                ]
-            },
-            {
-                "title": "Bonus Round",
-                "subtitles": []
-            },
-            {
-                "title": "¿Estamos más solos ahora?",
-                "subtitles": [
-                    "La soledad en la actualidad",
-                    "¿La soledad como futuro?"
-
-                ]
-            }
+  {
+    "name": "Robots, IA y transhumanización",
+    "date":"",
+    "active": false,
+    "content": [
+      {
+        "title": "Robótica como disciplina",
+        "subtitles": [
+          "a. _Aplicación (en la industria/medicina/transporte)_",
+          "b. _El futuro de la robótica_",
+          "c. _Debate Moral_",
+          "d. _Androides_"
         ]
-    }
+      },
+      {
+        "title": " Inteligencia Artificial",
+        "subtitles": [
+          "a. _Redes neuronales_",
+          "b. _¿Qué es y qué no es? (Participación en la ficción)_",
+          "c. _Ventajas y desventajas_",
+          "d. _Perspectiva filosófica_",
+          "e. _Ética acerca de su uso (social dilema)_"
+        ]
+      },
+      {
+        "title": "Transhumanismo",
+        "subtitles": [
+          "a. _Estado en la actualidad_",
+          "b. _Usos (Guerra, espionaje, medicina)_",
+          "c. _Fusión con las IAs_",
+          "d. _Digitalización de la consciencia_",
+          "e. _Límites del transhumanismo (post humanidad)_",
+          "f. _Debate moral ético_"
+        ]
+      },
+      {
+        "title": "Conclusiones: El futuro de la humanidad",
+        "subtitles": [
+          "a. _Perspectiva de las ficciones futuristas SolarPunk, CyberPunk, Steampunk, etc_",
+          "b. _¿Hacia qué ficción vamos?_"
+        ]
+      }
+    ]
+  }
 ]
