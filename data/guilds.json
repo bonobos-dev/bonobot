@@ -1,10 +1,18 @@
-{
-    "_id": "759558925237878807",
+[
+  {
+    "id": "680585599819841560",
     "name": "Comunidad Bonóbica",
-    "categories" : [
-      "759909279767068693"
-    ],
-    "roles": [
-      "737175557007212585"
-    ]
+    "categories": [],
+    "roles": [],
+    "masters": [],
+    "apiRoles": []
+  },
+  {
+    "id": "759558925237878807",
+    "name": "CB Pruebas",
+    "categories": [],
+    "roles": [],
+    "masters": [],
+    "apiRoles": []
   }
+]

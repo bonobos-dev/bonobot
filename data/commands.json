@@ -1,11 +1,947 @@
-{
-    "name": "temario",
-    "desc": "lorem",
+[
+  {
+    "name": "Turnos",
+    "prefix": "turnos",
+    "type": "singleArg",
+    "description": "Comando utilizado para generar la taquilla de turnos dentro de un canal de texto",
     "args": [
-         {
-            "name":"aviso",
-            "input": "example",
-            "desc": "lorem"
-         }
-     ]
-}
+      {
+        "name": "skip",
+        "prefix": "skip",
+        "type": "simple",
+        "args": [],
+        "description": "El argumento skip se utiliza para saltar al turno actual en la lista de turnos pendientes."
+      },
+      {
+        "name": "rollback",
+        "prefix": "rollback",
+        "type": "simple",
+        "args": [],
+        "description": "El argumento rollback se utiliza para regresar la taquilla al estado anterior."
+      },
+      {
+        "name": "template",
+        "prefix": "template",
+        "type": "singleArg",
+        "args": [],
+        "description": "El argumento template permitirá al usuario elegir una plantilla predeterminada para la taquilla de turnos. (En desarrollo)"
+      },
+      {
+        "name": "stats",
+        "prefix": "stats",
+        "type": "simple",
+        "args": [],
+        "description": "El argumento stats permitirá al usuario visualizar multiples estadísticas de la taquilla utilizada en el canal de texto. (En desarrollo)"
+      },
+      {
+        "name": "help",
+        "prefix": "help",
+        "type": "simple",
+        "args": [],
+        "description": "Si estás viendo esta información ya sabes que haece este argumento."
+      },
+      {
+        "name": "health",
+        "prefix": "health",
+        "type": "simple",
+        "args": [],
+        "description": "Argumento predeterminado para ver la información de la salud del comando (en construcción)."
+      }
+    ],
+    "staticData": {
+      "aviable": true,
+      "data": {
+        "defaultEmbedTurnos": "parla",
+        "embedTemplates": {
+          "parla": {
+            "prefix": "parla",
+            "name": "Turnos Parla Sabatina",
+            "description": "La primera taquilla creada para el servidor. Para llevar el orden y el manejo en la parla sabatina.",
+            "embedData": {
+              "title": "",
+              "description": "​\n:tickets: ``Reaccionar para solicitar o revocar su turno.``\n\n:white_check_mark: ``Reaccionar para finalizar su turno.``\n​\n",
+              "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+              "color": 14881874,
+              "author": {
+                "name": "TAQUILLA BONÓBICA",
+                "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+                "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785705662480384/migdrp-logo-small-red.png"
+              },
+              "thumbnail": {
+                "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+              },
+              "fields": [
+                {
+                  "name": "Turno actual :microphone2:",
+                  "value": "No hay nadie en la lista de turnos. ¡Sé el primero en participar!",
+                  "inline": false
+                },
+                {
+                  "name": "Turnos pendientes :stopwatch:",
+                  "value": "No hay nadie en la lista de turnos. ¡Sé el siguiente en participar!",
+                  "inline": false
+                }
+              ],
+              "image": null,
+              "footer": {
+                "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785705662480384/migdrp-logo-small-red.png",
+                "text": "Toda participación es bienvenida"
+              }
+            }
+          },
+          "karaoke": {
+            "prefix": "karaoke",
+            "name": "Turnos Karaoke",
+            "description": "La primera taquilla creada para el servidor. Para llevar el orden y el manejo en eventos de karaoke.",
+            "embedData": {
+              "title": "",
+              "description": "​\n:tickets: ``Para solicitar su turno``\n\n:white_check_mark: ``Para finalizar su turno``\n\n:no_entry: ``Para salir de la lista``\n​\n",
+              "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+              "color": 14881874,
+              "author": {
+                "name": "TAQUILLA BONÓBICA",
+                "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+                "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785705662480384/migdrp-logo-small-red.png"
+              },
+              "thumbnail": {
+                "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+              },
+              "fields": [
+                {
+                  "name": "Turno actual :microphone:",
+                  "value": "No hay nadie en la lista",
+                  "inline": false
+                },
+                {
+                  "name": "Turnos pendientes :stopwatch:",
+                  "value": "No hay nadie en la lista",
+                  "inline": false
+                }
+              ],
+              "image": null,
+              "footer": {
+                "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785705662480384/migdrp-logo-small-red.png",
+                "text": "Participa sin pena"
+              }
+            }
+          }
+        },
+        "easterEggs": {
+          "rollback": {
+            "probability": {
+              "type": "basic",
+              "level": 30
+            },
+            "messages": [
+              "Si realmente necesitan la herramienta pidele a un coder 💻 que te la programe.",
+              "Si realmente necesitas la herramienta pidele a codeDude#4349 que se moche.",
+              "Si quieres que haga magia aprende a programar y enséñame ❗ ❗ ",
+              "No logro recordar el estado anterior de la taquilla. Tu servidor no es el único en el que tengo que vender tickets bonóbicos... 🎟️ 💰 ¡Espera! ¿Aquí son gratis?",
+              "Procura ser mas ordenado para no tener que regresar los turnos a su estado anterior ❗ .",
+              "¿Otra vez lo mismo? Solo tengo un espacio de memoria cual pescado 🐟. ",
+              "¿Otra vez lo mismo?  Que la v$%#a con los mods."
+            ]
+          }
+        }
+      }
+    },
+    "dinamicData": {
+      "759558925237878807": {
+        "759558927657599007": {
+          "channelId": "759558927657599007",
+          "messageId": "796325480932179968",
+          "collectingReactions": false,
+          "currentUser": {
+            "username": "migdrp",
+            "nickname": null,
+            "id": "592539212906233882",
+            "turnInfo": {
+              "skipped": true,
+              "rollbacked": true,
+              "requestedAt": 1609928794844,
+              "endedAt": 1609928796198,
+              "stratetAt": 1609928794844
+            }
+          },
+          "users": [],
+          "lastUser": null,
+          "channelStats": {
+            "channelOpen": true,
+            "endedTurns": [
+              {
+                "username": "migdrp",
+                "nickname": null,
+                "id": "592539212906233882",
+                "turnInfo": {
+                  "rollbacked": false,
+                  "requestedAt": 1609922069523,
+                  "endedAt": 1609922630286,
+                  "stratetAt": 1609922069523
+                }
+              },
+              {
+                "username": "migdrp",
+                "nickname": null,
+                "id": "592539212906233882",
+                "turnInfo": {
+                  "skipped": true,
+                  "rollbacked": true,
+                  "requestedAt": 1609928156724,
+                  "endedAt": 1609928158858,
+                  "stratetAt": 1609928156724
+                }
+              },
+              {
+                "username": "migdrp",
+                "nickname": null,
+                "id": "592539212906233882",
+                "turnInfo": {
+                  "skipped": false,
+                  "rollbacked": true,
+                  "requestedAt": 1609928777151,
+                  "endedAt": 1609928778398,
+                  "stratetAt": 1609928777151
+                }
+              },
+              {
+                "username": "migdrp",
+                "nickname": null,
+                "id": "592539212906233882",
+                "turnInfo": {
+                  "skipped": false,
+                  "rollbacked": true,
+                  "requestedAt": 1609928794844,
+                  "endedAt": 1609928796198,
+                  "stratetAt": 1609928794844
+                }
+              },
+              {
+                "username": "migdrp",
+                "nickname": null,
+                "id": "592539212906233882",
+                "turnInfo": {
+                  "skipped": false,
+                  "rollbacked": true,
+                  "requestedAt": 1609928794844,
+                  "endedAt": 1609928796198,
+                  "stratetAt": 1609928794844
+                }
+              },
+              {
+                "username": "migdrp",
+                "nickname": null,
+                "id": "592539212906233882",
+                "turnInfo": {
+                  "skipped": true,
+                  "rollbacked": true,
+                  "requestedAt": 1609928794844,
+                  "endedAt": 1609928796198,
+                  "stratetAt": 1609928794844
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "helpEmbedData": {
+      "title": "¿Tienes problemas con el comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Ayuda Bonóbica",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "healthEmbedData": {
+      "title": "Salud del comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Salud del Bonobot",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    }
+  },
+  {
+    "name": "Roles",
+    "prefix": "roles",
+    "type": "singleArg",
+    "description": "Comando utilizado para generar el selector de roles.",
+    "args": [
+      {
+        "name": "select",
+        "prefix": "select",
+        "type": "simple",
+        "args": [],
+        "description": "Para solicitar los mensajes que contengan roles seleccionables."
+      },
+      {
+        "name": "info",
+        "prefix": "info",
+        "type": "simple",
+        "args": [],
+        "description": "Para solicitar los mensajes que contengan la información de los roles del servidor."
+      },
+      {
+        "name": "help",
+        "prefix": "help",
+        "type": "simple",
+        "args": [],
+        "description": "Si estás viendo esta información ya sabes que haece este argumento."
+      },
+      {
+        "name": "health",
+        "prefix": "health",
+        "type": "simple",
+        "args": [],
+        "description": "Argumento predeterminado para ver la información de la salud del comando (en construcción)."
+      }
+    ],
+    "staticData": {
+      "aviable": true,
+      "data": {
+        "roleCategories": {
+          "Principales": {
+            "description": "Los roles principales reflejan la actividad y las responsabilidades de los usuarios de dentro del servidor. Se clasifican en básicos y avanzados."
+          },
+          "Actividades": {
+            "description": "Se utilizan para dar seguimiento a las diferentes actividades de la comunidad. Algunos pueden ser utilizados para notificar de eventos especiales relacionados con una actividad, también puede haber múltiples actividades relacionadas con el contexto del rol."
+          },
+          "Educativos": {
+            "description": "Los roles educativos se utilizan para dar aviso de las actividades de las clases. Todos los bonobos pueden proponer impartir una clase, curso o taller siguiendo el formato preestablecido en el canal #urna_educativa."
+          },
+          "Utilidad": {
+            "description": "Los roles de utilidad son usados en escenarios específicos y otorgan a los usuarios diferentes permisos dentro de los canales del servidor."
+          },
+          "Reservados": {
+            "description": "Los roles reservados se ocupan en situaciones específicas del servidor y solo por una pequeña cantidad de usuarios."
+          },
+          "Discord": {
+            "description": "Son los roles predeterminados de discord."
+          },
+          "Archivados": {
+            "description": "Los roles archivados son aquellos que ya no se encuentran en actividad. Pueden ser roles de actividades que ya no se realizan o de clases que ya no se imparten."
+          },
+          "Bots": {
+            "description": "Los roles de bots se utilizan para limitar el acceso y los permisos de los bots dentro de los canales del servidor."
+          }
+        },
+        "embedData": {
+          "title": "",
+          "description": "",
+          "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+          "color": 11097789,
+          "author": {
+            "name": "Roles Bonóbicos",
+            "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+            "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png"
+          },
+          "thumbnail": {
+            "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+          },
+          "fields": [],
+          "image": null,
+          "footer": {
+            "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png",
+            "text": "¡Bienvenido Bonobo!"
+          }
+        },
+        "easterEggs": {}
+      }
+    },
+    "helpEmbedData": {
+      "title": "¿Tienes problemas con el comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Ayuda Bonóbica",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "healthEmbedData": {
+      "title": "Salud del comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Salud del Bonobot",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "dynamicData": {
+      "data": {}
+    }
+  },
+  {
+    "name": "Temario",
+    "prefix": "temario",
+    "type": "singleArg",
+    "description": "Comando utilizado para generar el aviso del temario para la parla sabatina y para poder visualizarlo durante la misma",
+    "args": [
+      {
+        "name": "aviso",
+        "prefix": "aviso",
+        "type": "simple",
+        "args": [],
+        "description": "El argumento aviso se utiliza para mandar el mensaje de temario con una mention a un rol específico."
+      },
+      {
+        "name": "help",
+        "prefix": "help",
+        "type": "simple",
+        "args": [],
+        "description": "Si estás viendo esta información ya sabes que haece este argumento."
+      },
+      {
+        "name": "health",
+        "prefix": "health",
+        "type": "simple",
+        "args": [],
+        "description": "Argumento predeterminado para ver la información de la salud del comando (en construcción)."
+      }
+    ],
+    "staticData": {
+      "aviable": true,
+      "data": {
+        "roleCategories": {
+          "Principales": {
+            "description": "Los roles principales reflejan la actividad y las responsabilidades de los usuarios de dentro del servidor. Se clasifican en básicos y avanzados."
+          },
+          "Actividades": {
+            "description": "Se utilizan para dar seguimiento a las diferentes actividades de la comunidad. Algunos pueden ser utilizados para notificar de eventos especiales relacionados con una actividad, también puede haber múltiples actividades relacionadas con el contexto del rol."
+          },
+          "Educativos": {
+            "description": "Los roles educativos se utilizan para dar aviso de las actividades de las clases. Todos los bonobos pueden proponer impartir una clase, curso o taller siguiendo el formato preestablecido en el canal #urna_educativa."
+          },
+          "Utilidad": {
+            "description": "Los roles de utilidad son usados en escenarios específicos y otorgan a los usuarios diferentes permisos dentro de los canales del servidor."
+          },
+          "Reservados": {
+            "description": "Los roles reservados se ocupan en situaciones específicas del servidor y solo por una pequeña cantidad de usuarios."
+          },
+          "Discord": {
+            "description": "Son los roles predeterminados de discord."
+          },
+          "Archivados": {
+            "description": "Los roles archivados son aquellos que ya no se encuentran en actividad. Pueden ser roles de actividades que ya no se realizan o de clases que ya no se imparten."
+          },
+          "Bots": {
+            "description": "Los roles de bots se utilizan para limitar el acceso y los permisos de los bots dentro de los canales del servidor."
+          }
+        },
+        "embedData": {
+          "title": "",
+          "description": "",
+          "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+          "color": 11097789,
+          "author": {
+            "name": "Temario Bonóbicos",
+            "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+            "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png"
+          },
+          "thumbnail": {
+            "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+          },
+          "fields": [],
+          "image": null,
+          "footer": {
+            "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png",
+            "text": "¡Los bonobos apreciamos mucho la participación!"
+          }
+        },
+        "easterEggs": {}
+      }
+    },
+    "helpEmbedData": {
+      "title": "¿Tienes problemas con el comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Ayuda Bonóbica",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "healthEmbedData": {
+      "title": "Salud del comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Salud del Bonobot",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "dynamicData": {
+      "data": {}
+    }
+  },
+  {
+    "name": "Categoría",
+    "prefix": "categoría",
+    "type": "simple",
+    "description": "Comando utilizado para generar los mensajes informativos de las categorías del servidor.",
+    "args": [
+      {
+        "name": "help",
+        "prefix": "help",
+        "type": "simple",
+        "args": [],
+        "description": "Si estás viendo esta información ya sabes que haece este argumento."
+      },
+      {
+        "name": "health",
+        "prefix": "health",
+        "type": "simple",
+        "args": [],
+        "description": "Argumento predeterminado para ver la información de la salud del comando (en construcción)."
+      }
+    ],
+    "staticData": {
+      "aviable": true,
+      "data": {
+        "embedData": {
+          "title": "",
+          "description": "",
+          "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+          "color": 11097789,
+          "author": {
+            "name": "Estructura del servidor",
+            "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+            "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png"
+          },
+          "thumbnail": {
+            "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+          },
+          "fields": [],
+          "image": null,
+          "footer": {
+            "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png",
+            "text": "¡Bienvenido Bonobo!"
+          }
+        },
+        "easterEggs": {}
+      }
+    },
+    "helpEmbedData": {
+      "title": "¿Tienes problemas con el comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Ayuda Bonóbica",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "healthEmbedData": {
+      "title": "Salud del comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Salud del Bonobot",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "dynamicData": {
+      "data": {}
+    }
+  },
+  {
+    "name": "Verificador",
+    "prefix": "verificador",
+    "type": "singleArg",
+    "description": "Comando utilizado para iniciar el proceso de verificación utilizando un canal de texto específico.",
+    "args": [
+      {
+        "name": "help",
+        "prefix": "help",
+        "type": "simple",
+        "args": [],
+        "description": "Si estás viendo esta información ya sabes que haece este argumento."
+      },
+      {
+        "name": "health",
+        "prefix": "health",
+        "type": "simple",
+        "args": [],
+        "description": "Argumento predeterminado para ver la información de la salud del comando (en construcción)."
+      }
+    ],
+    "staticData": {
+      "aviable": true,
+      "data": {
+        "verificationRoles":{
+          "759558925237878807":{
+            "austra":"759558925270909001",
+            "chimp":"759558925270909002",
+            "bonobo":"759558925270909003",
+            "gold":"765127488451510332",
+            "mandril":"765126037305688064"
+          }
+        },
+        "wellcomeMessages":[
+          "Bienvenido Bonobo a la comunidad ❤️, siéntete en confianza de participar en los diferentes canales de texto y voz."
+        ],
+        "verifyMessages": [
+          "quiero ser chimpancé",
+          "quiero ser chimpance",
+          "quiero ser chimpancè",
+          "dame chimpancé",
+          "verificar",
+          "hazme chimpancé"
+        ],
+        "embedData": {},
+        "easterEggs": {
+          "verifyMessages": {
+            "bonobo": {
+              "probability": {
+                "type": "basic",
+                "level": 5
+              },
+              "messages": ["quiero ser bonobo", "dame bonobo", "hazme bonobo"]
+            },
+            "golden": {
+              "probability": {
+                "type": "basic",
+                "level": 30
+              },
+              "messages": [
+                "quiero ser admin",
+                "quiero ser esencial",
+                "quiero ser mod",
+                "quiero ser influyente",
+                "quiero ser intercambiable"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "helpEmbedData": {
+      "title": "¿Tienes problemas con el comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Ayuda Bonóbica",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "healthEmbedData": {
+      "title": "Salud del comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Salud del Bonobot",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "dynamicData": {
+      "data": {}
+    }
+  },
+  {
+    "name": "Información",
+    "prefix": "información",
+    "type": "simple",
+    "description": "Comando utilizado para solicitar la informacion importante del servidor en un canal de texto específico.",
+    "args": [
+      {
+        "name": "help",
+        "prefix": "help",
+        "type": "simple",
+        "args": [],
+        "description": "Si estás viendo esta información ya sabes que haece este argumento."
+      },
+      {
+        "name": "health",
+        "prefix": "health",
+        "type": "simple",
+        "args": [],
+        "description": "Argumento predeterminado para ver la información de la salud del comando (en construcción)."
+      }
+    ],
+    "staticData": {
+      "aviable": true,
+      "data": {
+        "embedData": {
+          "iniciativa":{
+            "title": ":pushpin: NUESTRA INICIATIVA",
+            "description":"La Comunidad Bonóbica es un proyecto enfocado en crear un espacio de crecimiento continuo, abierto al diálogo, que abrace la diversidad y la complejidad del pensamiento, y que a través de la cooperación y la interacción cimiente un área de divulgación y generación de conocimiento, promoviendo la visión de colaboración, respeto y retroalimentación, entendiendo a los otros desde la empatía y la crítica; siendo así un punto de encuentro para las personas que deseen compartir sus ideas y desarrollar sus habilidades en un ambiente de respeto, contribución e intereses variados.\n\n\u200B",
+            "color": 11097789,
+            "author": {
+              "name": "Bienvenido a la Comunidad Bonóbica",
+              "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+              "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png"
+            },
+            "thumbnail": {
+              "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+            },
+            "image": null,
+            "footer": {
+              "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png",
+              "text": "¡Bienvenido Bonobo!"
+            }
+          },
+          "reglas":{
+            "title": ":scroll: NUESTRO REGLAMENTO",
+            "color": 11097789,
+            "author": {
+              "name": "Bienvenido a la Comunidad Bonóbica",
+              "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+              "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png"
+            },
+            "thumbnail": {
+              "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+            },
+            "image": null,
+            "footer": {
+              "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png",
+              "text": "¡Bienvenido Bonobo!"
+            }
+          },
+          "invitación": {
+            "title": ":pushpin: ¿DESEAS PARTICIPAR?",
+            "color": 11097789,
+            "description":":white_check_mark: Primero escoge el rol de las actividades que más te interesen para no perderte de nada reaccionando en los íconos que encontraras en los mensajes siguientes.\n\n:white_check_mark: Para verificarte y poder ver la totalidad del servidor escribe 'quiero ser chimpancé', al hacerlo aceptas estar de acuerdo con el reglamento del servidor. ¡Bienvenido!\n\n\u200B",
+            "author": {
+              "name": "Bienvenido a la Comunidad Bonóbica",
+              "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+              "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png"
+            },
+            "thumbnail": {
+              "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+            },
+            "image": null,
+            "footer": {
+              "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png",
+              "text": "¡Bienvenido Bonobo!"
+            }
+          }
+        },
+        "easterEggs": {}
+      }
+    },
+    "helpEmbedData": {
+      "title": "¿Tienes problemas con el comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Ayuda Bonóbica",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "healthEmbedData": {
+      "title": "Salud del comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Salud del Bonobot",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "dynamicData": {
+      "data": {}
+    }
+  },
+  {
+    "name": "Mensajes",
+    "prefix": "mensajes",
+    "type": "singleArg",
+    "description": "Comando utilizado para generar mensajes personalizados enviados por el Bonobot",
+    "args": [
+      {
+        "name": "name",
+        "prefix": "name",
+        "type": "singleArg",
+        "args": [],
+        "description": "Para elegir el nombre del mensaje a enviar."
+      },
+      {
+        "name": "help",
+        "prefix": "help",
+        "type": "simple",
+        "args": [],
+        "description": "Si estás viendo esta información ya sabes que haece este argumento."
+      },
+      {
+        "name": "health",
+        "prefix": "health",
+        "type": "simple",
+        "args": [],
+        "description": "Argumento predeterminado para ver la información de la salud del comando (en construcción)."
+      }
+    ],
+    "staticData": {
+      "aviable": true,
+      "data": {
+        "embedData": {
+          "glosario1":{
+            "title": ":pushpin: Glosario para el foro sabatino",
+            "description":"",
+            "img":"",
+            "color": 11097789,
+            "author": {
+              "name": "Para el foro sabatino",
+              "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+              "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png"
+            },
+            "thumbnail": {
+              "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+            },
+            "image": "https://cdn.discordapp.com/attachments/766808927814811678/799879111082115072/2.png",
+            "footer": {
+              "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png",
+              "text": "¡Bienvenido Bonobo!"
+            }
+          }
+        },
+        "easterEggs": {}
+      }
+    },
+    "helpEmbedData": {
+      "title": "¿Tienes problemas con el comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Ayuda Bonóbica",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "healthEmbedData": {
+      "title": "Salud del comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Salud del Bonobot",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "dynamicData": {
+      "aviable":false,
+      "data": {}
+    }
+  }
+]

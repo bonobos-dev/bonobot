@@ -1,15 +1,8 @@
-import {
-  Client,
-  MessageAttachment,
-  Message,
-  MessageEmbed,
-  ReactionCollector,
-  TextChannel,
-} from 'discord.js';
+import { Client, MessageAttachment, Message, MessageEmbed, ReactionCollector, TextChannel } from 'discord.js';
 
-import CommandInterface from '../interfaces/CommandInterface';
+import { CommandInterface } from '../interfaces/CommandInterface';
 
-import { validateCommandRestrictions } from '../utils/botValidation';
+import { memberRolesHaveCommandPermission } from '../utils';
 
 import { config, roles } from '../botConfig';
 
@@ -19,46 +12,32 @@ export default class Server implements CommandInterface {
   private _command = 'server';
   private channel = '📌・sobre_el_servidor';
 
-  private roles =
-    config.env === 'production'
-      ? roles.cb_real
-      : roles.cb_pruebas;
+  private roles = config.env === 'production' ? roles.cb_real : roles.cb_pruebas;
 
   private currentEmbedMessage0: Message;
   private currentEmbedMessage1: Message;
   private currentEmbedMessage2: Message;
   private reactionCollector: ReactionCollector;
 
-  private migdrplogo = new MessageAttachment(
-    path.join(__dirname, `../assets/img/migdrp-logo-small-parla_sabatina.png`),
-    'migdrp-icon.png'
-  );
-  private bonobotlogo = new MessageAttachment(
-    path.join(__dirname, `../assets/img/cb-logo.png`),
-    'bb-logo.png'
-  );
-  private imgParla = new MessageAttachment(
-    path.join(__dirname, `../assets/img/foro_img_horizontal.jpeg`),
-    'foro-img.jpg'
-  );
+  private migdrplogo = new MessageAttachment(path.join(__dirname, `../assets/img/migdrp-logo-small-parla_sabatina.png`), 'migdrp-icon.png');
+  private bonobotlogo = new MessageAttachment(path.join(__dirname, `../assets/img/cb-logo.png`), 'bb-logo.png');
+  private imgParla = new MessageAttachment(path.join(__dirname, `../assets/img/foro_img_horizontal.jpeg`), 'foro-img.jpg');
 
   private free = true;
 
   private async checkSelectedChannel(message: Message) {
     try {
-      const channelFound = message.guild.channels.cache.findKey(
-        (channel) => channel.name === this.channel
-      );
+      const channelFound = message.guild.channels.cache.findKey((channel) => channel.name === this.channel);
 
       if (channelFound) {
-        console.log('Channel Found: ', channelFound);
+        //console.log('Channel Found: ', channelFound);
         return channelFound;
       }
 
-      console.log('Channel not found..');
+      //console.log('Channel not found..');
       return null;
     } catch (e) {
-      console.log('Error on getSelectedChannel().. ', e);
+      //console.log('Error on getSelectedChannel().. ', e);
     }
   }
 
@@ -67,12 +46,12 @@ export default class Server implements CommandInterface {
       const channelFound = client.channels.fetch(id);
       return channelFound;
     } catch (e) {
-      console.log('Error on getSelectedChannel().. ', e);
+      //console.log('Error on getSelectedChannel().. ', e);
     }
   }
 
   constructor() {
-    console.log('Server Command Instantiated');
+    //console.log('Server Command Instantiated');
   }
 
   private crearEmbedSobreRoles(): MessageEmbed {
@@ -80,11 +59,7 @@ export default class Server implements CommandInterface {
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
-      .setAuthor(
-        'INFORMACIÓN SOBRE EL SERVIDOR',
-        'attachment://migdrp-icon.png',
-        'https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg'
-      )
+      .setAuthor('INFORMACIÓN SOBRE EL SERVIDOR', 'attachment://migdrp-icon.png', 'https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg')
       .setThumbnail('attachment://bb-logo.png')
 
       .setDescription(
@@ -211,11 +186,7 @@ ${'```Rol correspondiente a las clases de esperanto que se impartieron en la com
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
-      .setAuthor(
-        'INFORMACIÓN SOBRE EL SERVIDOR',
-        'attachment://migdrp-icon.png',
-        'https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg'
-      )
+      .setAuthor('INFORMACIÓN SOBRE EL SERVIDOR', 'attachment://migdrp-icon.png', 'https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg')
       .setThumbnail('attachment://bb-logo.png')
 
       .setDescription(
@@ -392,11 +363,7 @@ ${'```Canales de audio para utilizarse en las actividades de la estación praxis
       .attachFiles(this.migdrplogo as any)
       .attachFiles(this.bonobotlogo as any)
       .setColor('#a956bd')
-      .setAuthor(
-        'INFORMACIÓN SOBRE EL SERVIDOR',
-        'attachment://migdrp-icon.png',
-        'https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg'
-      )
+      .setAuthor('INFORMACIÓN SOBRE EL SERVIDOR', 'attachment://migdrp-icon.png', 'https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg')
       .setThumbnail('attachment://bb-logo.png')
 
       .setDescription(
@@ -493,10 +460,10 @@ ${'```Los canales de voz no son para dormir, si entraste a uno y estuviste inact
     return command === this._command;
   }
 
-  public async runCommand(args: string[], msgObject: Message, client: Client) {
-    console.log('command verificador ejecutado');
+  public async runCommand(args: string[], content: string, msgObject: Message, client: Client) {
+    //console.log('command verificador ejecutado');
 
-    if (!validateCommandRestrictions(this._command, msgObject)) {
+    if (!memberRolesHaveCommandPermission(this._command, msgObject)) {
       return;
     }
 
@@ -505,9 +472,7 @@ ${'```Los canales de voz no son para dormir, si entraste a uno y estuviste inact
         const channel_ID = await this.checkSelectedChannel(msgObject);
 
         if (channel_ID === null) {
-          msgObject.author.send(
-            'No encuentro el canal de verificación, no puedo postear el mensaje de verificación.'
-          );
+          msgObject.author.send('No encuentro el canal de verificación, no puedo postear el mensaje de verificación.');
           return;
         }
 
@@ -516,10 +481,7 @@ ${'```Los canales de voz no son para dormir, si entraste a uno y estuviste inact
           return;
         }
 
-        const channelDenuncias = (await this.getSelectedChannel(
-          msgObject.client,
-          channel_ID
-        )) as TextChannel;
+        const channelDenuncias = (await this.getSelectedChannel(msgObject.client, channel_ID)) as TextChannel;
 
         const embedRoles = this.crearEmbedSobreRoles();
         const embedservidor1 = this.crearEmbedSobreElServidor1();
