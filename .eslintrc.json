@@ -2,15 +2,31 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "prettier"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier",
+    "prettier/@typescript-eslint"
   ],
   "rules": {
-    "no-eval":"error",
-    "@typescript-eslint/no-explicit-any": "off"
+    "no-eval": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "camelcase": "off",
+    "arrow-body-style": "off",
+    "@typescript-eslint/camelcase": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto",
+        "printWidth": 500,
+        "singleQuote": true,
+        "tabWidth": 2
+      }
+    ]
   }
 }

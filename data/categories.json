@@ -1,17 +1,1477 @@
-
-
-{
-    "name": "Las puertas del samsara",
-    "emoji" : ":3",
-    "desc" : "lorem",
-    "channels" : [
-        {
-            "_id": "",
-            "name": "Verificación",
-            "emoji": "//",
-            "type": "text | voice | add",
-            "desc": "lorem"
-        }
+[
+  {
+    "id":"765496804653006848",
+    "name": "VETERINARIA",
+    "guild":"680585599819841560",
+    "emoji": "🏥",
+    "description": "En este lugar se rehabilitan los bonobos que requieren atención.",
+    "channels": [
+      {
+        "id": "779552071224655883",
+        "name": "Chat",
+        "active": true,
+        "text": "💉・chat・💬",
+        "emoji": "💉",
+        "type": "text",
+        "description": "Espacio destinado al diagnóstico del bonobo enfermo."
+      },
+      {
+        "id": "765502604016091146",
+        "name": "Terapia Intensiva",
+        "active": true,
+        "text": "💉・Terapia Intensiva",
+        "emoji": "💉",
+        "type": "voice",
+        "description": "Espacio destinado al diagnóstico del bonobo enfermo."
+      }
     ]
-    
-}
+  },
+  {
+    "id":"680585599824035858",
+    "name": "PUERTAS DEL SAMSARA",
+    "guild":"680585599819841560",
+    "emoji": "🌄",
+    "description": "Esta es la entrada a nuestra comunidad, únicamente es visible para los usuarios que no se han verificado.",
+    "channels": [
+      {
+        "id": "721211156341194812",
+        "name": "Verificación",
+        "active": true,
+        "text": "✅・verificación",
+        "emoji": "✅",
+        "type": "text",
+        "description": "Encontrarán las reglas, podrán asignarse los roles de las actividades que más les interesen y se verificarán en."
+      },
+      {
+        "id": "684631439475605526",
+        "name": "Sobre el servidor",
+        "active": true,
+        "text": "📌・sobre_el_servidor",
+        "emoji": "📌",
+        "type": "text",
+        "description": "Aquí podrán encontrar la información de los roles y la estructura del servidor."
+      },
+      {
+        "id": "765570578463064084",
+        "name": "Australopithecus Perdido",
+        "active": true,
+        "text": "❓・australopithecus-perdido",
+        "emoji": "❓",
+        "type": "text",
+        "description": "Un chat para orientar a los usuarios no verificados."
+      }
+    ]
+  },
+  {
+    "id":"765498858641031178",
+    "name": "LÍNEA DIRECTA",
+    "guild":"680585599819841560",
+    "emoji": "📞",
+    "description": "Aquí encontrarás la conexión con la administración.",
+    "channels": [
+      {
+        "id": "747652476001321031",
+        "name": "Avisos",
+        "active": true,
+        "text": "📢・avisos",
+        "emoji": "📢",
+        "type": "text",
+        "description": "Aquí encontrarás los comunicados oficiales de la Comunidad Bonóbica."
+      },
+      {
+        "id": "765556066465087488",
+        "name": "Roles",
+        "active": true,
+        "text": "💎・roles",
+        "emoji": "💎",
+        "type": "text",
+        "description": "Aquí encontrarás los roles del servidor y podrás adquirirlos."
+      },
+      {
+        "id": "765509108387414026",
+        "name": "Recursos",
+        "active": true,
+        "text": "💎・recursos",
+        "emoji": "💎",
+        "type": "text",
+        "description": "Aquí encontrarás los recursos del servidor. Información sobre el servidor, las reglas,  los roles y los formatos establecidos para los distintos canales."
+      },
+      {
+        "id": "747377763630972978",
+        "name": "Propuestas",
+        "active": true,
+        "text": "📮・propuestas",
+        "emoji": "📮",
+        "type": "text",
+        "description": "Espacio de retroalimentación bonóbica. Aquí puedes dejarnos tus sugerencias para mejorar el servidor, recuerda seguir el formato establecido."
+      },
+      {
+        "id": "754056629238104065",
+        "name": "La Mampara",
+        "active": true,
+        "text": "📣・la_mampara",
+        "emoji": "📣",
+        "type": "text",
+        "description": "En este espacio puedes realizar denuncias anónimas sobre alguna actividad de uno o varios usuarios en el servidor, recuerda seguir el formato establecido."
+      }
+    ]
+  },
+  {
+    "id":"687172212540571649",
+    "name": "ESTACIÓN CAFEÍNA",
+    "guild":"680585599819841560",
+    "emoji": "☕",
+    "description": "Canal dedicado para llevar una conversación tranquila, amena y estimulante dedicada a un tema específico.",
+    "channels": [
+      {
+        "id": "714748931916955699",
+        "name": "La plaza",
+        "active": true,
+        "text": "🐒・la_plaza",
+        "emoji": "🐒",
+        "type": "text",
+        "description": "Aquí pueden tener una plática abierta con todos los bonobos, disfruten de conversaciones amenas sin ningún tema en específico."
+      },
+      {
+        "id": "765501486028423198",
+        "name": "El Ágora",
+        "active": true,
+        "text": "🐵・el ágora",
+        "emoji": "🐵",
+        "type": "text",
+        "description": "Espacio para conversaciones con cierta formalidad, una charla amena sobre un tema específico del que quieras hablar con los bonobos."
+      },
+      {
+        "id": "765501951353290772",
+        "name": "Ciencias Biológicas",
+        "active": true,
+        "text": "🔬・ciencias_biológicas",
+        "emoji": "🔬",
+        "type": "text",
+        "description": "Canal destinado a las ciencias que se dediquen a estudiar la vida y sus procesos. Pueden compartir información o tener charlas al respecto."
+      },
+      {
+        "id": "684270844264185866",
+        "name": "Ciencias Exactas",
+        "active": true,
+        "text": "📐・ciencias_exactas",
+        "emoji": "📐",
+        "type": "text",
+        "description": "Canal destinado a ramas de la ciencia como física y matemáticas, y lo que se relacione con ellas."
+      },
+      {
+        "id": "684270664806301707",
+        "name": "Ciencias Humanas",
+        "active": true,
+        "text": "👥・ciencias_humanas",
+        "emoji": "👥",
+        "type": "text",
+        "description": "Canal destinado a las ciencias y disciplinas cuyo objeto es el ser humano."
+      },
+      {
+        "id": "684270801263919191",
+        "name": "Ciencias Sociales",
+        "active": true,
+        "text": "🌎・ciencias_sociales",
+        "emoji": "🌎",
+        "type": "text",
+        "description": "Canal destinado a las ramas de la ciencia relacionadas con la sociedad y el comportamiento humano."
+      },
+      {
+        "id": "765504292844208128",
+        "name": "Geopolítica e historia",
+        "active": true,
+        "text": "💼・geopolítica_e_historia",
+        "emoji": "💼",
+        "type": "text",
+        "description": "Canal destinado al estudio de los efectos de la geografía humana y la geografía física sobre la política y las relaciones internacionales, y al estudio de los sucesos del pasado."
+      }
+    ]
+  },
+  {
+    "id": "742212151770480709",
+    "name": "CASETA ELECTORAL",
+    "guild":"680585599819841560",
+    "emoji": "📩",
+    "description": "En esta sección se hacen las propuestas y se realizan las votaciones para las distintas actividades de la comunidad. ¡Decide con sabiduría, bonobo!",
+    "channels": [
+      {
+        "id": "691773608875262012",
+        "name": "Urna Sabatina",
+        "active": true,
+        "text": "📥・urna_sabatina",
+        "emoji": "📥",
+        "type": "text",
+        "description": "Aquí encontrarás las propuestas de temas para el foro sabatino y podrás votar por la que más te agrade."
+      },
+      {
+        "id": "742214936733941852",
+        "name": "Urna Literaria",
+        "active": true,
+        "text": "📕・urna_literaria",
+        "emoji": "📕",
+        "type": "text",
+        "description": "Aquí encontrarás las propuestas de los libros para las actividades de lectura y podrás votar por la que más te agrade."
+      },
+      {
+        "id": "742216118583951410",
+        "name": "Urna Educativa",
+        "active": true,
+        "text": "🎓・urna_educativa",
+        "emoji": "🎓",
+        "type": "text",
+        "description": "Aquí encontrarás las propuestas para las actividades educativas (cursos/talleres), y podrás votar por la que más te agrade."
+      },
+      {
+        "id": "742215214916829257",
+        "name": "Urna Streamer",
+        "active": true,
+        "text": "📡・urna_streamer",
+        "emoji": "📡",
+        "type": "text",
+        "description": "Aquí encontrarás las propuestas de temas para transmisiones en la comunidad (contenido audiovisual), y podrás votar por la que más te agrade."
+      }
+    ]
+  },
+  {
+    "id": "687170622958469134",
+    "name": "LA FRIKIPLAZA",
+    "guild":"680585599819841560",
+    "emoji": "👾",
+    "description": "Este espacio está destinado a temas relacionados con videojuegos, anime, manga, comics o cualquier contenido que tu lado friki quiera compartir.",
+    "channels": [
+      {
+        "id": "684773081918734376",
+        "name": "Zona Geek",
+        "active": true,
+        "text": "🤓・zona_geek",
+        "emoji": "🤓",
+        "type": "text",
+        "description": "Aquí puedes compartir información sobre los temas frikis de tu preferencia."
+      },
+      {
+        "id": "714691914502504471",
+        "name": "Sala Arcade",
+        "active": true,
+        "text": "🎲・sala_arcade",
+        "emoji": "🎲",
+        "type": "text",
+        "description": "En este canal puedes jugar con los bots que tenemos en la comunidad."
+      },
+      {
+        "id": "684270937453232156",
+        "name": "Zona Miscelánea",
+        "active": true,
+        "text": "🎴・zona_miscelánea",
+        "emoji": "🎴",
+        "type": "text",
+        "description": "En este canal pueden compartir memes, u otra clase de contenido sin una clasificación específica."
+      },
+      {
+        "id": "765507672241864704",
+        "name": "Chat",
+        "active": true,
+        "text": "🎮・chat・💬",
+        "emoji": "🎮",
+        "type": "text",
+        "description": "¿No puedes hablar? ¡No te preocupes! Puedes usar este canal para conversaciones en el canal de voz Gaming."
+      },
+      {
+        "id": "765507672241864704",
+        "name": "Gaming",
+        "active": true,
+        "text": "🎮・Gaming",
+        "emoji": "🎮",
+        "type": "voice",
+        "description": "Canal de voz para ser utilizado en las actividades de La Frikiplaza."
+      }
+    ]
+  },
+  {
+    "id": "684271067954544645",
+    "name": "ARCHIVO BONÓBICO",
+    "guild":"680585599819841560",
+    "emoji": "💽",
+    "description": "En este espacio podrás encontrar conocimiento almacenado.",
+    "channels": [
+      {
+        "id": "687151746111242313",
+        "name": "Biblioteca de Alejandría",
+        "active": true,
+        "text": "📚・biblioteca_de_alejandría",
+        "emoji": "📚",
+        "type": "text",
+        "description": "¡Nuestra biblioteca oficial! Aquí puedes compartir textos para la comunidad."
+      },
+      {
+        "id": "687494540419923989",
+        "name": "Música Coolta",
+        "active": true,
+        "text": "🎵・música_coolta",
+        "emoji": "🎵",
+        "type": "text",
+        "description": "Espacio para recomendaciones musicales, es hora de ponerle ritmo a nuestras vidas con la mejor música bonóbica."
+      },
+      {
+        "id": "684794562522513435",
+        "name": "Telebonobo",
+        "active": true,
+        "text": "📺・telebonobo",
+        "emoji": "📺",
+        "type": "text",
+        "description": "En este canal puedes compartir contenido audiovisual de interés para la comunidad."
+      },
+      {
+        "id": "685948415481217039",
+        "name": "Embajadas",
+        "active": true,
+        "text": "🏢・embajadas",
+        "emoji": "🏢",
+        "type": "text",
+        "description": "En este canal encontrarás invitaciones a servidores que pueden interesarte."
+      },
+      {
+        "id": "776277101035913237",
+        "name": "Liga Anfictiónica",
+        "active": true,
+        "text": "🤝・liga_anfictiónica",
+        "emoji": "🤝",
+        "type": "text",
+        "description": "La Liga Anfictiónica es una asociación bien organizada de servidores hispanohablantes de Discord que tiene como objetivo promover en la comunidad de la plataforma el pensamiento crítico, el aprendizaje, la cultura, el arte y la salud."
+      }
+    ]
+  },
+  {
+    "id": "680585599824035908",
+    "name": "AUDITORIO BONÓBICO",
+    "guild":"680585599819841560",
+    "emoji": "🙊",
+    "description": "Este espacio se utiliza únicamente para la actividad de Parla Sabatina.",
+    "channels": [
+      {
+        "id": "698202549697773610",
+        "name": "Repositorio Sabatino",
+        "active": true,
+        "text": "🌐・repositorio_sabatino",
+        "emoji": "🌐",
+        "type": "text",
+        "description": "Aquí pueden compartir contenido relacionado con el foro sabatino, comparte videos, libros, artículos o cualquier otra fuente de información."
+      },
+      {
+        "id": "744406161524260936",
+        "name": "Recados Bonóbicos",
+        "active": true,
+        "text": "💌・recados_bonóbicos",
+        "emoji": "💌",
+        "type": "text",
+        "description": "Sección para los mensajes intermedios del foro sabatino."
+      },
+      {
+        "id": "714933879106174986",
+        "name": "Voz Escrita",
+        "active": true,
+        "text": "🎤・voz_escrita",
+        "emoji": "🎤",
+        "type": "text",
+        "description": "¿No puedes hablar? ¡No te preocupes! Puedes usar este canal para conversaciones en el canal de voz Foro Sabatino, y anexar fuentes citadas."
+      },
+      {
+        "id": "714933879106174986",
+        "name": "Foro Sabatino",
+        "active": true,
+        "text": "🎤・Foro Sabatino",
+        "emoji": "🎤",
+        "type": "voice",
+        "description": "Canal de audio destinado para el foro sabatino."
+      }
+    ]
+  },
+  {
+    "id": "765496546439462953",
+    "name": "ESTACIÓN PRAXIS",
+    "guild":"680585599819841560",
+    "emoji": "🚩",
+    "description": "En esta categoría se encuentran los espacios correspondientes a las actividades de la comunidad.",
+    "channels": [
+      {
+        "id": "755228337097539615",
+        "name": "Círculo Literario",
+        "active": true,
+        "text": "📝・círculo_literario",
+        "emoji": "📝",
+        "type": "text",
+        "description": "Actividades enfocadas en los usuarios que tengan interés por escribir."
+      },
+      {
+        "id": "765498061807419402",
+        "name": "Tendedero Literario",
+        "active": true,
+        "text": "📔・tendedero_literario",
+        "emoji": "📔",
+        "type": "text",
+        "description": "Espacio para que los bonobos compartan sus escritos."
+      },
+      {
+        "id": "754828008849932310",
+        "name": "Club de Ajedrez",
+        "active": true,
+        "text": "👑・club_de_ajedrez",
+        "emoji": "👑",
+        "type": "text",
+        "description": "Canal para las actividades del Club de ajedrez. Talleres de aprendizaje, torneos y partidas casuales en línea."
+      },
+      {
+        "id": "782831228515647508",
+        "name": "Coding",
+        "active": true,
+        "text": "💻・coding",
+        "emoji": "💻",
+        "type": "text",
+        "description": "Canal dedicado a las actividades de programación."
+      },
+      {
+        "id": "782831171271655424",
+        "name": "Música",
+        "active": true,
+        "text": "🎻・música",
+        "emoji": "🎻",
+        "type": "text",
+        "description": "Espacio dedicado para las actividades relacionadas con la música."
+      },
+      {
+        "id": "765498287255453706",
+        "name": "La Reserva",
+        "active": true,
+        "text": "🌿・la_reserva",
+        "emoji": "🌿",
+        "type": "text",
+        "description": "Canal enfocado en actividades y discusión de ecología, huertos, y biósfera en general."
+      },
+      {
+        "id": "762049094851624960",
+        "name": "Jardín de las delicias",
+        "active": true,
+        "text": "🍞・jardín_de_las_delicias",
+        "emoji": "🍞",
+        "type": "text",
+        "description": "Actividades enfocadas a todo lo relacionado con la gastronomía, se comparten recetas y se transmiten en vivo."
+      },
+      {
+        "id": "765498362429571103",
+        "name": "Lenguas Homínidas",
+        "active": true,
+        "text": "👅・lenguas_homínidas",
+        "emoji": "👅",
+        "type": "text",
+        "description": "Actividades enfocadas en el aprendizaje de idiomas."
+      },
+      {
+        "id": "765498465283080192",
+        "name": "Simioteca",
+        "active": true,
+        "text": "🎬・simioteca",
+        "emoji": "🎬",
+        "type": "text",
+        "description": "Canal destinado a las actividades del club de cine. Transmisión de películas, crítica, conversación sobre cine y más."
+      },
+      {
+        "id": "765681086051123221",
+        "name": "Chat",
+        "active": true,
+        "text": "📖・chat・💬",
+        "emoji": "📖",
+        "type": "text",
+        "description": "¿No puedes hablar? ¡No te preocupes! Puedes usar este canal para conversaciones en la categoría."
+      },
+      {
+        "id": "765498800344268810",
+        "name": "Sala 1",
+        "active": true,
+        "text": "📖・Sala 1・🔊",
+        "emoji": "📖",
+        "type": "voice",
+        "description": "Canal de audio para utilizar en las actividades de la Estación Praxis."
+      },
+      {
+        "id": "765498975163383818",
+        "name": "Sala 1",
+        "active": true,
+        "text": "📖・Sala 2・🔊",
+        "emoji": "📖",
+        "type": "voice",
+        "description": "Canal de audio para utilizar en las actividades de la Estación Praxis."
+      },
+      {
+        "id": "765499033216876544",
+        "name": "Sala de Lectura",
+        "active": true,
+        "text": "📖・Sala de lectura・🔊",
+        "emoji": "📖",
+        "type": "voice",
+        "description": "Canal de audio para utilizar en las actividades de la Estación Praxis."
+      }
+    ]
+  },
+  {
+    "id": "765500401972674570",
+    "name": "LICEO BONÓBICO",
+    "guild":"680585599819841560",
+    "emoji": "🏫",
+    "description": "En esta categoría se encuentran los espacios correspondientes a las clases de la comunidad.",
+    "channels": [
+      {
+        "id": "748309125552668673",
+        "name": "Economía Clases",
+        "active": true,
+        "text": "💸・economía_clases",
+        "emoji": "💸",
+        "type": "text",
+        "description": "Canal para las clases de economía impartidas por dj Rojo."
+      },
+      {
+        "id": "754553242708344892",
+        "name": "Photoshop Taller",
+        "active": true,
+        "text": "💻・photoshop_taller",
+        "emoji": "💻",
+        "type": "text",
+        "description": "Canal para el taller de Photoshop impartido por Aronelusuario."
+      },
+      {
+        "id": "765501478063570964",
+        "name": "Historia del Arte",
+        "active": true,
+        "text": "🏺・historia_del_arte",
+        "emoji": "🏺",
+        "type": "text",
+        "description": "Canal para las clases de historia del arte impartidas por Rostæm."
+      },
+      {
+        "id": "765501583051063317",
+        "name": "Entomología",
+        "active": true,
+        "text": "🦗・entomología",
+        "emoji": "🦗",
+        "type": "text",
+        "description": "Canal para las clases de entomología impartidas por Grillo."
+      },
+      {
+        "id": "770497998446526480",
+        "name": "Diseño Sonoro",
+        "active": true,
+        "text": "🧙・diseño_sonoro",
+        "emoji": "🧙",
+        "type": "text",
+        "description": "Canal para las clases de diseño sonoro impartidas por Omi."
+      },
+      {
+        "id": "778056097822146580",
+        "name": "Deutschkurz",
+        "active": true,
+        "text": "🥨・deutschkurz",
+        "emoji": "🥨",
+        "type": "text",
+        "description": "Canal dedicado a las clases de Alemán impartidas por Faby y Grillo."
+      },
+      {
+        "id": "765681534522490900",
+        "name": "Chat",
+        "active": true,
+        "text": "📖・chat・💬",
+        "emoji": "📖",
+        "type": "text",
+        "description": "¿No puedes hablar? ¡No te preocupes! Puedes usar este canal para conversaciones en la categoría."
+      },
+      {
+        "id": "765501736885551114",
+        "name": "Salón A",
+        "active": true,
+        "text": "📖・Salón A・🔊",
+        "emoji": "📖",
+        "type": "voice",
+        "description": "Canal de audio para utilizar en las clases del Liceo Bonóbico."
+      },
+      {
+        "id": "765501789432184852",
+        "name": "Salón B",
+        "active": true,
+        "text": "📖・Salón B・🔊",
+        "emoji": "📖",
+        "type": "voice",
+        "description": "Canal de audio para utilizar en las clases del Liceo Bonóbico."
+      },
+      {
+        "id": "765501833141026816",
+        "name": "Salón C",
+        "active": true,
+        "text": "📖・Salón C・🔊",
+        "emoji": "📖",
+        "type": "voice",
+        "description": "Canal de audio para utilizar en las clases del Liceo Bonóbico."
+      }
+    ]
+  },
+  {
+    "id":"765503828991672350",
+    "name": "TABERNA BONÓBICA",
+    "guild":"680585599819841560",
+    "emoji": "🍺",
+    "description": "Este espacio está destinado a la convivencia bonóbica, únete en cualquier momento a charlar con los bonobos o a escuchar música en nuestra radio bonobo.",
+    "channels": [
+      {
+        "id": "684257077920923665",
+        "name": "Rockola",
+        "active": true,
+        "text": "🎧・rockola ",
+        "emoji": "🎧",
+        "type": "text",
+        "description": "Canal para ejecutar comandos de bots musicales."
+      },
+      {
+        "id": "765505452028854293",
+        "name": "Chat",
+        "active": true,
+        "text": "🍻・chat・💬",
+        "emoji": "🍻",
+        "type": "text",
+        "description": "¿No puedes hablar? ¡No te preocupes! Puedes usar este canal para conversaciones en el canal de voz Barra Libre."
+      },
+      {
+        "id": "765505542399197204",
+        "name": "Chat",
+        "active": true,
+        "text": "🥂・chat・💬",
+        "emoji": "🥂",
+        "type": "text",
+        "description": "¿No puedes hablar? ¡No te preocupes! Puedes usar este canal para conversaciones en el canal de voz La Terraza."
+      },
+      {
+        "id": "765505691401715753",
+        "name": "Chat",
+        "active": true,
+        "text": "📻・chat・💬",
+        "emoji": "📻",
+        "type": "text",
+        "description": "Este canal es para utilizarse en conversaciones del canal de voz Radio Bonobo."
+      },
+      {
+        "id": "684254181749686276",
+        "name": "Barra Libre",
+        "active": true,
+        "text": "🍻・Barra Libre",
+        "emoji": "🍻",
+        "type": "voice",
+        "description": "Canal de voz para conversaciones casuales. No está permitido activar la cámara ni stremear."
+      },
+      {
+        "id": "713242782646403113",
+        "name": "La Terraza",
+        "active": true,
+        "text": "🥂・La Terraza",
+        "emoji": "🥂",
+        "type": "voice",
+        "description": "Canal de voz para conversaciones casuales."
+      },
+      {
+        "id": "765505988233003008",
+        "name": "Radio Bonobo",
+        "active": true,
+        "text": "📻・Radio Bonobo",
+        "emoji": "📻",
+        "type": "voice",
+        "description": "Canal de voz para escuchar música entre bonobos."
+      },
+      {
+        "id": "687174723355803650",
+        "name": "Arenas de Morfeo",
+        "active": true,
+        "text": "💤・Arenas de Morfeo",
+        "emoji": "💤",
+        "type": "voice",
+        "description": "Los canales de voz no son para dormir, si entraste a uno y estuviste inactivo mucho tiempo, terminarás en este canal."
+      }
+    ]
+  },
+  {
+    "id":"765488780932808735",
+    "name": "RAPTURE",
+    "guild":"680585599819841560",
+    "emoji": "👽",
+    "description": "Este espacio está destinado a la movilidad masiva de usuarios durante las actualizaciones del servidor.",
+    "channels": [
+      {
+        "id": "765488951543988284",
+        "name": "Abducidos",
+        "active": true,
+        "text": "🛸・abducidos・💬",
+        "emoji": "🛸",
+        "type": "text",
+        "description": "Aquí puedes chatear durante el viaje."
+      },
+      {
+        "id": "765489160667660298",
+        "name": "Rockola Interestelar",
+        "active": true,
+        "text": "🛸・rockola-interestelar",
+        "emoji": "🛸",
+        "type": "text",
+        "description": "Aquí puedes elegir música para bailar durante el viaje."
+      },
+      {
+        "id": "765489027641114645",
+        "name": "La Sonda",
+        "active": true,
+        "text": "🛸・La Sonda",
+        "emoji": "🛸",
+        "type": "voice",
+        "description": "Aquí puedes hablar durante el viaje."
+      }
+    ]
+  },
+  {
+    "id":"765507791627747338",
+    "name": "ARCHIVADO",
+    "guild":"680585599819841560",
+    "emoji": "📦",
+    "description": "En este lugar se encuentran los canales de texto archivados para almacenar la información que algún día se compartió en ellos.",
+    "channels": [
+      {
+        "id": "720138125166379018",
+        "name": "Clases de esperanto",
+        "active": false,
+        "text": "📗・clases_de_esperanto",
+        "emoji": "📗",
+        "type": "text",
+        "description": "Canal para las sesiones de las clases del idioma esperanto."
+      }
+    ]
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "id":"763359546604257280",
+    "name": "VETERINARIA",
+    "guild":"759558925237878807",
+    "emoji": "🏥",
+    "description": "En este lugar se rehabilitan los bonobos que requieren atención.",
+    "channels": [
+      {
+        "id": "759558927657599008",
+        "name": "Chat",
+        "active": true,
+        "text": "💉・chat・💬",
+        "emoji": "💉",
+        "type": "text",
+        "description": "Espacio destinado al diagnóstico del bonobo enfermo."
+      },
+      {
+        "id": "763361034034741268",
+        "name": "Sobre el servidor",
+        "active": true,
+        "text": "💉・Terapia Intensiva",
+        "emoji": "💉",
+        "type": "voice",
+        "description": "Espacio destinado al diagnóstico del bonobo enfermo."
+      }
+    ]
+  },
+  {
+    "id":"759558926538375190",
+    "name": "PUERTAS DEL SAMSARA",
+    "guild":"759558925237878807",
+    "emoji": "🌄",
+    "description": "Esta es la entrada a nuestra comunidad, únicamente es visible para los usuarios que no se han verificado.",
+    "channels": [
+      {
+        "id": "759558927301476352",
+        "name": "Verificación",
+        "active": true,
+        "text": "✅・verificación",
+        "emoji": "✅",
+        "type": "text",
+        "description": "Encontrarán las reglas, podrán asignarse los roles de las actividades que más les interesen y se verificarán en."
+      },
+      {
+        "id": "759558927301476353",
+        "name": "Sobre el servidor",
+        "active": true,
+        "text": "📌・sobre_el_servidor",
+        "emoji": "📌",
+        "type": "text",
+        "description": "Aquí podrán encontrar la información de los roles y la estructura del servidor."
+      },
+      {
+        "id": "779091495948517457",
+        "name": "Sobre el servidor",
+        "active": true,
+        "text": "❓・australopithecus-perdido",
+        "emoji": "❓",
+        "type": "text",
+        "description": "Un chat para orientar a los usuarios no verificados."
+      }
+    ]
+  },
+  {
+    "id":"762108856356438077",
+    "name": "LÍNEA DIRECTA",
+    "guild":"759558925237878807",
+    "emoji": "📞",
+    "description": "Aquí encontrarás la conexión con la administración.",
+    "channels": [
+      {
+        "id": "759558927301476354",
+        "name": "Avisos",
+        "active": true,
+        "text": "📢・avisos",
+        "emoji": "📢",
+        "type": "text",
+        "description": "Aquí encontrarás los comunicados oficiales de la Comunidad Bonóbica."
+      },
+      {
+        "id": "766418501383749633",
+        "name": "Roles",
+        "active": true,
+        "text": "💎・roles",
+        "emoji": "💎",
+        "type": "text",
+        "description": "Aquí encontrarás los roles del servidor y podrás adquirirlos."
+      },
+      {
+        "id": "764620500353155092",
+        "name": "Recursos",
+        "active": true,
+        "text": "💎・recursos",
+        "emoji": "💎",
+        "type": "text",
+        "description": "Aquí encontrarás los recursos del servidor. Información sobre el servidor, las reglas,  los roles y los formatos establecidos para los distintos canales."
+      },
+      {
+        "id": "759558927498084377",
+        "name": "Propuestas",
+        "active": true,
+        "text": "📮・propuestas",
+        "emoji": "📮",
+        "type": "text",
+        "description": "Espacio de retroalimentación bonóbica. Aquí puedes dejarnos tus sugerencias para mejorar el servidor, recuerda seguir el formato establecido."
+      },
+      {
+        "id": "759558927498084378",
+        "name": "La mampara",
+        "active": true,
+        "text": "📣・la_mampara",
+        "emoji": "📣",
+        "type": "text",
+        "description": "En este espacio puedes realizar denuncias anónimas sobre alguna actividad de uno o varios usuarios en el servidor, recuerda seguir el formato establecido."
+      }
+    ]
+  },
+  {
+    "id":"789201494204874802",
+    "name": "ALIANZAS",
+    "guild":"759558925237878807",
+    "emoji": "🔱",
+    "description": "Aquí encontrarás la conexión con servidores aliados.",
+    "channels": [
+      {
+        "id": "759558927301476354",
+        "name": "Embajadas",
+        "active": true,
+        "text": "🏢・embajadas",
+        "emoji": "🏢",
+        "type": "text",
+        "description": "En este canal encontrarás invitaciones a servidores que pueden interesarte."
+      },
+      {
+        "id": "775911120216391680",
+        "name": "Roles",
+        "active": true,
+        "text": "🤝・liga_anfictiónica",
+        "emoji": "🤝",
+        "type": "text",
+        "description": "La Liga Anfictiónica es una asociación bien organizada de servidores hispanohablantes de Discord que tiene como objetivo promover en la comunidad de la plataforma el pensamiento crítico, el aprendizaje, la cultura, el arte y la salud."
+      }
+    ]
+  },
+  {
+    "id":"759558927301476355",
+    "name": "ESTACIÓN CAFEÍNA",
+    "guild":"759558925237878807",
+    "emoji": "☕",
+    "description": "Canal dedicado para llevar una conversación tranquila, amena y estimulante dedicada a un tema específico.",
+    "channels": [
+      {
+        "id": "759558927301476356",
+        "name": "La plaza",
+        "active": true,
+        "text": "🐒・la_plaza",
+        "emoji": "🐒",
+        "type": "text",
+        "description": "Aquí pueden tener una plática abierta con todos los bonobos, disfruten de conversaciones amenas sin ningún tema en específico."
+      },
+      {
+        "id": "765045328864477214",
+        "name": "El Ágora",
+        "active": true,
+        "text": "🐵・el ágora",
+        "emoji": "🐵",
+        "type": "text",
+        "description": "Espacio para conversaciones con cierta formalidad, una charla amena sobre un tema específico del que quieras hablar con los bonobos."
+      },
+      {
+        "id": "759558927657599013",
+        "name": "Zona Miscelánea",
+        "active": true,
+        "text": "🎴・zona_miscelánea",
+        "emoji": "🎴",
+        "type": "text",
+        "description": "En este canal pueden compartir memes, u otra clase de contenido sin una clasificación específica."
+      },
+      {
+        "id": "764000676194811914",
+        "name": "Ciencias Biológicas",
+        "active": true,
+        "text": "🔬・ciencias_biológicas",
+        "emoji": "🔬",
+        "type": "text",
+        "description": "Canal destinado a las ciencias que se dediquen a estudiar la vida y sus procesos. Pueden compartir información o tener charlas al respecto."
+      },
+      {
+        "id": "759558927301476359",
+        "name": "Ciencias Exactas",
+        "active": true,
+        "text": "📐・ciencias_exactas",
+        "emoji": "📐",
+        "type": "text",
+        "description": "Canal destinado a ramas de la ciencia como física y matemáticas, y lo que se relacione con ellas."
+      },
+      {
+        "id": "759558927301476358",
+        "name": "Ciencias Sociales",
+        "active": true,
+        "text": "🌎・ciencias_sociales",
+        "emoji": "🌎",
+        "type": "text",
+        "description": "Canal destinado a las ramas de la ciencia relacionadas con la sociedad y el comportamiento humano."
+      }
+    ]
+  },
+  {
+    "id": "759558927498084372",
+    "name": "CASETA ELECTORAL",
+    "guild":"759558925237878807",
+    "emoji": "📩",
+    "description": "En esta sección se hacen las propuestas y se realizan las votaciones para las distintas actividades de la comunidad. ¡Decide con sabiduría, bonobo!",
+    "channels": [
+      {
+        "id": "759558927498084373",
+        "name": "Urna Sabatina",
+        "active": true,
+        "text": "📥・urna_sabatina",
+        "emoji": "📥",
+        "type": "text",
+        "description": "Aquí encontrarás las propuestas de temas para el foro sabatino y podrás votar por la que más te agrade."
+      },
+      {
+        "id": "759558927498084374",
+        "name": "Urna Literaria",
+        "active": true,
+        "text": "📕・urna_literaria",
+        "emoji": "📕",
+        "type": "text",
+        "description": "Aquí encontrarás las propuestas de los libros para las actividades de lectura y podrás votar por la que más te agrade."
+      },
+      {
+        "id": "759558927498084375",
+        "name": "Urna Educativa",
+        "active": true,
+        "text": "🎓・urna_educativa",
+        "emoji": "🎓",
+        "type": "text",
+        "description": "Aquí encontrarás las propuestas para las actividades educativas (cursos/talleres), y podrás votar por la que más te agrade."
+      },
+      {
+        "id": "759558927498084376",
+        "name": "Urna Streamer",
+        "active": true,
+        "text": "📡・urna_streamer",
+        "emoji": "📡",
+        "type": "text",
+        "description": "Aquí encontrarás las propuestas de temas para transmisiones en la comunidad (contenido audiovisual), y podrás votar por la que más te agrade."
+      }
+    ]
+  },
+  {
+    "id": "759558927657599015",
+    "name": "ARCHIVO BONÓBICO",
+    "guild":"759558925237878807",
+    "emoji": "💽",
+    "description": "En este espacio podrás encontrar conocimiento almacenado.",
+    "channels": [
+      {
+        "id": "759558927792340992",
+        "name": "Biblioteca de Alejandría",
+        "active": true,
+        "text": "📚・biblioteca_de_alejandría",
+        "emoji": "📚",
+        "type": "text",
+        "description": "¡Nuestra biblioteca oficial! Aquí puedes compartir textos para la comunidad."
+      },
+      {
+        "id": "759558927792340993",
+        "name": "Música Coolta",
+        "active": true,
+        "text": "🎵・música_coolta",
+        "emoji": "🎵",
+        "type": "text",
+        "description": "Espacio para recomendaciones musicales, es hora de ponerle ritmo a nuestras vidas con la mejor música bonóbica."
+      },
+      {
+        "id": "759558927792340994",
+        "name": "Telebonobo",
+        "active": true,
+        "text": "📺・telebonobo",
+        "emoji": "📺",
+        "type": "text",
+        "description": "En este canal puedes compartir contenido audiovisual de interés para la comunidad."
+      }
+    ]
+  },
+  {
+    "id": "759558927792340997",
+    "name": "AUDITORIO BONÓBICO",
+    "guild":"759558925237878807",
+    "emoji": "🙊",
+    "description": "Este espacio se utiliza únicamente para la actividad de Parla Sabatina.",
+    "channels": [
+      {
+        "id": "759558927792340998",
+        "name": "Archivo Sabatino",
+        "active": true,
+        "text": "🌐・repositorio_sabatino",
+        "emoji": "🌐",
+        "type": "text",
+        "description": "Aquí pueden compartir contenido relacionado con el foro sabatino, comparte videos, libros, artículos o cualquier otra fuente de información."
+      },
+      {
+        "id": "759558927959851020",
+        "name": "Recados Bonóbicos",
+        "active": true,
+        "text": "💌・recados_bonóbicos",
+        "emoji": "💌",
+        "type": "text",
+        "description": "Sección para los mensajes intermedios del foro sabatino."
+      },
+      {
+        "id": "759558927959851021",
+        "name": "Voz Escrita",
+        "active": true,
+        "text": "🎤・voz_escrita",
+        "emoji": "🎤",
+        "type": "text",
+        "description": "¿No puedes hablar? ¡No te preocupes! Puedes usar este canal para conversaciones en el canal de voz Foro Sabatino, y anexar fuentes citadas."
+      },
+      {
+        "id": "759558927959851022",
+        "name": "Foro Sabatino",
+        "active": true,
+        "text": "🎤・Foro Sabatino",
+        "emoji": "🎤",
+        "type": "voice",
+        "description": "Canal de audio destinado para el foro sabatino."
+      }
+    ]
+  },
+  {
+    "id": "762688577422491659",
+    "name": "ESTACIÓN PRAXIS",
+    "guild":"759558925237878807",
+    "emoji": "🚩",
+    "description": "En esta categoría se encuentran los espacios correspondientes a las actividades de la comunidad.",
+    "channels": [
+      {
+        "id": "759558927959851018",
+        "name": "Círculo Literario",
+        "active": true,
+        "text": "📝・círculo_literario",
+        "emoji": "📝",
+        "type": "text",
+        "description": "Actividades enfocadas en los usuarios que tengan interés por escribir."
+      },
+      {
+        "id": "765023739824963587",
+        "name": "Tendedero Literario",
+        "active": true,
+        "text": "📔・tendedero_literario",
+        "emoji": "📔",
+        "type": "text",
+        "description": "Espacio para que los bonobos compartan sus escritos."
+      },
+      {
+        "id": "759558927792341000",
+        "name": "Club de Ajedrez",
+        "active": true,
+        "text": "👑・club_de_ajedrez",
+        "emoji": "👑",
+        "type": "text",
+        "description": "Canal para las actividades del Club de ajedrez. Talleres de aprendizaje, torneos y partidas casuales en línea."
+      },
+      {
+        "id": "779083449990381578",
+        "name": "Coding",
+        "active": true,
+        "text": "💻・coding",
+        "emoji": "💻",
+        "type": "text",
+        "description": "Canal dedicado a las actividades de programación."
+      },
+      {
+        "id": "779086190515060766",
+        "name": "Música",
+        "active": true,
+        "text": "🎻・música",
+        "emoji": "🎻",
+        "type": "text",
+        "description": "Espacio dedicado para las actividades relacionadas con la música."
+      },
+      {
+        "id": "762688831698501642",
+        "name": "La Reserva",
+        "active": true,
+        "text": "🌿・la_reserva",
+        "emoji": "🌿",
+        "type": "text",
+        "description": "Canal enfocado en actividades y discusión de ecología, huertos, y biósfera en general."
+      },
+      {
+        "id": "762107721636905010",
+        "name": "Bonobo Culinario",
+        "active": true,
+        "text": "🍞・bonobo-culinario",
+        "emoji": "🍞",
+        "type": "text",
+        "description": "Actividades enfocadas a todo lo relacionado con la gastronomía, se comparten recetas y se transmiten en vivo."
+      },
+      {
+        "id": "762689538107637774",
+        "name": "Lenguas Homínidas",
+        "active": true,
+        "text": "👅・lenguas_homínidas",
+        "emoji": "👅",
+        "type": "text",
+        "description": "Actividades enfocadas en el aprendizaje de idiomas."
+      },
+      {
+        "id": "762763221081653269",
+        "name": "Simioteca",
+        "active": true,
+        "text": "🎬・simioteca",
+        "emoji": "🎬",
+        "type": "text",
+        "description": "Canal destinado a las actividades del club de cine. Transmisión de películas, crítica, conversación sobre cine y más."
+      },
+      {
+        "id": "770438841940049921",
+        "name": "Chat",
+        "active": true,
+        "text": "📖・chat・💬",
+        "emoji": "📖",
+        "type": "text",
+        "description": "¿No puedes hablar? ¡No te preocupes! Puedes usar este canal para conversaciones en la categoría."
+      },
+      {
+        "id": "763305290464100362",
+        "name": "Sala A",
+        "active": true,
+        "text": "📖・Sala A・🔊",
+        "emoji": "📖",
+        "type": "voice",
+        "description": "Canal de audio para utilizar en las actividades de la Estación Praxis."
+      },
+      {
+        "id": "763311182529429504",
+        "name": "Sala B",
+        "active": true,
+        "text": "📖・Sala B・🔊",
+        "emoji": "📖",
+        "type": "voice",
+        "description": "Canal de audio para utilizar en las actividades de la Estación Praxis."
+      }
+    ]
+  },
+  {
+    "id": "762112285816389652",
+    "name": "LICEO BONÓBICO",
+    "guild":"759558925237878807",
+    "emoji": "🏫",
+    "description": "En esta categoría se encuentran los espacios correspondientes a las clases de la comunidad.",
+    "channels": [
+      {
+        "id": "759558927792341001",
+        "name": "Photoshop Taller",
+        "active": true,
+        "text": "💻・photoshop_taller",
+        "emoji": "💻",
+        "type": "text",
+        "description": "Canal para el taller de Photoshop impartido por Aronelusuario."
+      },
+      {
+        "id": "764963742706040872",
+        "name": "Historia del Arte",
+        "active": true,
+        "text": "🏺・historia_del_arte",
+        "emoji": "🏺",
+        "type": "text",
+        "description": "Canal para las clases de historia del arte impartidas por Rostæm."
+      },
+      {
+        "id": "764963963678621696",
+        "name": "Entomología",
+        "active": true,
+        "text": "🦗・entomología",
+        "emoji": "🦗",
+        "type": "text",
+        "description": "Canal para las clases de entomología impartidas por Grillo."
+      },
+      {
+        "id": "770436845539819580",
+        "name": "Diseño Sonoro",
+        "active": true,
+        "text": "🧙・diseño_sonoro",
+        "emoji": "🧙",
+        "type": "text",
+        "description": "Canal para las clases de diseño sonoro impartidas por Omi."
+      },
+      {
+        "id": "777699617621016586",
+        "name": "Deutschkurz",
+        "active": true,
+        "text": "🥨・deutschkurz",
+        "emoji": "🥨",
+        "type": "text",
+        "description": "Canal dedicado a las clases de Alemán impartidas por Faby y Grillo."
+      },
+      {
+        "id": "770439050179379201",
+        "name": "Chat",
+        "active": true,
+        "text": "📖・chat・💬",
+        "emoji": "📖",
+        "type": "text",
+        "description": "¿No puedes hablar? ¡No te preocupes! Puedes usar este canal para conversaciones en la categoría."
+      },
+      {
+        "id": "762113083534868527",
+        "name": "Salón A",
+        "active": true,
+        "text": "📖・Salón A・🔊",
+        "emoji": "📖",
+        "type": "voice",
+        "description": "Canal de audio para utilizar en las clases del Liceo Bonóbico."
+      },
+      {
+        "id": "764644649746825257",
+        "name": "Salón B",
+        "active": true,
+        "text": "📖・Salón B・🔊",
+        "emoji": "📖",
+        "type": "voice",
+        "description": "Canal de audio para utilizar en las clases del Liceo Bonóbico."
+      }
+    ]
+  },
+  {
+    "id": "759558927657599010",
+    "name": "LA FRIKIPLAZA",
+    "guild":"759558925237878807",
+    "emoji": "👾",
+    "description": "Este espacio está destinado a temas relacionados con videojuegos, anime, manga, comics o cualquier contenido que tu lado friki quiera compartir.",
+    "channels": [
+      {
+        "id": "759558927657599011",
+        "name": "Zona Geek",
+        "active": true,
+        "text": "🤓・zona_geek",
+        "emoji": "🤓",
+        "type": "text",
+        "description": "Aquí puedes compartir información sobre los temas frikis de tu preferencia."
+      },
+      {
+        "id": "759558927657599012",
+        "name": "Sala Arcade",
+        "active": true,
+        "text": "🎲・sala_arcade",
+        "emoji": "🎲",
+        "type": "text",
+        "description": "En este canal puedes jugar con los bots que tenemos en la comunidad."
+      },
+      {
+        "id": "763357774821720064",
+        "name": "Chat",
+        "active": true,
+        "text": "🎮・chat・💬",
+        "emoji": "🎮",
+        "type": "text",
+        "description": "¿No puedes hablar? ¡No te preocupes! Puedes usar este canal para conversaciones en el canal de voz Gaming."
+      },
+      {
+        "id": "759558927959851026",
+        "name": "Gaming",
+        "active": true,
+        "text": "🎮・Gaming",
+        "emoji": "🎮",
+        "type": "voice",
+        "description": "Canal de voz para ser utilizado en las actividades de La Frikiplaza."
+      },
+      {
+        "id": "788801711673442306",
+        "name": "Equipo 1",
+        "active": true,
+        "text": "🏹・Equipo 1 ・🔴",
+        "emoji": "🏹",
+        "type": "voice",
+        "description": "Canal de voz para ser utilizado por un equipo en los torneos de La Frikiplaza."
+      },
+      {
+        "id": "788801768921628722",
+        "name": "Equipo 2",
+        "active": true,
+        "text": "🏹・Equipo 2・🔵",
+        "emoji": "🏹",
+        "type": "voice",
+        "description": "Canal de voz para ser utilizado por un equipo en los torneos de La Frikiplaza."
+      }
+    ]
+  },
+  {
+    "id":"763334100941144064",
+    "name": "TABERNA BONÓBICA",
+    "guild":"759558925237878807",
+    "emoji": "🍺",
+    "description": "Este espacio está destinado a la convivencia bonóbica, únete en cualquier momento a charlar con los bonobos o a escuchar música en nuestra radio bonobo.",
+    "channels": [
+      {
+        "id": "764003365393793035",
+        "name": "Rockola",
+        "active": true,
+        "text": "🎧・rockola ",
+        "emoji": "🎧",
+        "type": "text",
+        "description": "Canal para ejecutar comandos de bots musicales."
+      },
+      {
+        "id": "763336959841009666",
+        "name": "Chat",
+        "active": true,
+        "text": "🍻・chat・💬",
+        "emoji": "🍻",
+        "type": "text",
+        "description": "¿No puedes hablar? ¡No te preocupes! Puedes usar este canal para conversaciones en el canal de voz Barra Libre."
+      },
+      {
+        "id": "763337723851177984",
+        "name": "Chat",
+        "active": true,
+        "text": "🥂・chat・💬",
+        "emoji": "🥂",
+        "type": "text",
+        "description": "¿No puedes hablar? ¡No te preocupes! Puedes usar este canal para conversaciones en el canal de voz La Terraza."
+      },
+      {
+        "id": "759558927959851023",
+        "name": "Barra Libre",
+        "active": true,
+        "text": "🍻・Barra Libre",
+        "emoji": "🍻",
+        "type": "voice",
+        "description": "Canal de voz para conversaciones casuales. No está permitido activar la cámara ni stremear."
+      },
+      {
+        "id": "759558927959851024",
+        "name": "La Terraza",
+        "active": true,
+        "text": "🥂・La Terraza",
+        "emoji": "🥂",
+        "type": "voice",
+        "description": "Canal de voz para conversaciones casuales."
+      },
+      {
+        "id": "759558927959851027",
+        "name": "Arenas de Morfeo",
+        "active": true,
+        "text": "💤・Arenas de Morfeo",
+        "emoji": "💤",
+        "type": "voice",
+        "description": "Los canales de voz no son para dormir, si entraste a uno y estuviste inactivo mucho tiempo, terminarás en este canal."
+      }
+    ]
+  },
+  {
+    "id":"779102529619230781",
+    "name": "RAPTURE",
+    "guild":"759558925237878807",
+    "emoji": "👽",
+    "description": "Este espacio está destinado a la movilidad masiva de usuarios durante las actualizaciones del servidor.",
+    "channels": [
+      {
+        "id": "779103242860757012",
+        "name": "Abducidos",
+        "active": true,
+        "text": "🛸・abducidos・💬",
+        "emoji": "🛸",
+        "type": "text",
+        "description": "Aquí puedes chatear durante el viaje."
+      },
+      {
+        "id": "779103382396338196",
+        "name": "Rockola Interestelar",
+        "active": true,
+        "text": "🛸・rockola-interestelar",
+        "emoji": "🛸",
+        "type": "text",
+        "description": "Aquí puedes elegir música para bailar durante el viaje."
+      },
+      {
+        "id": "779103445184937994",
+        "name": "La Sonda",
+        "active": true,
+        "text": "🛸・La Sonda",
+        "emoji": "🛸",
+        "type": "voice",
+        "description": "Aquí puedes hablar durante el viaje."
+      }
+    ]
+  },
+  {
+    "id":"764969634767962152",
+    "name": "ARCHIVADO",
+    "guild":"759558925237878807",
+    "emoji": "📦",
+    "description": "En este lugar se encuentran los canales de texto archivados para almacenar la información que algún día se compartió en ellos.",
+    "channels": [
+      {
+        "id": "759558928362766408",
+        "name": "Clases de esperanto",
+        "active": false,
+        "text": "📗・clases_de_esperanto",
+        "emoji": "📗",
+        "type": "text",
+        "description": "Canal para las sesiones de las clases del idioma esperanto."
+      }
+    ]
+  }
+]
