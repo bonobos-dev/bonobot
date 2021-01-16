@@ -849,25 +849,99 @@
     }
   },
   {
-    "name": "Avisos",
-    "prefix": "avisos",
-    "type": "multiple",
-    "description": "Comando utilizado para generar avisos personalizados para notificar a un rol determinado de un evento específico con los poderes del Bonobot",
+    "name": "Mensajes",
+    "prefix": "mensajes",
+    "type": "singleArg",
+    "description": "Comando utilizado para generar mensajes personalizados enviados por el Bonobot",
     "args": [
       {
-        "name": "Role",
-        "prefix": "-r",
+        "name": "name",
+        "prefix": "name",
         "type": "singleArg",
         "args": [],
-        "description": "Abre la interfaz de selección de tipos de eventos relacionados con el rol ingresado o la interfaz de selección de roles si no se ingresa ninguno."
+        "description": "Para elegir el nombre del mensaje a enviar."
       },
       {
-        "name": "Channel",
-        "prefix": "-ch",
-        "type": "singleArg",
+        "name": "help",
+        "prefix": "help",
+        "type": "simple",
         "args": [],
-        "description": "Abre la interfaz de selección de tipos de eventos relacionados con el rol ingresado o la interfaz de selección de roles si no se ingresa ninguno."
+        "description": "Si estás viendo esta información ya sabes que haece este argumento."
+      },
+      {
+        "name": "health",
+        "prefix": "health",
+        "type": "simple",
+        "args": [],
+        "description": "Argumento predeterminado para ver la información de la salud del comando (en construcción)."
       }
-    ]
+    ],
+    "staticData": {
+      "aviable": true,
+      "data": {
+        "embedData": {
+          "glosario1":{
+            "title": ":pushpin: Glosario para el foro sabatino",
+            "description":"",
+            "img":"",
+            "color": 11097789,
+            "author": {
+              "name": "Para el foro sabatino",
+              "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+              "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png"
+            },
+            "thumbnail": {
+              "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+            },
+            "image": "https://cdn.discordapp.com/attachments/766808927814811678/799879111082115072/2.png",
+            "footer": {
+              "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785684698693703/migdrp-logo-small-parla_sabatina.png",
+              "text": "¡Bienvenido Bonobo!"
+            }
+          }
+        },
+        "easterEggs": {}
+      }
+    },
+    "helpEmbedData": {
+      "title": "¿Tienes problemas con el comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Ayuda Bonóbica",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "healthEmbedData": {
+      "title": "Salud del comando",
+      "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+      "color": 8703529,
+      "author": {
+        "name": "Salud del Bonobot",
+        "url": "https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg",
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png"
+      },
+      "thumbnail": {
+        "url": "https://cdn.discordapp.com/attachments/759558927657599007/794780127670173726/bb-logo.png"
+      },
+      "image": null,
+      "footer": {
+        "icon_url": "https://cdn.discordapp.com/attachments/794784166947717150/794785657738231808/migdrp-logo-small-green.png",
+        "text": "Para cualquier información consulta a tu administrador favorito"
+      }
+    },
+    "dynamicData": {
+      "aviable":false,
+      "data": {}
+    }
   }
 ]

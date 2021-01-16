@@ -24,7 +24,7 @@ export class InfoCommand extends Command {
 
   constructor() {
     super();
-    //console.log('Info Command Instantiated');
+    console.info('Info Command Instantiated');
     this.start();
   }
 

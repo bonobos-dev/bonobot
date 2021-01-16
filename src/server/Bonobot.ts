@@ -6,7 +6,7 @@ import { isBot, ignoreGuild, ignoreRoles, ignoreUser } from './utils';
 
 import { BonobotConfiguration } from './interfaces';
 
-import { TurnsCommand, RolesCommand, TemaryCommand, CategoryCommand, VerificationCommand, InfoCommand } from './commands';
+import { TurnsCommand, RolesCommand, TemaryCommand, CategoryCommand, VerificationCommand, InfoCommand, MessageCommand } from './commands';
 //import Denuncia from './commands/Denuncia';
 //import Mensajes from './commands/Mensajes';
 //import Turnos from './commands/Turnos';
@@ -71,7 +71,7 @@ export default class Bonobot {
   }
 
   private loadCommands(): void {
-    this.config.commands = [new TurnsCommand(), new RolesCommand(this.client), new TemaryCommand(), new CategoryCommand(), new VerificationCommand(this.client), new InfoCommand()];
+    this.config.commands = [new TurnsCommand(), new RolesCommand(this.client), new TemaryCommand(), new CategoryCommand(), new VerificationCommand(this.client), new InfoCommand(), new MessageCommand()];
   }
 
   command(content: string): string {
