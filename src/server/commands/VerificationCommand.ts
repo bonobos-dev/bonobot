@@ -98,6 +98,21 @@ export class VerificationCommand extends Command {
         //console.log('COMMAND VERIFICADOR. No arguments command called, checking parameters', argumentData);
         this.executeVerificador(commandData, message);
       }
+      if (argumentData.prefix === 'help') {
+        await message.delete();
+        (await message.channel.send(this.helpRequested(this.data))).delete({
+          timeout: 25000,
+        });
+        return;
+      }
+
+      if (argumentData.prefix === 'health') {
+        await message.delete();
+        (await message.channel.send(this.healthRequested(this.data))).delete({
+          timeout: 25000,
+        });
+        return;
+      }
     } catch (exception) {
       console.info(`BONOBOT ERROR at command (${this.commandName}) executing (argumentHandler). `, exception);
       throw new Error(exception);
