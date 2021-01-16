@@ -3,6 +3,7 @@
     "id": "742860718650425395",
     "name": "Australopithecus",
     "guild": "680585599819841560",
+    "emoji": "",
     "active": true,
     "selectable":false,
     "color": "#4d616c",
@@ -14,6 +15,7 @@
     "id": "684255900323938324",
     "name": "Chimpancé",
     "guild": "680585599819841560",
+    "emoji": "",
     "active": true,
     "selectable":false,
     "color": "#4f88aa",
@@ -25,6 +27,7 @@
     "id": "710650474877157397",
     "name": "Bonobo",
     "guild": "680585599819841560",
+    "emoji": "",
     "active": true,
     "selectable":false,
     "color": "#05adbc",
@@ -35,42 +38,52 @@
   {
     "id": "687210304312180755",
     "name": "Intercambiable",
+    "emoji": "",
     "guild": "680585599819841560",
     "active": true,
     "selectable":false,
     "color": "#29b279",
     "type": "Principales",
     "description": "Usuarios que tienen una actividad significativa dentro del servidor y promueven el cumplimiento de las reglas.",
-    "commands": []
+    "commands": ["turnos", "temario", "mensajes"]
   },
   {
     "id": "697314419868172298",
     "name": "Influyente",
+    "emoji": "",
     "guild": "680585599819841560",
     "active": true,
     "selectable":false,
     "color": "#84cd29",
     "type": "Principales",
     "description": " Usuarios con funciones de moderación.",
-    "commands": []
+    "commands": ["turnos", "roles", "temario", "categoría", "verificador", "información", "mensajes"]
   },
   {
     "id": "759926662720258100",
     "name": "Esencial",
     "guild": "680585599819841560",
+    "emoji": "",
     "active": true,
     "selectable":false,
-    "color":"#a956bd",
+    "color":"#9fed06",
     "type": "Principales",
     "description": "Usuarios con funciones administrativas.",
-    "commands": []
+    "commands": ["turnos", "roles", "temario", "categoría", "verificador", "información", "mensajes"]
   },
+
+
+
+
+
+
   {
     "id": "787554946371420200",
     "name": "Artista Voluntario",
     "guild": "680585599819841560",
+    "emoji": "🎨",
     "active": true,
-    "selectable":false,
+    "selectable":true,
     "color": "#ff49d4",
     "type": "Actividades",
     "description": "Rol utilizado para participar en la generación de contenido creativo para la comunidad.",
@@ -80,9 +93,9 @@
     "id": "705975181688045598",
     "name": "Parla Sabatina",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "🎙️",
     "active": true,
-    "selectable":false,
+    "selectable":true,
     "color": "#a956bd",
     "type": "Actividades",
     "description": "Utilizado para notificar a los usuarios cuando se generan avisos relacionados al foro sabatino.",
@@ -92,22 +105,34 @@
     "id": "727357766561431552",
     "name": "Lumierista",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "🎞️",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#8e62d5",
     "type": "Actividades",
     "description": "A los usuarios con este rol se les informará sobre las transmisiones de series, películas o cualquier otro contenido audiovisual.",
+    "commands": []
+  },
+  {
+    "id": "791154936494686268",
+    "name": "Changamer",
+    "guild": "680585599819841560",
+    "emoji": "🎮",
+    "active": true,
+    "selectable":true,
+    "color":"#8287e9",
+    "type": "Actividades",
+    "description": "A los usuarios con este rol se les informará sobre las actividades de gaming dentro del servidor.",
     "commands": []
   },
   {
     "id": "727351251041386526",
     "name": "Lector Avispado",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "📖",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#2a75cb",
     "type": "Actividades",
     "description": "A los usuarios con este rol se les informará sobre las actividades de lectura.",
     "commands": []
@@ -116,10 +141,10 @@
     "id": "765413874043715595",
     "name": "Sabronobo",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "🍞",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#0f98ff",
     "type": "Actividades",
     "description": "Rol del club “Jardín de las delicias”, para todos los que tengan interés en la gastronomía.",
     "commands": []
@@ -128,10 +153,10 @@
     "id": "765413594137362433",
     "name": "Políglota",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "👅",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#4cb9f8",
     "type": "Actividades",
     "description": "Rol del club “Lenguas Homínidas”, para quienes disfruten de aprender idiomas.",
     "commands": []
@@ -140,10 +165,10 @@
     "id": "781775806598348810",
     "name": "Coder",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "🤖",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#00c2e9",
     "type": "Actividades",
     "description": "Rol del club “Coding”, para todos los que tengan interés en la programación y para los que quieran colaborar en el desarrollo de las herramientas digitales de la comunidad entre otros proyectos.",
     "commands": []
@@ -152,10 +177,10 @@
     "id": "787553374177984583",
     "name": "Pupilo",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "🧮",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#3de4db",
     "type": "Actividades",
     "description": "Rol utilizado para recibir asesorías por parte de los asesores.",
     "commands": []
@@ -164,46 +189,46 @@
     "id": "754532026366951434",
     "name": "Bonobo Literato",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "📝",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#9cc6e6",
     "type": "Actividades",
     "description": "Rol del Círculo Literario Bonóbico, para personas que tengan interés por escribir o escritores aficionados.",
-    "commands": []
-  },
-  {
-    "id": "765413731207086140",
-    "name": "Cinéfilo",
-    "guild": "680585599819841560",
-    "emoji": "",
-    "active": true,
-    "selectable":false,
-    "color":"#a956bd",
-    "type": "Actividades",
-    "description": "Rol del club de cine, para quienes tengan interés en el arte del cine.",
     "commands": []
   },
   {
     "id": "754825942701965342",
     "name": "Chaturanga",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "👑",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#26b48b",
     "type": "Actividades",
     "description": "Rol del club de ajedrez, para aquellos que disfruten de este deporte o quieran aprender a jugarlo.",
+    "commands": []
+  },
+  {
+    "id": "765413731207086140",
+    "name": "Cinéfilo",
+    "guild": "680585599819841560",
+    "emoji": "🎬",
+    "active": true,
+    "selectable":true,
+    "color":"#83cc94",
+    "type": "Actividades",
+    "description": "Rol del club de cine, para quienes tengan interés en el arte del cine.",
     "commands": []
   },
   {
     "id": "781775915373166612",
     "name": "Melómano",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "🎻",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#00d362",
     "type": "Actividades",
     "description": "Rol del club de música, para todos los que quieran participar en las actividades musicales de la comunidad.",
     "commands": []
@@ -212,10 +237,10 @@
     "id": "765413451799461889",
     "name": "Eco Bonobo",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "🌿",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#16ff96",
     "type": "Actividades",
     "description": "Rol de “La reserva”, para todos aquellos que tengan interés por temas relacionados con la ecología o la agricultura.",
     "commands": []
@@ -227,19 +252,27 @@
     "emoji": "",
     "active": true,
     "selectable":false,
-    "color":"#a956bd",
+    "color":"#16ffb1",
     "type": "Actividades",
     "description": "Rol utilizado para identificar a los usuarios que imparten asesorías de un tema específico.",
     "commands": []
   },
+
+
+
+
+
+
+
+
   {
     "id": "759502696813690940",
     "name": "Deutsche Primat",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "🇩🇪",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#dbd03f",
     "type": "Educativos",
     "description": "Para quienes deseen asistir a las clases de Alemán.",
     "commands": []
@@ -248,10 +281,10 @@
     "id": "770696924336619590",
     "name": "Homo Sonitus",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "🧙‍♂️",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#cab400",
     "type": "Educativos",
     "description": "Para quienes deseen asistir a las clases de diseño sonoro con DAW.",
     "commands": []
@@ -260,10 +293,10 @@
     "id": "754531018404528229",
     "name": "Photoshoppers",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "💻",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#e0a21d",
     "type": "Educativos",
     "description": "Para quienes desean asistir a nuestro taller de Photoshop.",
     "commands": []
@@ -272,10 +305,10 @@
     "id": "765413987390586891",
     "name": "Homo Artem",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "🏺",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#e07b01",
     "type": "Educativos",
     "description": "Para quienes deseen asistir a las clases de historia del arte.",
     "commands": []
@@ -284,26 +317,30 @@
     "id": "765414079228674058",
     "name": "Entomófagos",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "🦗",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#fa5252",
     "type": "Educativos",
     "description": "Para quienes deseen asistir a las clases de entomología.",
     "commands": []
   },
   {
-    "id": "746149379790078025",
-    "name": "Homo Economicus",
+    "id": "799730084776771595",
+    "name": "English Ape",
     "guild": "680585599819841560",
-    "emoji": "",
+    "emoji": "🗽",
     "active": true,
-    "selectable":false,
-    "color":"#a956bd",
+    "selectable":true,
+    "color":"#e73a02",
     "type": "Educativos",
-    "description": "Para quienes deseen asistir a las clases de economía.",
+    "description": "Para quienes deseen asistir a las clases de ingles.",
     "commands": []
   },
+
+
+
+
   {
     "id": "745032127690571826",
     "name": "Streamer",
@@ -311,9 +348,9 @@
     "emoji": "",
     "active": true,
     "selectable":false,
-    "color":"#a956bd",
+    "color":"#6e79dd",
     "type": "Utilidad",
-    "description": "Se asigna a los usuarios que deban transmitir en el servidor, otorgándole permiso únicamente en algunos canales.",
+    "description": "Permite streamear y activar la cámara en canales de voz autorizados para ello.",
     "commands": []
   },
   {
@@ -323,9 +360,9 @@
     "emoji": "",
     "active": true,
     "selectable":false,
-    "color":"#a956bd",
+    "color":"#ca9777",
     "type": "Utilidad",
-    "description": "Se asigna a los usuarios que deban realizar un aviso de alguna actividad.",
+    "description": "Se asigna a los usuarios que deban realizar avisos de alguna actividad. ",
     "commands": []
   },
   {
@@ -335,9 +372,9 @@
     "emoji": "",
     "active": true,
     "selectable":false,
-    "color":"#a956bd",
+    "color":"#923200",
     "type": "Utilidad",
-    "description": "Se asigna a los usuarios que deban realizar tareas de moderación de manera temporal.",
+    "description": "Se asigna a los usuarios que deban realizar tareas de moderación temporalmente.",
     "commands": []
   },
   {
@@ -347,11 +384,18 @@
     "emoji": "",
     "active": true,
     "selectable":false,
-    "color":"#a956bd",
+    "color":"#2c2f33",
     "type": "Utilidad",
-    "description": "Se asigna a los usuarios que deban ser mandados a la veterinaria.",
+    "description": "Se asigna a los usuarios que, por alguna razón, deban ser enviados a la veterinaria.",
     "commands": []
   },
+
+
+
+
+
+
+
   {
     "id": "714581956897013861",
     "name": "Embajador",
@@ -359,21 +403,9 @@
     "emoji": "",
     "active": true,
     "selectable":false,
-    "color":"#a956bd",
+    "color":"#66f1b4",
     "type": "Reservados",
     "description": "Rol de relaciones públicas, reservado para los administradores de otros servidores.",
-    "commands": []
-  },
-  {
-    "id": "761673695759433739",
-    "name": "Server Booster",
-    "guild": "680585599819841560",
-    "emoji": "",
-    "active": true,
-    "selectable":false,
-    "color":"#a956bd",
-    "type": "Discord",
-    "description": "Rol predeterminado de Discord para los usuarios que realizan una mejora al servidor.",
     "commands": []
   },
   {
@@ -383,7 +415,7 @@
     "emoji": "",
     "active": true,
     "selectable":false,
-    "color":"#a956bd",
+    "color":"#7e4f49",
     "type": "Reservados",
     "description": "Su nombre lo dice todo.",
     "commands": []
@@ -395,19 +427,45 @@
     "emoji": "",
     "active": true,
     "selectable":false,
-    "color":"#a956bd",
+    "color":"#ffce00",
     "type": "Reservados",
     "description": "Algunos dicen que existe, algunos dicen que no.",
+    "commands": []
+  },
+  {
+    "id": "761673695759433739",
+    "name": "Server Booster",
+    "guild": "680585599819841560",
+    "emoji": "",
+    "active": true,
+    "selectable":false,
+    "color":"#f47fff",
+    "type": "Discord",
+    "description": "Rol predeterminado de Discord para los usuarios que realizan una mejora al servidor.",
     "commands": []
   },
   {
     "id": "742186094367604797",
     "name": "Komencanto Esperantisto",
     "guild": "680585599819841560",
+    "emoji": "",
     "active": false,
-    "color":"#a956bd",
+    "selectable":false,
+    "color":"#020202",
     "type": "Archivados",
     "description": "Algunos dicen que existe, algunos dicen que no.",
+    "commands": []
+  },
+  {
+    "id": "746149379790078025",
+    "name": "Homo Economicus",
+    "guild": "680585599819841560",
+    "emoji": "💸",
+    "active": true,
+    "selectable":false,
+    "color":"#020202",
+    "type": "Archivados",
+    "description": "Para quienes deseen asistir a las clases de economía.",
     "commands": []
   },
 
@@ -502,6 +560,8 @@
     "description": "Rol utilizado para participar en la generación de contenido creativo para la comunidad.",
     "commands": []
   },
+
+
   {
     "id": "759558925237878813",
     "name": "Parla Sabatina",
