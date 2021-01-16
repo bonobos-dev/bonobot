@@ -93,6 +93,21 @@ export class InfoCommand extends Command {
       console.info(`BONOBOT ERROR at command (${this.commandName}) executing (argumentHandler). `, exception);
       throw new Error(exception);
     }
+    if (argumentData.prefix === 'help') {
+      await message.delete();
+      (await message.channel.send(this.helpRequested(this.data))).delete({
+        timeout: 25000,
+      });
+      return;
+    }
+
+    if (argumentData.prefix === 'health') {
+      await message.delete();
+      (await message.channel.send(this.healthRequested(this.data))).delete({
+        timeout: 25000,
+      });
+      return;
+    }
   }
 
   private async executeRulesArgument(message: Message) {
