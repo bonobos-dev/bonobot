@@ -5,7 +5,7 @@ import { isNormalInteger } from '../utils';
 
 export class Command {
   protected data: CommandData;
-  protected useCases = new CommandUseCases();
+  protected useCases: CommandUseCases;
   protected commandHealth: CommandHealth = {
     started: false,
     hasData: false,
@@ -25,9 +25,16 @@ export class Command {
       at: null,
     },
   };
+  constructor() {
+    this.setUseCase();
+  }
 
   public isThisCommand(command: string): boolean {
     return command === this.data.prefix;
+  }
+
+  protected setUseCase(): void {
+    this.useCases = new CommandUseCases();
   }
 
   public async runCommand(commandContent: string, message: Message): Promise<void> {

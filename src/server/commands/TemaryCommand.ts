@@ -20,6 +20,7 @@ export class TemaryCommand extends Command {
   constructor() {
     super();
     console.info('Temario Command Instantiated');
+    this.setTemariesUseCase();
     this.start();
   }
 
@@ -35,9 +36,15 @@ export class TemaryCommand extends Command {
     //console.log(this.data);
   }
 
+  private setTemariesUseCase(): void {
+    this.temaryUsecases = new TemaryUseCases();
+  }
+
   public async runCommand(commandContent: string, message: Message): Promise<void> {
     try {
       if (!(await memberRolesHaveCommandPermission(this.data.prefix, message))) return;
+      this.setUseCase();
+      this.setTemariesUseCase();
       this.data = await this.getCommandData(this.commandName);
 
       if (!this.commandHealth.hasData) {

@@ -17,7 +17,7 @@ interface InfoStaticData {
 export class InfoCommand extends Command {
   private readonly commandName = 'Información';
   private ruleData: RuleData[];
-  private ruleUseCases = new RuleUseCases();
+  private ruleUseCases: RuleUseCases;
   private staticData: InfoStaticData = {};
 
   private currentEmbedMessage: Message;
@@ -25,7 +25,12 @@ export class InfoCommand extends Command {
   constructor() {
     super();
     console.info('Info Command Instantiated');
+    this.setRuleUseCases();
     this.start();
+  }
+
+  private setRuleUseCases(): void {
+    this.ruleUseCases = new RuleUseCases();
   }
 
   private async start(): Promise<void> {
@@ -42,6 +47,8 @@ export class InfoCommand extends Command {
   public async runCommand(commandContent: string, message: Message): Promise<void> {
     try {
       if (!(await memberRolesHaveCommandPermission(this.data.prefix, message))) return;
+      this.setUseCase();
+      this.setRuleUseCases();
       this.data = await this.getCommandData(this.commandName);
 
       if (!this.commandHealth.hasData) {
