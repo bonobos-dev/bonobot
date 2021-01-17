@@ -191,7 +191,7 @@ export class CategoryCommand extends Command {
         }
       } else {
         commandDynamicData[message.guild.id][message.channel.id] = {};
-        this.dynamicData[message.guild.id] = {};
+        this.dynamicData[message.guild.id] = commandDynamicData[message.guild.id];
         this.dynamicData[message.guild.id][message.channel.id] = commandDynamicData[message.guild.id][message.channel.id];
         this.dynamicData[message.guild.id][message.channel.id] = {
           channelId: null,
@@ -207,7 +207,8 @@ export class CategoryCommand extends Command {
         messages: {},
       };
     }
-
+    //console.log(commandDynamicData[message.guild.id]);
+    //console.log(this.dynamicData[message.guild.id]);
     const messageKeys = Object.keys(commandDynamicData[message.guild.id][message.channel.id].messages);
     return messageKeys;
   }
