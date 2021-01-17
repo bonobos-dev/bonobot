@@ -56,6 +56,7 @@ export class VerificationCommand extends Command {
   public async runCommand(commandContent: string, message: Message): Promise<void> {
     try {
       if (!(await memberRolesHaveCommandPermission(this.data.prefix, message))) return;
+      this.setUseCase();
       this.data = await this.getCommandData(this.commandName);
       await message.delete();
 
@@ -213,12 +214,13 @@ export class VerificationCommand extends Command {
 
         const messageCollector = currentChannel.createMessageCollector(collectorFilter);
         dynamicData[guildIds[i]].isCollectingMessages = true;
+        dynamicData[guildIds[i]].channelId = currentChannel.id;
         this.collectors[guildIds[i]] = messageCollector;
         const verificationRoles = this.verificationRoles[guildIds[i]];
 
         messageCollector.on('collect', async (m: Message) => {
           if (m.author.bot) return;
-          const content = m.content;
+          const content = m.content.toLocaleLowerCase();
           await m.delete();
 
           if (!m.member.roles.cache.has(verificationRoles.austra)) {
@@ -294,15 +296,16 @@ export class VerificationCommand extends Command {
     //console.log('DYNAMIC DATA:', this.dynamicData);
 
     const collectorFilter: CollectorFilter = () => true;
-
+    if (this.collectors[message.guild.id]) this.collectors[message.guild.id].stop();
     const messageCollector = message.channel.createMessageCollector(collectorFilter);
+    this.dynamicData[message.guild.id].channelId = message.channel.id;
     this.dynamicData[message.guild.id].isCollectingMessages = true;
     this.collectors[message.guild.id] = messageCollector;
     const verificationRoles = this.verificationRoles[message.guild.id];
 
     messageCollector.on('collect', async (m: Message) => {
       if (m.author.bot) return;
-      const content = m.content;
+      const content = m.content.toLocaleLowerCase();
       await m.delete();
 
       if (!m.member.roles.cache.has(verificationRoles.austra)) {

@@ -25,7 +25,7 @@ interface CategoriesDynamicData {
 export class CategoryCommand extends Command {
   private readonly commandName = 'Categoría';
 
-  private rolUseCases = new CategoryUseCases();
+  private categoryUseCases: CategoryUseCases;
   private dynamicData: CategoriesDynamicData = {};
   private categoriesData: CategoryData[];
   private client: Client;
@@ -33,8 +33,13 @@ export class CategoryCommand extends Command {
   constructor(client?: Client) {
     super();
     console.info('Roles Command Instantiated');
+    this.setCategoryUseCases();
     this.client = client;
     this.start(client);
+  }
+
+  private setCategoryUseCases(): void {
+    this.categoryUseCases = new CategoryUseCases();
   }
 
   private async start(client?: Client): Promise<void> {
@@ -51,6 +56,8 @@ export class CategoryCommand extends Command {
   public async runCommand(commandContent: string, message: Message): Promise<void> {
     try {
       if (!(await memberRolesHaveCommandPermission(this.data.prefix, message))) return;
+      this.setUseCase();
+      this.setCategoryUseCases();
       this.data = await this.getCommandData(this.commandName);
       await message.delete();
 
@@ -152,7 +159,7 @@ export class CategoryCommand extends Command {
   }
 
   private async getGuildCategoriesData(guildId: string): Promise<boolean> {
-    const guildRolesInDb = await this.rolUseCases.findByQuery({ guild: guildId });
+    const guildRolesInDb = await this.categoryUseCases.findByQuery({ guild: guildId });
     if (guildRolesInDb.length === 0) return false;
     else {
       this.categoriesData = guildRolesInDb;

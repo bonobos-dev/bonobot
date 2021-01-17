@@ -61,6 +61,7 @@ export class TurnsCommand extends Command {
   public async runCommand(commandContent: string, message: Message): Promise<void> {
     try {
       if (!(await memberRolesHaveCommandPermission(this.data.prefix, message))) return;
+      this.setUseCase();
       this.data = await this.getCommandData(this.commandName);
       if (!this.commandHealth.hasData) {
         this.commandHealth.started = false;
@@ -450,7 +451,8 @@ export class TurnsCommand extends Command {
 
     for (let i = 0; i < data.users.length; i++) {
       const value = data.users[i].nickname ? data.users[i].nickname : data.users[i].username;
-      usersList.push(value);
+      const actualValue = `${value} \u200B \n`;
+      usersList.push(actualValue);
     }
 
     const pendingTurnsValue = `${currentTurnValue === currentTurnEmptyValue ? currentTurnEmptyValue : `${usersList.length === 0 ? pendingTurnEmptyValue : usersList}`}`;
