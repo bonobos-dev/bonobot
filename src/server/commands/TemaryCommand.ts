@@ -1,4 +1,4 @@
-import { Message, MessageEmbed, MessageAttachment, EmbedField } from 'discord.js';
+import { Message, MessageEmbed, MessageAttachment, EmbedField, MessageEmbedOptions } from 'discord.js';
 
 import { ArgumentData, TemaryData } from '../interfaces';
 import { memberRolesHaveCommandPermission } from '../utils';
@@ -156,8 +156,76 @@ export class TemaryCommand extends Command {
 
   private generateEmbedMessage(aviso: boolean, data: TemaryData): MessageEmbed {
     const embedFileds = this.generateEmbedFields(data, aviso);
+    const embedData: MessageEmbedOptions = this.data.staticData.data.embedData;
+    if (!embedData) return;
 
     if (aviso) {
+      const timeData: Array<{ zone: string; emoji: string; time: string }> = this.data.staticData.data.timeData;
+      const timeFileds: { [time: string]: string[] } = {};
+
+      for (let i = 0; i < timeData.length; i++) {
+        if (timeFileds[timeData[i].time]) {
+          timeFileds[timeData[i].time].push(timeData[i].emoji);
+        } else {
+          timeFileds[timeData[i].time] = [];
+          timeFileds[timeData[i].time].push(timeData[i].emoji);
+        }
+      }
+
+      const emojisPerHour = Object.keys(timeFileds);
+
+      let timeValueString = '';
+      for (let i = 0; i < emojisPerHour.length; i++) {
+        timeValueString += '\u200b ';
+
+        for (let n = 0; n < timeFileds[emojisPerHour[i]].length; n++) {
+          timeValueString += `${timeFileds[emojisPerHour[i]][n]} / `;
+        }
+
+        timeValueString += '\n';
+      }
+
+      const timeDataField: EmbedField = {
+        name: 'Horario de las charlas',
+        value: timeValueString,
+        inline: false,
+      };
+
+      embedFileds.push(timeDataField);
+    }
+
+    const newTemplate = new MessageEmbed({
+      title: embedData.title,
+      description: `
+        :microphone2:  \u200B \u200B \u200B ***__ Sobre el foro sabatino __***  \u200B \u200B \u200B :microphone2: 
+
+        El tema para esta charla es: 
+        \u200B     
+        __**${data.name}**__
+        \u200B     
+      `,
+      url: embedData.url,
+      color: embedData.color,
+      author: {
+        name: embedData.author.name,
+        url: embedData.author.url,
+        icon_url: embedData.author.icon_url,
+      },
+      thumbnail: {
+        url: embedData.thumbnail.url,
+      },
+      fields: embedFileds,
+      image: embedData.image,
+      footer: {
+        icon_url: embedData.footer.icon_url,
+        text: embedData.footer.text,
+      },
+    }).setTimestamp();
+    return newTemplate;
+    /*
+    if (aviso) {
+      
+
       const template = new MessageEmbed()
         .attachFiles(this.migdrplogo as any)
         .attachFiles(this.bonobotlogo as any)
@@ -206,8 +274,9 @@ export class TemaryCommand extends Command {
         .setTimestamp()
         .setFooter('Los bonobos apreciamos mucho la participación!!', 'attachment://migdrp-icon.png');
 
-      return template;
-    }
+      
+     
+    }*/
   }
 
   private generateEmbedFields(temarioData: TemaryData, aviso: boolean): EmbedField[] {
@@ -246,7 +315,6 @@ export class TemaryCommand extends Command {
 
       embedFields.push(field);
     }
-
     return embedFields;
   }
 }
