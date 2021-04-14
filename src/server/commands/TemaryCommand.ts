@@ -176,10 +176,10 @@ export class TemaryCommand extends Command {
 
       let timeValueString = '';
       for (let i = 0; i < emojisPerHour.length; i++) {
-        timeValueString += '\u200b ';
+        timeValueString += `\u200b ${emojisPerHour[i]} \u200b`;
 
         for (let n = 0; n < timeFileds[emojisPerHour[i]].length; n++) {
-          timeValueString += `${timeFileds[emojisPerHour[i]][n]} / `;
+          timeValueString += `${timeFileds[emojisPerHour[i]][n]}${n < timeFileds[emojisPerHour[i]].length - 1 ? ' / ' : ' '}`;
         }
 
         timeValueString += '\n';
@@ -221,62 +221,8 @@ export class TemaryCommand extends Command {
         text: embedData.footer.text,
       },
     }).setTimestamp();
+
     return newTemplate;
-    /*
-    if (aviso) {
-      
-
-      const template = new MessageEmbed()
-        .attachFiles(this.migdrplogo as any)
-        .attachFiles(this.bonobotlogo as any)
-        .setColor('#a956bd')
-        .setAuthor('TEMARIO DEL FORO SABATINO', 'attachment://migdrp-icon.png', 'https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg')
-        .setThumbnail('attachment://bb-logo.png')
-
-        .setDescription(
-          `
-                :microphone2:  \u200B \u200B \u200B ***__ Sobre el foro sabatino __***  \u200B \u200B \u200B :microphone2: 
-        
-                El tema para esta charla es: 
-                \u200B     
-                __**${data.name}**__
-                \u200B     
-            `
-        )
-        .addFields(embedFileds)
-        .setImage('attachment://foro-img.jpg')
-        .setTimestamp()
-        .addFields({
-          name: 'Horario de las charlas',
-          value: ['\u200b', '07:30 PM :flag_mx:  (CDMX)', '08:30 PM :flag_co:  /  :flag_pe: / :flag_ec:', '09:30 PM :flag_bo:  /  :flag_ve:', '10:30 PM :flag_ar:  /  :flag_uy: / :flag_cl:', '03:30 AM :flag_ea:', '\u200b'],
-        })
-        .setFooter('¡Los bonobos apreciamos mucho la participación!', 'attachment://migdrp-icon.png');
-
-      return template;
-    } else {
-      const template = new MessageEmbed()
-        .attachFiles(this.migdrplogo as any)
-        .attachFiles(this.bonobotlogo as any)
-        .setColor('#a956bd')
-        .setAuthor('TEMARIO DEL FORO SABATINO', 'attachment://migdrp-icon.png', 'https://www.youtube.com/channel/UCeMZYaa2pooHfDmc3hZabmg')
-        .setThumbnail('attachment://bb-logo.png')
-        .setDescription(
-          `
-                :microphone2:  \u200B \u200B \u200B ***__ Sobre el foro sabatino __***  \u200B \u200B \u200B :microphone2: 
-        
-                El tema para esta charla es: 
-                \u200B     
-                __**${data.name}**__
-                \u200B     
-            `
-        )
-        .addFields(embedFileds)
-        .setTimestamp()
-        .setFooter('Los bonobos apreciamos mucho la participación!!', 'attachment://migdrp-icon.png');
-
-      
-     
-    }*/
   }
 
   private generateEmbedFields(temarioData: TemaryData, aviso: boolean): EmbedField[] {
